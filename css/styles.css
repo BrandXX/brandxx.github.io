@@ -721,6 +721,220 @@ h1::after {
 }
 
 /* =========================================================
+   AI SOLUTIONS PAGE
+   ========================================================= */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 2rem;
+}
+
+.feature-list li {
+  margin-bottom: 1.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.feature-list li strong {
+  display: block;
+  color: #f6c915;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.feature-list li strong::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #f6c915;
+  transition: all 0.3s ease;
+}
+
+.feature-list li:hover strong::before {
+  transform: translateX(3px);
+}
+
+.feature-list li p {
+  margin: 0;
+  padding-left: 1.5rem;
+  font-size: 1rem;
+}
+
+.ai-solution-block {
+  margin-bottom: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.ai-solution-block h3 {
+  color: #f6c915;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  position: relative;
+  display: inline-block;
+}
+
+.ai-solution-block h3::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #f6c915;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.ai-solution-block:hover h3::after {
+  width: 100%;
+  opacity: 0.7;
+}
+
+.ai-solution-block ul {
+  list-style: none;
+  padding-left: 1.2rem;
+  margin-bottom: 0;
+}
+
+.ai-solution-block li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  position: relative;
+  padding-left: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.ai-solution-block li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #f6c915;
+  transition: all 0.3s ease;
+}
+
+.ai-solution-block:hover li {
+  transform: translateX(3px);
+}
+
+.packages-table {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto 3rem;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.package-row {
+  display: flex;
+  border-bottom: 1px solid #333;
+  transition: all 0.3s ease;
+}
+
+.package-row:last-child {
+  border-bottom: none;
+}
+
+.package-row:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.package-row.header {
+  background-color: rgba(246, 201, 21, 0.1);
+  font-weight: 600;
+}
+
+.package-cell {
+  padding: 1.2rem 1rem;
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.package-name {
+  color: #f6c915;
+  font-size: 1.1rem;
+}
+
+.quote-block {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: rgba(246, 201, 21, 0.05);
+  border-left: 4px solid #f6c915;
+  border-radius: 0 8px 8px 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.quote-block:hover {
+  background: rgba(246, 201, 21, 0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.quote-block blockquote {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.quote-block blockquote p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .packages-table {
+    box-shadow: none;
+  }
+
+  .package-row {
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    border: 1px solid #333;
+    border-radius: 8px;
+  }
+
+  .package-row.header {
+    display: none;
+  }
+
+  .package-cell {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #333;
+  }
+
+  .package-cell:last-child {
+    border-bottom: none;
+  }
+
+  .package-cell::before {
+    content: attr(data-label);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #f6c915;
+  }
+
+  .package-name::before {
+    content: none !important;
+  }
+
+  .quote-block {
+    padding: 1.5rem;
+    margin: 2rem auto;
+  }
+
+  .quote-block blockquote {
+    font-size: 1.1rem;
+  }
+}
+
+/* =========================================================
    LISTS
    ========================================================= */
 .benefits-list,
