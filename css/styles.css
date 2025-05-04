@@ -107,4 +107,31 @@ main .container,
 footer .container {      /* if you later wrap these sections */
   flex-direction: column;
 }
+/* ——— keep everything we had before ——— */
+
+/* ═══════════ SITE-WIDTH CONTAINER ═══════════ */
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Let header / main / footer stack vertically inside .container */
+header.container,
+main.container,
+footer.container { flex-direction: column; }
+
+/* Divider line that respects centring */
+.divider {
+  width: 60%;
+  max-width: 640px;
+  margin: 0 auto;
+  border: 0;
+  border-top: 1px solid #333;
+}
+
+/* ——— nothing else changed ——— */
 
