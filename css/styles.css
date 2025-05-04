@@ -240,6 +240,8 @@ h1 {
   margin: 2rem auto 3rem;
   border-collapse: collapse;
   width: 100%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .service-row {
@@ -257,6 +259,7 @@ h1 {
   padding: 1rem 0.5rem;
   font-size: 1rem;
   line-height: 1.5;
+  text-align: left;
 }
 
 .service-title {
@@ -331,6 +334,14 @@ h1 {
 .mission-list {
   list-style-type: none;
   padding-left: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.values-list {
+  padding-left: 2.5rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .leadership-section {
@@ -441,6 +452,11 @@ h1 {
 
   .service-title {
     padding-bottom: 0;
+  }
+
+  .services-table {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .benefits-list,
