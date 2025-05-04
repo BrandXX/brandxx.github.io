@@ -241,3 +241,32 @@ footer.container { flex-direction: column; }
   }
 }
 
+/* =========================================================
+   THANK YOU PAGE
+   ========================================================= */
+.thank-you-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.thank-you-actions p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: #aaa;
+}
+
+.return-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #f6c915;
+  color: #111;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.return-btn:hover {
+  background-color: #ffd700;
+}
+
