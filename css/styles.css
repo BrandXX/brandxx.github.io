@@ -1601,6 +1601,49 @@ footer.container { flex-direction: column; }
 /* ——— nothing else changed ——— */
 
 /* =========================================================
+   CONTACT PAGE
+   ========================================================= */
+.contact-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+.contact-item {
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(246, 201, 21, 0.3);
+}
+
+.contact-item strong {
+  color: #f6c915;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.contact-item a {
+  display: inline-block;
+  margin-top: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #f6c915;
+  transform: translateX(3px);
+}
+
+/* =========================================================
    CONTACT FORM
    ========================================================= */
 .contact-form {
