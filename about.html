@@ -10,10 +10,10 @@
 </head>
 
 <body>
-  <!-- ───────────── NAV ───────────── -->
+  <!-- NAV -->
   <nav class="top-nav">
     <div class="container">
-      <a href="index.html" class="brand">TechSoft Systems</a>
+      <a href="index.html" class="brand">TechSoft&nbsp;Systems</a>
       <div class="links">
         <a href="index.html">Home</a>
         <a href="about.html" aria-current="page">About</a>
@@ -22,90 +22,69 @@
     </div>
   </nav>
 
-  <!-- ───────────── HEADER ───────────── -->
+  <!-- HERO -->
   <header class="container">
-    <h1>About&nbsp;TechSoft&nbsp;Systems</h1>
-    <p class="tagline">Engineering-driven IT&nbsp;&amp; AI consultancy</p>
+    <h1>About TechSoft Systems</h1>
+    <p class="tagline">Engineering-driven IT &amp; AI consultancy</p>
   </header>
 
   <hr class="divider" />
 
-  <!-- ───────────── MAIN CONTENT ───────────── -->
-  <main class="container">
-    <!-- What We Do -->
-    <table class="data-table">
-    <section class="intro">
+  <!-- MAIN CONTENT -->
+  <main class="container narrow">
+
+    <!-- WHAT WE DO (CSS Grid, no tables) -->
+    <section>
       <h2>What&nbsp;We&nbsp;Do</h2>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Practice&nbsp;Area</th>
-            <th>At-a-Glance&nbsp;Expertise</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Hybrid &amp; Hyper-Converged Infrastructure</strong></td>
-            <td>Cisco UCS blade clusters, Nutanix AHV, VMware &amp; Hyper-V</td>
-          </tr>
-          <tr>
-            <td><strong>Enterprise Storage</strong></td>
-            <td>Pure Storage //X &amp; FlashBlade, Dell EMC, NetApp</td>
-          </tr>
-          <tr>
-            <td><strong>Private-First AI Stacks</strong></td>
-            <td>On-prem LLM hosting (Ollama, Open-WebUI), model fine-tuning, GPU orchestration</td>
-          </tr>
-          <tr>
-            <td><strong>Networking &amp; Security</strong></td>
-            <td>Layer-3 design, Darktrace NDR, Cisco Endpoint, Carbon Black</td>
-          </tr>
-          <tr>
-            <td><strong>Automation &amp; Dev Ops</strong></td>
-            <td>Docker / WSL2 pipelines, GitHub Actions CI/CD, IaC templating</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="grid-two">
+        <div class="area">Hybrid &amp; Hyper-Converged Infrastructure</div>
+        <div class="expertise">Cisco UCS blades&nbsp;· Nutanix AHV&nbsp;· VMware &amp; Hyper-V</div>
+
+        <div class="area">Enterprise Storage</div>
+        <div class="expertise">Pure Storage //X &amp; FlashBlade&nbsp;· Dell EMC&nbsp;· NetApp</div>
+
+        <div class="area">Private-First AI Stacks</div>
+        <div class="expertise">On-prem LLM hosting (Ollama, Open-WebUI)&nbsp;· Model fine-tuning&nbsp;· GPU orchestration</div>
+
+        <div class="area">Networking &amp; Security</div>
+        <div class="expertise">Layer-3 design&nbsp;· Darktrace NDR&nbsp;· Cisco Endpoint&nbsp;· Carbon Black</div>
+
+        <div class="area">Automation &amp; Dev Ops</div>
+        <div class="expertise">Docker / WSL2 pipelines&nbsp;· GitHub Actions CI/CD&nbsp;· IaC templating</div>
+      </div>
     </section>
-</table>
-    <!-- Why Clients Pick Us -->
-    <section class="intro">
+
+    <!-- WHY CLIENTS PICK US -->
+    <section>
       <h2>Why Clients Pick&nbsp;Us</h2>
-      <ul>
-        <li><strong>Proven, 20-year track record</strong> of taking projects from whiteboard to 24&nbsp;×&nbsp;7 production</li>
-        <li>Vendor-agnostic advice grounded in <em>hands-on</em> engineering—not marketing slides</li>
+      <ul class="bullets">
+        <li><strong>20-year track record</strong> of taking projects from whiteboard to 24×7 production</li>
+        <li>Vendor-agnostic, <em>hands-on</em> engineering—no marketing fluff</li>
         <li>Zero-downtime migration playbooks and bullet-proof rollback plans</li>
         <li><strong>Security-first mindset</strong>—every design is threat-modelled and compliance-ready</li>
         <li>Documentation, training and knowledge-transfer baked into every engagement</li>
       </ul>
     </section>
 
-    <!-- Leadership -->
-    <table class="data-table">
-    <section class="intro">
+    <!-- LEADERSHIP -->
+    <section>
       <h2>Leadership</h2>
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              <strong>Jonathan&nbsp;W.&nbsp;Carroll</strong><br />
-              <em>Founder &amp; Principal Consultant</em>
-            </td>
-            <td>
-              • 20+ years architecting enterprise environments in Tucson and the US Southwest<br />
-              • Current IT Infrastructure Manager, Pascua Yaqui Tribe Government<br />
-              • Specialist in virtualisation, high-performance storage, AI/ML pipelines &amp; cyber-resilience
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-      </table>
 
-    <section class="intro">
-      <p><em>“We exist to give ambitious organisations the rock-solid, future-proof platforms they need to innovate—without losing a minute of sleep.”</em></p>
-      <p>— Jonathan Carroll</p>
+      <div class="leader-card">
+        <h3>Jonathan&nbsp;W.&nbsp;Carroll</h3>
+        <p class="role">Founder &amp; Principal Consultant</p>
+        <ul class="bullets">
+          <li>20+ years architecting enterprise environments in Tucson &amp; the US Southwest</li>
+          <li>Current IT Infrastructure Manager, Pascua Yaqui Tribe Government</li>
+          <li>Specialist in virtualisation, high-performance storage, AI/ML pipelines &amp; cyber-resilience</li>
+        </ul>
+      </div>
+
+      <blockquote>
+        “We exist to give ambitious organisations the rock-solid, future-proof platforms they need to innovate—without losing a minute of sleep.”
+        <footer>— Jonathan Carroll</footer>
+      </blockquote>
     </section>
   </main>
 
