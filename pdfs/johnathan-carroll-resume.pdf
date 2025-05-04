@@ -3,7 +3,7 @@
 <</Type /Catalog /Pages 2 0 R>>
 endobj
 2 0 obj
-<</Type /Pages /Kids [3 0 R] /Count 1>>
+<</Type /Pages /Kids [3 0 R 11 0 R] /Count 2>>
 endobj
 3 0 obj
 <</Type /Page /Parent 2 0 R /Resources 4 0 R /MediaBox [0 0 612 792] /Contents 6 0 R>>
@@ -20,17 +20,20 @@ endobj
 9 0 obj
 <</Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique>>
 endobj
+11 0 obj
+<</Type /Page /Parent 2 0 R /Resources 4 0 R /MediaBox [0 0 612 792] /Contents 12 0 R>>
+endobj
 6 0 obj
-<</Length 5000>>
+<</Length 5500>>
 stream
 BT
-/F1 16 Tf
+/F1 18 Tf
 50 750 Td
 (Johnathan W. Carroll) Tj
 ET
 
 BT
-/F2 11 Tf
+/F1 12 Tf
 50 730 Td
 (IT Infrastructure & AI Systems Leader) Tj
 ET
@@ -38,19 +41,19 @@ ET
 BT
 /F2 10 Tf
 50 715 Td
-(Tucson, AZ \(520\) 302-4921 j.carroll@techsoftsys.com) Tj
+(Tucson, AZ • \(520\) 302‑4921 • j.carroll@techsoftsys.com) Tj
 ET
 
 BT
 /F2 10 Tf
 50 700 Td
-(github.com/brandxx www.techsoftsys.com) Tj
+(github.com/brandxx • www.techsoftsys.com) Tj
 ET
 
 BT
 /F1 12 Tf
 50 670 Td
-(Driving AI-enabled infrastructure transformations that cut costs & boost resilience) Tj
+(Driving AI‑enabled infrastructure transformations that cut costs & boost resilience) Tj
 ET
 
 BT
@@ -62,49 +65,121 @@ ET
 BT
 /F2 10 Tf
 50 625 Td
-(Seasoned technology leader with 20+ years designing, deploying, and securing enterprise-class) Tj
+(Seasoned technology leader with ) Tj
+ET
+
+BT
+/F1 10 Tf
+200 625 Td
+(20+ years) Tj
+ET
+
+BT
+/F2 10 Tf
+250 625 Td
+( designing, deploying, and securing enterprise‑class) Tj
 ET
 
 BT
 /F2 10 Tf
 50 610 Td
-(infrastructure for government and private-sector organizations. Proven track record leading $3M+) Tj
+(infrastructure for government and private‑sector organizations. Proven track record leading ) Tj
+ET
+
+BT
+/F1 10 Tf
+470 610 Td
+($3M+) Tj
 ET
 
 BT
 /F2 10 Tf
 50 595 Td
-(data-center refreshes, consolidating six OEM platforms into three core systems, and integrating) Tj
+(data‑center refreshes, consolidating ) Tj
+ET
+
+BT
+/F1 10 Tf
+220 595 Td
+(six OEM platforms into three core systems) Tj
+ET
+
+BT
+/F2 10 Tf
+420 595 Td
+(, and integrating) Tj
 ET
 
 BT
 /F2 10 Tf
 50 580 Td
-(cutting-edge AI & security stacks \(Docker-based Open-WebUI, Ollama, ComfyUI, DarkTrace,) Tj
+(cutting‑edge AI & security stacks \(Docker‑based Open‑WebUI, Ollama, ComfyUI, DarkTrace,) Tj
 ET
 
 BT
 /F2 10 Tf
 50 565 Td
-(Microsoft Sentinel/Defender, etc.\). Recently eliminated 6 legacy racks, trimmed annual infrastructure) Tj
+(Microsoft Sentinel/Defender, etc.\). Recently ) Tj
+ET
+
+BT
+/F1 10 Tf
+270 565 Td
+(eliminated 6 legacy racks) Tj
+ET
+
+BT
+/F2 10 Tf
+400 565 Td
+(, trimmed annual infrastructure) Tj
 ET
 
 BT
 /F2 10 Tf
 50 550 Td
-(OPEX by $250K, and boosted compute & storage performance while shrinking physical footprint 50%) Tj
+(OPEX ) Tj
+ET
+
+BT
+/F1 10 Tf
+85 550 Td
+(by $250K) Tj
+ET
+
+BT
+/F2 10 Tf
+135 550 Td
+(, and boosted compute & storage performance while ) Tj
+ET
+
+BT
+/F1 10 Tf
+400 550 Td
+(shrinking physical footprint 50%) Tj
 ET
 
 BT
 /F2 10 Tf
 50 535 Td
-(and delivering 10x security resilience at the Pascua Yaqui Tribe. Ready to help a forward-thinking) Tj
+(and delivering ) Tj
+ET
+
+BT
+/F1 10 Tf
+120 535 Td
+(10× security resilience) Tj
+ET
+
+BT
+/F2 10 Tf
+240 535 Td
+( at the Pascua Yaqui Tribe. Ready to help a forward‑thinking) Tj
 ET
 
 BT
 /F2 10 Tf
 50 520 Td
-(Tucson organization scale securely, cost-effectively, and AI-first.) Tj
+(Tucson organization scale securely, cost‑effectively, and AI‑first.) Tj
 ET
 
 BT
@@ -116,7 +191,7 @@ ET
 BT
 /F2 10 Tf
 60 475 Td
-(- ) Tj
+(• ) Tj
 ET
 
 BT
@@ -128,13 +203,13 @@ ET
 BT
 /F2 10 Tf
 220 475 Td
-(- Nutanix AHV \(Acropolis\), VMware, Hyper-V, Cisco UCS, Pure Storage) Tj
+( — Nutanix AHV \(Acropolis\), VMware, Hyper‑V, Cisco UCS, Pure Storage, NetApp, Dell EMC) Tj
 ET
 
 BT
 /F2 10 Tf
 60 460 Td
-(- ) Tj
+(• ) Tj
 ET
 
 BT
@@ -145,14 +220,14 @@ ET
 
 BT
 /F2 10 Tf
-220 460 Td
-(- Local LLM hosting, NVIDIA GPU optimization, multi-agent workflows) Tj
+240 460 Td
+( — Local LLM hosting, NVIDIA GPU optimization, FP4/FP8/FP16 tuning, multi‑agent workflows) Tj
 ET
 
 BT
 /F2 10 Tf
 60 445 Td
-(- ) Tj
+(• ) Tj
 ET
 
 BT
@@ -163,14 +238,14 @@ ET
 
 BT
 /F2 10 Tf
-220 445 Td
-(- Microsoft Azure IaaS/PaaS, Office 365, Azure AD, Exchange Online) Tj
+200 445 Td
+( — Microsoft Azure IaaS/PaaS, Office 365, Azure AD, Exchange Online) Tj
 ET
 
 BT
 /F2 10 Tf
 60 430 Td
-(- ) Tj
+(• ) Tj
 ET
 
 BT
@@ -181,14 +256,14 @@ ET
 
 BT
 /F2 10 Tf
-220 430 Td
-(- Microsoft Defender, Microsoft Sentinel, Darktrace, Zero-Trust) Tj
+190 430 Td
+( — Microsoft Defender \(Endpoint, Server, Cloud\), Microsoft Sentinel, Darktrace, Zero‑Trust best practices) Tj
 ET
 
 BT
 /F2 10 Tf
 60 415 Td
-(- ) Tj
+(• ) Tj
 ET
 
 BT
@@ -199,14 +274,14 @@ ET
 
 BT
 /F2 10 Tf
-220 415 Td
-(- Docker & Compose, GitHub Actions, CI/CD, Python, Bash, PowerShell) Tj
+190 415 Td
+( — Docker & Compose, GitHub Actions, CI/CD, Python, Bash, PowerShell) Tj
 ET
 
 BT
 /F2 10 Tf
 60 400 Td
-(- ) Tj
+(• ) Tj
 ET
 
 BT
@@ -217,181 +292,770 @@ ET
 
 BT
 /F2 10 Tf
-220 400 Td
-(- 7+ years leading cross-functional teams, $1M+ cap-ex projects) Tj
+270 400 Td
+( — 7+ years leading cross‑functional teams, $1M+ cap‑ex projects, Agile & Waterfall methodologies) Tj
 ET
 
 BT
 /F1 14 Tf
 50 370 Td
+(Technical Skills) Tj
+ET
+
+BT
+/F1 10 Tf
+60 355 Td
+(Virtualization & Compute:) Tj
+ET
+
+BT
+/F2 10 Tf
+190 355 Td
+( Nutanix AHV; VMware vSphere; Hyper‑V; Proxmox; KVM; Cisco UCS B‑Series; Dell PowerEdge) Tj
+ET
+
+BT
+/F1 10 Tf
+60 340 Td
+(Storage & Backup:) Tj
+ET
+
+BT
+/F2 10 Tf
+160 340 Td
+( Pure Storage FlashArray; NetApp ONTAP; Dell EMC SC; Veeam; Cloudian S3) Tj
+ET
+
+BT
+/F1 10 Tf
+60 325 Td
+(Networking:) Tj
+ET
+
+BT
+/F2 10 Tf
+130 325 Td
+( Cisco Nexus & Catalyst; HP ProCurve/Aruba; Palo Alto NGFW; VLAN/VXLAN; MPLS; VPN) Tj
+ET
+
+BT
+/F1 10 Tf
+60 310 Td
+(Security & SIEM:) Tj
+ET
+
+BT
+/F2 10 Tf
+150 310 Td
+( Microsoft Defender \(Endpoint, Server, Cloud\); Microsoft Sentinel; Darktrace; Carbon Black; Cisco Secure Endpoint) Tj
+ET
+
+BT
+/F1 10 Tf
+60 295 Td
+(AI & Data:) Tj
+ET
+
+BT
+/F2 10 Tf
+120 295 Td
+( Ollama; Open‑WebUI; ComfyUI; Hugging Face; Qdrant; pgvector; CUDA 11.4) Tj
+ET
+
+BT
+/F1 10 Tf
+60 280 Td
+(Languages & Scripting:) Tj
+ET
+
+BT
+/F2 10 Tf
+180 280 Td
+( Python \(asyncio, FastAPI\); Bash; PowerShell; YAML/JSON; SQL) Tj
+ET
+
+BT
+/F1 10 Tf
+60 265 Td
+(Operating Systems:) Tj
+ET
+
+BT
+/F2 10 Tf
+160 265 Td
+( Windows Server 2003‑2022; Windows 10/11; Ubuntu 22.04 \(WSL2\); Rocky Linux) Tj
+ET
+
+BT
+/F1 14 Tf
+50 235 Td
 (Professional Experience) Tj
 ET
 
 BT
 /F1 12 Tf
-50 350 Td
+50 215 Td
 (IT Infrastructure Manager) Tj
 ET
 
 BT
 /F2 10 Tf
-200 350 Td
-(- Pascua Yaqui Tribe Government, Tucson AZ) Tj
+200 215 Td
+(— Pascua Yaqui Tribe Government, Tucson AZ) Tj
 ET
 
 BT
 /F3 10 Tf
-50 335 Td
-(Aug 2023 - Present) Tj
+50 200 Td
+(Aug 2023 – Present) Tj
 ET
 
 BT
 /F2 10 Tf
-60 320 Td
-(- Directed a nine-person Infrastructure & SecOps team supporting police, fire, health, HR, and) Tj
+60 185 Td
+(• Directed a ) Tj
+ET
+
+BT
+/F1 10 Tf
+115 185 Td
+(nine‑person Infrastructure & SecOps team) Tj
 ET
 
 BT
 /F2 10 Tf
-65 305 Td
-(finance departments across Tucson & Guadalupe.) Tj
+330 185 Td
+( supporting police, fire, health, HR, and finance departments across Tucson & Guadalupe.) Tj
 ET
 
 BT
 /F2 10 Tf
-60 290 Td
-(- Led enterprise-wide infrastructure refresh, consolidating from six OEM platforms and four) Tj
+60 170 Td
+(• ) Tj
+ET
+
+BT
+/F1 10 Tf
+70 170 Td
+(Led enterprise‑wide infrastructure refresh) Tj
 ET
 
 BT
 /F2 10 Tf
-65 275 Td
-(support vendors down to three core systems \(Nutanix AHV, Cisco UCS, Pure Storage\).) Tj
+270 170 Td
+(, consolidating from six OEM platforms and four support vendors down to ) Tj
+ET
+
+BT
+/F1 10 Tf
+60 155 Td
+(three core systems) Tj
 ET
 
 BT
 /F2 10 Tf
-60 260 Td
-(- Implemented Microsoft Defender suite across endpoints, servers, and Azure workloads and) Tj
+150 155 Td
+( \(Nutanix AHV, Cisco UCS, Pure Storage\); cut data‑center footprint ) Tj
+ET
+
+BT
+/F1 10 Tf
+470 155 Td
+(by 50%) Tj
 ET
 
 BT
 /F2 10 Tf
-65 245 Td
-(stood up Microsoft Sentinel SIEM, delivering 10x increase in threat-detection resilience.) Tj
+510 155 Td
+( while) Tj
 ET
 
 BT
 /F2 10 Tf
-60 230 Td
-(- Built an on-prem AI research lab leveraging RTX 4090 GPUs, Dockerized LLM services, and) Tj
+60 140 Td
+(boosting compute, storage capacity, and manageability.) Tj
 ET
 
 BT
 /F2 10 Tf
-65 215 Td
-(local SearXNG metasearch, enabling secure internal AI pilots while maintaining data sovereignty.) Tj
+60 125 Td
+(• Designed and deployed ) Tj
 ET
 
+BT
+/F1 10 Tf
+170 125 Td
+(Nutanix AHV cluster) Tj
+ET
+
+BT
+/F2 10 Tf
+280 125 Td
+( replacing legacy Hyper‑V nodes, reducing VM failover times 60% and simplifying lifecycle ops.) Tj
+ET
+
+BT
+/F2 10 Tf
+60 110 Td
+(• Implemented ) Tj
+ET
+
+BT
+/F1 10 Tf
+130 110 Td
+(Microsoft Defender) Tj
+ET
+
+BT
+/F2 10 Tf
+230 110 Td
+( suite across endpoints, servers, and Azure workloads and stood up ) Tj
+ET
+
+BT
+/F1 10 Tf
+530 110 Td
+(Microsoft) Tj
+ET
+
+BT
+/F1 10 Tf
+60 95 Td
+(Sentinel SIEM) Tj
+ET
+
+BT
+/F2 10 Tf
+140 95 Td
+(, delivering ) Tj
+ET
+
+BT
+/F1 10 Tf
+190 95 Td
+(10× increase in threat‑detection resilience) Tj
+ET
+
+BT
+/F2 10 Tf
+400 95 Td
+( and slashing mean‑time‑to‑detect from hours to minutes.) Tj
+ET
+
+BT
+/F2 10 Tf
+60 80 Td
+(• Deployed ) Tj
+ET
+
+BT
+/F1 10 Tf
+110 80 Td
+(Darktrace AI NDR) Tj
+ET
+
+BT
+/F2 10 Tf
+210 80 Td
+( and Cisco Secure Endpoint, cutting actionable security incidents by 30%.) Tj
+ET
+
+BT
+/F2 10 Tf
+60 65 Td
+(• Built an ) Tj
+ET
+
+BT
+/F1 10 Tf
+105 65 Td
+(on‑prem AI research lab) Tj
+ET
+
+BT
+/F2 10 Tf
+230 65 Td
+( leveraging RTX 4090 GPUs, Dockerized LLM services, and local SearXNG metasearch, enabling) Tj
+ET
+
+BT
+/F2 10 Tf
+60 50 Td
+(secure internal AI pilots while maintaining data sovereignty.) Tj
+ET
+
+BT
+/F2 10 Tf
+60 35 Td
+(• Managed capital & operating budgets; delivered FY‑24 roadmap on time and 5% under budget.) Tj
+ET
+
+BT
+/F1 10 Tf
+500 20 Td
+(Page 1 of 2) Tj
+ET
+endstream
+endobj
+12 0 obj
+<</Length 5000>>
+stream
 BT
 /F1 12 Tf
-50 195 Td
+50 750 Td
 (Senior System Administrator) Tj
 ET
 
 BT
 /F2 10 Tf
-200 195 Td
-(- Pascua Yaqui Tribe Government, Tucson AZ) Tj
+200 750 Td
+(— Pascua Yaqui Tribe Government, Tucson AZ) Tj
 ET
 
 BT
 /F3 10 Tf
-50 180 Td
-(Jan 2021 - Aug 2023) Tj
+50 735 Td
+(Jan 2021 – Aug 2023) Tj
 ET
 
 BT
 /F2 10 Tf
-60 165 Td
-(- Administered multi-site AHV, Hyper-V & VMware clusters, 250+ virtual servers, and hybrid) Tj
+60 720 Td
+(• Administered multi‑site AHV, Hyper‑V & VMware clusters, 250+ virtual servers, and hybrid Office 365 tenant.) Tj
 ET
 
 BT
 /F2 10 Tf
-65 150 Td
-(Office 365 tenant.) Tj
+60 705 Td
+(• Automated Windows patching and backup verification via SyxSence, In‑Tune, MECM, PowerShell & Veeam APIs, cutting) Tj
 ET
 
 BT
 /F2 10 Tf
-60 135 Td
-(- Led migration of 100+ TB file shares to Pure Storage & Cloudian S3 tiered solution for resilient,) Tj
+65 690 Td
+(maintenance windows 25%.) Tj
 ET
 
 BT
 /F2 10 Tf
-65 120 Td
-(air-gapped backups.) Tj
+60 675 Td
+(• Led migration of 100+ TB file shares to ) Tj
+ET
+
+BT
+/F1 10 Tf
+240 675 Td
+(Pure Storage & Cloudian S3) Tj
+ET
+
+BT
+/F2 10 Tf
+380 675 Td
+( tiered solution for resilient, air‑gapped backups.) Tj
+ET
+
+BT
+/F1 12 Tf
+50 650 Td
+(Security Analyst) Tj
+ET
+
+BT
+/F2 10 Tf
+150 650 Td
+(— Pascua Yaqui Tribe Government, Tucson AZ) Tj
+ET
+
+BT
+/F3 10 Tf
+50 635 Td
+(Jan 2019 – Jan 2021) Tj
+ET
+
+BT
+/F2 10 Tf
+60 620 Td
+(• Hardened access‑control & fire‑panel networks; introduced unified event logging that cut incident‑response time in half.) Tj
+ET
+
+BT
+/F2 10 Tf
+60 605 Td
+(• Managed Avigilon CCTV, Genetec access‑control, and Alertus duress systems across 30+ facilities.) Tj
+ET
+
+BT
+/F1 12 Tf
+50 580 Td
+(IT Director / Sr. System Administrator) Tj
+ET
+
+BT
+/F2 10 Tf
+250 580 Td
+(— TBM Equities LLC | Sahara Apartments, Tucson AZ) Tj
+ET
+
+BT
+/F3 10 Tf
+50 565 Td
+(Jul 2013 – Jul 2018) Tj
+ET
+
+BT
+/F2 10 Tf
+60 550 Td
+(• Virtualized legacy servers to Hyper‑V, slashing hardware footprint 60% and annual energy use ~$8K.) Tj
+ET
+
+BT
+/F2 10 Tf
+60 535 Td
+(• Implemented enterprise BDR with Veeam & off‑site replication; achieved 15‑minute RPO for critical systems.) Tj
+ET
+
+BT
+/F2 10 Tf
+60 520 Td
+(• Engineered tenant Wi‑Fi & wired networks serving 900+ residents; maintained >99.9% uptime.) Tj
 ET
 
 BT
 /F1 14 Tf
-50 90 Td
+50 490 Td
+(Additional Roles) Tj
+ET
+
+BT
+/F2 10 Tf
+60 475 Td
+(• ) Tj
+ET
+
+BT
+/F1 10 Tf
+70 475 Td
+(IT Director) Tj
+ET
+
+BT
+/F2 10 Tf
+130 475 Td
+( – TechSoft Systems \(Consulting for SMBs, network design & break/fix\) ) Tj
+ET
+
+BT
+/F3 10 Tf
+450 475 Td
+(2012 – Present) Tj
+ET
+
+BT
+/F2 10 Tf
+60 460 Td
+(• ) Tj
+ET
+
+BT
+/F1 10 Tf
+70 460 Td
+(Technical Engineer) Tj
+ET
+
+BT
+/F2 10 Tf
+170 460 Td
+( – BestComm Networks \(Tier 3 & NOC for Best Western\) ) Tj
+ET
+
+BT
+/F3 10 Tf
+450 460 Td
+(2006 – 2012) Tj
+ET
+
+BT
+/F2 10 Tf
+60 445 Td
+(• ) Tj
+ET
+
+BT
+/F1 10 Tf
+70 445 Td
+(Technical Manager) Tj
+ET
+
+BT
+/F2 10 Tf
+170 445 Td
+( – TheRiver ISP \(Managed 52‑person team, ran ISP core services\) ) Tj
+ET
+
+BT
+/F3 10 Tf
+450 445 Td
+(2004 – 2006) Tj
+ET
+
+BT
+/F1 14 Tf
+50 415 Td
+(Selected Projects & Contributions) Tj
+ET
+
+BT
+/F2 10 Tf
+60 400 Td
+(• ) Tj
+ET
+
+BT
+/F1 10 Tf
+70 400 Td
+(Project Prometheus) Tj
+ET
+
+BT
+/F2 10 Tf
+170 400 Td
+( – Created a modular multi‑agent workflow framework employing Tree‑of‑Thought and) Tj
+ET
+
+BT
+/F2 10 Tf
+65 385 Td
+(Chain‑of‑Thought reasoning; integrated GitHub‑hosted YAML indexes, dynamic role loading, and secure developer‑mode) Tj
+ET
+
+BT
+/F2 10 Tf
+65 370 Td
+(authentication.) Tj
+ET
+
+BT
+/F2 10 Tf
+60 355 Td
+(• ) Tj
+ET
+
+BT
+/F1 10 Tf
+70 355 Td
+(Open‑WebUI Contributor) Tj
+ET
+
+BT
+/F2 10 Tf
+190 355 Td
+( – Added SINGLE_LINE JSON valve and interface reliability enhancements; collaborate with) Tj
+ET
+
+BT
+/F2 10 Tf
+65 340 Td
+(65+ open‑source contributors.) Tj
+ET
+
+BT
+/F2 10 Tf
+60 325 Td
+(• ) Tj
+ET
+
+BT
+/F1 10 Tf
+70 325 Td
+(AI Stack in WSL2) Tj
+ET
+
+BT
+/F2 10 Tf
+160 325 Td
+( – Architected a Docker‑based AI stack \(n8n, Crawl4AI, Postgres/pgvector, Qdrant, Redis, Caddy\) on) Tj
+ET
+
+BT
+/F2 10 Tf
+65 310 Td
+(Windows 11‑WSL2; documented deployment for community adoption.) Tj
+ET
+
+BT
+/F1 14 Tf
+50 280 Td
 (Education & Professional Development) Tj
 ET
 
 BT
 /F2 10 Tf
-60 75 Td
-(- ) Tj
+60 265 Td
+(• ) Tj
 ET
 
 BT
 /F1 10 Tf
-70 75 Td
+70 265 Td
 (Computer Programming & Digital Repair Certificates) Tj
 ET
 
 BT
 /F2 10 Tf
-300 75 Td
-(- Norfolk Technical Vocational Center, VA) Tj
+330 265 Td
+( – Norfolk Technical Vocational Center, VA) Tj
 ET
 
 BT
 /F2 10 Tf
-60 60 Td
-(- Continuous learning via Coursera, Pluralsight, and vendor bootcamps \(Pure Storage, Cisco UCS,) Tj
-ET
-
-BT
-/F2 10 Tf
-65 45 Td
-(Microsoft Azure, Nutanix Academy\).) Tj
+60 250 Td
+(• ) Tj
 ET
 
 BT
 /F1 10 Tf
-500 30 Td
-(Page 1 of 1) Tj
+70 250 Td
+(General Diploma) Tj
+ET
+
+BT
+/F2 10 Tf
+160 250 Td
+( – Norview High School, Norfolk VA) Tj
+ET
+
+BT
+/F2 10 Tf
+60 235 Td
+(• ) Tj
+ET
+
+BT
+/F1 10 Tf
+70 235 Td
+(Coursework, General Studies) Tj
+ET
+
+BT
+/F2 10 Tf
+210 235 Td
+( – Tidewater Community College, VA Beach VA) Tj
+ET
+
+BT
+/F2 10 Tf
+60 220 Td
+(• Continuous learning via Coursera, Pluralsight, and vendor bootcamps \(Pure Storage, Cisco UCS, Microsoft Azure, Nutanix Academy\).) Tj
+ET
+
+BT
+/F1 14 Tf
+50 190 Td
+(Professional Affiliations) Tj
+ET
+
+BT
+/F2 10 Tf
+60 175 Td
+(• ) Tj
+ET
+
+BT
+/F1 10 Tf
+70 175 Td
+(InfraGard Arizona) Tj
+ET
+
+BT
+/F2 10 Tf
+170 175 Td
+( – Member) Tj
+ET
+
+BT
+/F2 10 Tf
+60 160 Td
+(• ) Tj
+ET
+
+BT
+/F1 10 Tf
+70 160 Td
+(Open‑Source Initiative) Tj
+ET
+
+BT
+/F2 10 Tf
+180 160 Td
+( – Contributor & Advocate) Tj
+ET
+
+BT
+/F1 14 Tf
+50 130 Td
+(Community & Leadership) Tj
+ET
+
+BT
+/F2 10 Tf
+60 115 Td
+(• Mentor junior admins through Tucson IT Pro Guild; deliver quarterly talks on virtualization best practices.) Tj
+ET
+
+BT
+/F2 10 Tf
+60 100 Td
+(• Active with the ) Tj
+ET
+
+BT
+/F1 10 Tf
+140 100 Td
+(Future Business Leaders of America \(FBLA\)) Tj
+ET
+
+BT
+/F2 10 Tf
+360 100 Td
+( alumni network, supporting STEM outreach in local high schools.) Tj
+ET
+
+BT
+/F1 14 Tf
+50 70 Td
+(References) Tj
+ET
+
+BT
+/F2 10 Tf
+60 55 Td
+(Available upon request) Tj
+ET
+
+BT
+/F1 10 Tf
+500 20 Td
+(Page 2 of 2) Tj
 ET
 endstream
 endobj
 xref
-0 10
+0 13
 0000000000 65535 f
 0000000009 00000 n
 0000000056 00000 n
-0000000111 00000 n
-0000000212 00000 n
-0000000267 00000 n
-0000000401 00000 n
-0000000336 00000 n
+0000000119 00000 n
+0000000220 00000 n
+0000000275 00000 n
+0000000478 00000 n
+0000000344 00000 n
 0000000000 00000 n
-0000000466 00000 n
+0000000409 00000 n
+0000000000 00000 n
+0000000531 00000 n
+0000006033 00000 n
 trailer
-<</Size 10 /Root 1 0 R>>
+<</Size 13 /Root 1 0 R>>
 startxref
-5452
+11085
 %%EOF
