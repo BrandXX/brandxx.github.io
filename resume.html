@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume | Johnathan W. Carroll</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .resume-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .resume-header h2 {
+      margin-bottom: 1.2rem;
+    }
+    
+    .contact-info-block {
+      margin: 1.5rem 0;
+    }
+    
+    .contact-line {
+      margin-bottom: 0.5rem;
+    }
+    
+    .highlight-text {
+      color: #f6c915;
+      font-weight: 600;
+    }
+    
+    .divider {
+      height: 2px;
+      background: linear-gradient(90deg, rgba(246, 201, 21, 0.1), rgba(246, 201, 21, 0.5), rgba(246, 201, 21, 0.1));
+      margin: 1.5rem 0 2.5rem;
+      border-radius: 2px;
+      clear: both;
+    }
+    
+    .document-nav {
+      margin-top: 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.95rem;
+    }
+    
+    .current-doc {
+      color: #f6c915;
+      font-weight: 500;
+    }
+    
+    .doc-divider {
+      margin: 0 0.8rem;
+      opacity: 0.5;
+    }
+    
+    .doc-link {
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .doc-link:hover {
+      color: #f6c915;
+    }
+    
+    .resume-section {
+      margin: 2.5rem 0;
+    }
+    
+    .resume-section h2 {
+      color: #f6c915;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(246, 201, 21, 0.3);
+      padding-bottom: 0.5rem;
+    }
+    
+    .resume-section h3 {
+      font-size: 1.25rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+    
+    .job-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    
+    .job-company {
+      font-weight: 600;
+      color: #f6c915;
+    }
+    
+    .job-period {
+      font-style: italic;
+      opacity: 0.8;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .job-description {
+      margin-bottom: 1.5rem;
+    }
+    
+    .skill-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 1rem 0;
+    }
+    
+    .skill-list li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .skill-list li::before {
+      content: '•';
+      color: #f6c915;
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+    }
+    
+    .skill-category {
+      font-weight: 600;
+      color: #f6c915;
+    }
+    
+    .tech-skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .tech-skill-category {
+      margin-bottom: 1rem;
+    }
+    
+    .tech-skill-title {
+      font-weight: 600;
+      color: #f6c915;
+      margin-bottom: 0.5rem;
+    }
+    
+    .tech-skill-details {
+      line-height: 1.6;
+    }
+    
+    .job-bullets {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 1rem 0;
+    }
+    
+    .job-bullets li {
+      margin-bottom: 0.75rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .job-bullets li::before {
+      content: '•';
+      color: #f6c915;
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header/Hero Section -->
+  <header class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Resume</h1>
+        <p class="tagline">IT Infrastructure & AI Systems Leader</p>
+        <div class="document-nav">
+          <a href="cover-letter.html" class="doc-link">View Cover Letter</a>
+          <span class="doc-divider">|</span>
+          <span class="current-doc">Resume</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <section class="ai-content">
+      <div class="wide-card">
+        <div class="ai-flex-container">
+          <div class="ai-text-content">
+            <div class="resume-header">
+              <h2>Johnathan W. Carroll</h2>
+              <div class="contact-info-block">
+                <p class="contact-line"><strong>IT Infrastructure & AI Systems Leader</strong></p>
+                <p class="contact-line">Tucson, AZ • (520) 302‑4921 • <a href="mailto:j.carroll@techsoftsys.com" class="accent">j.carroll@techsoftsys.com</a></p>
+                <p class="contact-line"><a href="https://github.com/jwcarroll" class="accent" target="_blank">github.com/jwcarroll</a> • Website: <a href="https://www.techsoftsys.com" class="accent" target="_blank">www.techsoftsys.com</a></p>
+              </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <p class="highlight-text">Driving AI‑enabled infrastructure transformations that cut costs & boost resilience</p>
+            
+            <div class="resume-section">
+              <h2>Professional Summary</h2>
+              <p>
+                Seasoned technology leader with <strong>20+ years</strong> designing, deploying, and securing enterprise‑class infrastructure for government and private‑sector organizations. Proven track record leading <strong>$3M+</strong> data‑center refreshes, consolidating <strong>six OEM platforms into three core systems</strong>, and integrating cutting‑edge AI & security stacks (Docker‑based Open‑WebUI, Ollama, ComfyUI, DarkTrace, Microsoft Sentinel/Defender, etc.). Recently <strong>eliminated 6 legacy racks</strong>, trimmed annual infrastructure OPEX <strong>by $250K</strong>, and boosted compute & storage performance while <strong>shrinking physical footprint 50%</strong> and delivering <strong>10× security resilience</strong> at the Pascua Yaqui Tribe. Ready to help a forward‑thinking Tucson organization scale securely, cost‑effectively, and AI‑first.
+              </p>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="resume-section">
+              <h2>Core Competencies</h2>
+              <ul class="skill-list">
+                <li><span class="skill-category">Infrastructure Modernization</span> — Nutanix AHV (Acropolis), VMware, Hyper‑V, Cisco UCS, Pure Storage, NetApp, Dell EMC</li>
+                <li><span class="skill-category">AI & Machine Learning Engineering</span> — Local LLM hosting, NVIDIA GPU optimization, FP4/FP8/FP16 tuning, multi‑agent workflows</li>
+                <li><span class="skill-category">Cloud & Hybrid Services</span> — Microsoft Azure IaaS/PaaS, Office 365, Azure AD, Exchange Online</li>
+                <li><span class="skill-category">Cybersecurity & SIEM</span> — Microsoft Defender (Endpoint, Server, Cloud), Microsoft Sentinel, Darktrace, Zero‑Trust best practices</li>
+                <li><span class="skill-category">Automation & DevOps</span> — Docker & Compose, GitHub Actions, CI/CD, Python, Bash, PowerShell</li>
+                <li><span class="skill-category">Team Leadership & Project Management</span> — 7+ years leading cross‑functional teams, $1M+ cap‑ex projects, Agile & Waterfall methodologies</li>
+              </ul>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="resume-section">
+              <h2>Technical Skills</h2>
+              <div class="tech-skills-grid">
+                <div class="tech-skill-category">
+                  <div class="tech-skill-title">Virtualization & Compute:</div>
+                  <div class="tech-skill-details">Nutanix AHV; VMware vSphere; Hyper‑V; Proxmox; KVM; Cisco UCS B‑Series; Dell PowerEdge</div>
+                </div>
+                <div class="tech-skill-category">
+                  <div class="tech-skill-title">Storage & Backup:</div>
+                  <div class="tech-skill-details">Pure Storage FlashArray; NetApp ONTAP; Dell EMC SC; Veeam; Cloudian S3</div>
+                </div>
+                <div class="tech-skill-category">
+                  <div class="tech-skill-title">Networking:</div>
+                  <div class="tech-skill-details">Cisco Nexus & Catalyst; HP ProCurve/Aruba; Palo Alto NGFW; VLAN/VXLAN; MPLS; VPN</div>
+                </div>
+                <div class="tech-skill-category">
+                  <div class="tech-skill-title">Security & SIEM:</div>
+                  <div class="tech-skill-details">Microsoft Defender (Endpoint, Server, Cloud); Microsoft Sentinel; Darktrace; Carbon Black; Cisco Secure Endpoint</div>
+                </div>
+                <div class="tech-skill-category">
+                  <div class="tech-skill-title">AI & Data:</div>
+                  <div class="tech-skill-details">Ollama; Open‑WebUI; ComfyUI; Hugging Face; Qdrant; pgvector; CUDA 11.4</div>
+                </div>
+                <div class="tech-skill-category">
+                  <div class="tech-skill-title">Languages & Scripting:</div>
+                  <div class="tech-skill-details">Python (asyncio, FastAPI); Bash; PowerShell; YAML/JSON; SQL</div>
+                </div>
+                <div class="tech-skill-category">
+                  <div class="tech-skill-title">Operating Systems:</div>
+                  <div class="tech-skill-details">Windows Server 2003‑2022; Windows 10/11; Ubuntu 22.04 (WSL2); Rocky Linux</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="resume-section">
+              <h2>Professional Experience</h2>
+              
+              <div class="job-description">
+                <div class="job-title"><span class="job-company">IT Infrastructure Manager</span> — Pascua Yaqui Tribe Government, Tucson AZ</div>
+                <div class="job-period">Aug 2023 – Present</div>
+                <ul class="job-bullets">
+                  <li>Directed a <strong>nine‑person Infrastructure & SecOps team</strong> supporting police, fire, health, HR, and finance departments across Tucson & Guadalupe.</li>
+                  <li><strong>Led enterprise‑wide infrastructure refresh</strong>, consolidating from six OEM platforms and four support vendors down to <strong>three core systems</strong> (Nutanix AHV, Cisco UCS, Pure Storage); cut data‑center footprint <strong>by 50%</strong> while boosting compute, storage capacity, and manageability.</li>
+                  <li>Designed and deployed <strong>Nutanix AHV cluster</strong> replacing legacy Hyper‑V nodes, reducing VM failover times 60% and simplifying lifecycle ops.</li>
+                  <li>Implemented <strong>Microsoft Defender</strong> suite across endpoints, servers, and Azure workloads and stood up <strong>Microsoft Sentinel SIEM</strong>, delivering <strong>10× increase in threat‑detection resilience</strong> and slashing mean‑time‑to‑detect from hours to minutes.</li>
+                  <li>Deployed <strong>Darktrace AI NDR</strong> and Cisco Secure Endpoint, cutting actionable security incidents by 30%.</li>
+                  <li>Built an <strong>on‑prem AI research lab</strong> leveraging RTX 4090 GPUs, Dockerized LLM services, and local SearXNG metasearch, enabling secure internal AI pilots while maintaining data sovereignty.</li>
+                  <li>Managed capital & operating budgets; delivered FY‑24 roadmap on time and 5% under budget.</li>
+                </ul>
+              </div>
+              
+              <div class="job-description">
+                <div class="job-title"><span class="job-company">Senior System Administrator</span> — Pascua Yaqui Tribe Government, Tucson AZ</div>
+                <div class="job-period">Jan 2021 – Aug 2023</div>
+                <ul class="job-bullets">
+                  <li>Administered multi‑site AHV, Hyper‑V & VMware clusters, 250+ virtual servers, and hybrid Office 365 tenant.</li>
+                  <li>Automated Windows patching and backup verification via SyxSence, In‑Tune, MECM, PowerShell & Veeam APIs, cutting maintenance windows 25%.</li>
+                  <li>Led migration of 100+ TB file shares to <strong>Pure Storage & Cloudian S3</strong> tiered solution for resilient, air‑gapped backups.</li>
+                </ul>
+              </div>
+              
+              <div class="job-description">
+                <div class="job-title"><span class="job-company">Security Analyst</span> — Pascua Yaqui Tribe Government, Tucson AZ</div>
+                <div class="job-period">Jan 2019 – Jan 2021</div>
+                <ul class="job-bullets">
+                  <li>Hardened access‑control & fire‑panel networks; introduced unified event logging that cut incident‑response time in half.</li>
+                  <li>Managed Avigilon CCTV, Genetec access‑control, and Alertus duress systems across 30+ facilities.</li>
+                </ul>
+              </div>
+              
+              <div class="job-description">
+                <div class="job-title"><span class="job-company">IT Director / Sr. System Administrator</span> — TBM Equities LLC | Sahara Apartments, Tucson AZ</div>
+                <div class="job-period">Jul 2013 – Jul 2018</div>
+                <ul class="job-bullets">
+                  <li>Virtualized legacy servers to Hyper‑V, slashing hardware footprint 60% and annual energy use ~$8K.</li>
+                  <li>Implemented enterprise BDR with Veeam & off‑site replication; achieved 15‑minute RPO for critical systems.</li>
+                  <li>Engineered tenant Wi‑Fi & wired networks serving 900+ residents; maintained >99.9% uptime.</li>
+                </ul>
+              </div>
+              
+              <h3>Additional Roles</h3>
+              <ul class="job-bullets">
+                <li><strong>IT Director</strong> – TechSoft Systems (Consulting for SMBs, network design & break/fix) <em>2012 – Present</em></li>
+                <li><strong>Technical Engineer</strong> – BestComm Networks (Tier 3 & NOC for Best Western) <em>2006 – 2012</em></li>
+                <li><strong>Technical Manager</strong> – TheRiver ISP (Managed 52‑person team, ran ISP core services) <em>2004 – 2006</em></li>
+              </ul>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="resume-section">
+              <h2>Selected Projects & Contributions</h2>
+              <ul class="job-bullets">
+                <li><strong>Project Prometheus</strong> – Created a modular multi‑agent workflow framework employing Tree‑of‑Thought and Chain‑of‑Thought reasoning; integrated GitHub‑hosted YAML indexes, dynamic role loading, and secure developer‑mode authentication.</li>
+                <li><strong>Open‑WebUI Contributor</strong> – Added SINGLE_LINE JSON valve and interface reliability enhancements; collaborate with 65+ open‑source contributors.</li>
+                <li><strong>AI Stack in WSL2</strong> – Architected a Docker‑based AI stack (n8n, Crawl4AI, Postgres/pgvector, Qdrant, Redis, Caddy) on Windows 11‑WSL2; documented deployment for community adoption.</li>
+              </ul>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="resume-section">
+              <h2>Education & Professional Development</h2>
+              <ul class="job-bullets">
+                <li><strong>Computer Programming & Digital Repair Certificates</strong> – Norfolk Technical Vocational Center, VA</li>
+                <li><strong>General Diploma</strong> – Norview High School, Norfolk VA</li>
+                <li><strong>Coursework, General Studies</strong> – Tidewater Community College, VA Beach VA</li>
+                <li>Continuous learning via Coursera, Pluralsight, and vendor bootcamps (Pure Storage, Cisco UCS, Microsoft Azure, Nutanix Academy).</li>
+              </ul>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="resume-section">
+              <h2>Professional Affiliations</h2>
+              <ul class="job-bullets">
+                <li><strong>InfraGard Arizona</strong> – Member</li>
+                <li><strong>Open‑Source Initiative</strong> – Contributor & Advocate</li>
+              </ul>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="resume-section">
+              <h2>Community & Leadership</h2>
+              <ul class="job-bullets">
+                <li>Mentor junior admins through Tucson IT Pro Guild; deliver quarterly talks on virtualization best practices.</li>
+                <li>Active with the <strong>Future Business Leaders of America (FBLA)</strong> alumni network, supporting STEM outreach in local high schools.</li>
+              </ul>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="resume-section">
+              <h2>References</h2>
+              <p>Available upon request</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="container">
+    <p>
+      TechSoft Systems • Tucson, AZ • © 2025<br>
+      <em>Enterprise smarts, small-business service.</em>
+    </p>
+  </footer>
+</body>
+</html>
