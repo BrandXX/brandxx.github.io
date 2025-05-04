@@ -120,6 +120,10 @@ If using Visual Studio Code:
 2. Place images in the `/images` directory
 3. Avoid Zone.Identifier files in the repository
 4. Use the `ai-image` class for consistent styling
+5. Follow the consistent naming convention:
+   - Name images after their corresponding sections (e.g., `section-name-image.png`)
+   - This makes it clear which image belongs to which section
+   - Examples: `enterprise-grade-infrastructure-image.png`, `core-values-image.png`
 
 ### Styling Guidelines
 
@@ -130,6 +134,12 @@ If using Visual Studio Code:
 
 ## Recent Updates
 
+- Implemented consistent image naming convention across all pages
+- Added new section images to the Company page (Core Values, Why Choose TechSoft)
+- Added new section images to the Home page (Why TechSoft, Results That Matter)
+- Fixed email address overflow issue on the contact page
+- Created comprehensive documentation in README files for main repo, CSS, and JavaScript
+- Set up local development workflow with Python HTTP server on port 8181
 - Added wide card layout to all pages for consistent design
 - Created resume and cover letter pages with navigation between them
 - Added PDF download placeholders for future document links

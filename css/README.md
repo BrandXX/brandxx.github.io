@@ -65,10 +65,11 @@ The CSS is organized into the following major sections:
 - Section titles
 
 ### 10. Image Handling
-- Image wrappers
-- Image positioning and sizing
-- Image hover effects
-- Background images
+- Image wrappers with the `.ai-image-wrapper` class
+- Image positioning using the `.reverse` class for alternating left/right placement
+- Image sizing with the `.ai-image` class for consistent dimensions
+- Subtle glow effect on images for visual polish
+- Consistent naming convention for image files (section-name-image.png)
 
 ### 11. Contact Page
 - Form styling
@@ -138,6 +139,8 @@ When adding new styles:
 - Test all changes on mobile, tablet, and desktop views
 - Use flexbox for layout when possible
 - Keep selectors as simple as possible
+- Follow the image naming convention (section-name-image.png)
+- Alternate image positions (left/right) for visual interest using the `reverse` class
 
 ## Troubleshooting
 
