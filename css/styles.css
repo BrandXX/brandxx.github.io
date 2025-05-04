@@ -177,6 +177,170 @@ h1::after {
 }
 
 /* =========================================================
+   ALTERNATING IMAGE SECTIONS
+   ========================================================= */
+.image-section {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.image-content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.image-right .image-content-wrapper {
+  flex-direction: row-reverse;
+}
+
+.image-container {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  transform: perspective(1000px) rotateY(0deg);
+  transition: all 0.5s ease;
+}
+
+.image-left .image-container {
+  transform: perspective(1000px) rotateY(2deg);
+}
+
+.image-right .image-container {
+  transform: perspective(1000px) rotateY(-2deg);
+}
+
+.image-container:hover {
+  transform: perspective(1000px) rotateY(0deg) translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all 0.5s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+  opacity: 0.7;
+  transition: all 0.5s ease;
+}
+
+.image-container:hover .image-overlay {
+  opacity: 0.5;
+  background: linear-gradient(135deg, rgba(246, 201, 21, 0.2) 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.image-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.image-content h2 {
+  color: #f6c915;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  position: relative;
+  display: inline-block;
+}
+
+.image-content h2::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  bottom: -10px;
+  left: 0;
+  background-color: #f6c915;
+  transition: all 0.3s ease;
+}
+
+.image-right .image-content h2::after {
+  left: auto;
+  right: 0;
+}
+
+.image-content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.section-divider {
+  height: 3rem;
+  position: relative;
+  margin: 2rem 0;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  width: 30%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(246, 201, 21, 0.5), transparent);
+  top: 50%;
+  left: 35%;
+}
+
+@media (max-width: 900px) {
+  .image-section {
+    padding: 3rem 0;
+  }
+
+  .image-content-wrapper {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-content-wrapper {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+
+  .image-right .image-content-wrapper {
+    flex-direction: column-reverse;
+  }
+
+  .image-container, .image-content {
+    width: 100%;
+  }
+
+  .image-left .image-container,
+  .image-right .image-container {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+
+  .image-content h2::after {
+    left: 0;
+    right: auto;
+  }
+
+  .image-right .image-content h2::after {
+    left: 0;
+    right: auto;
+  }
+}
+
+/* =========================================================
    HERO SECTION
    ========================================================= */
 @keyframes gradientShift {
