@@ -234,6 +234,37 @@ h1 {
   margin: 2rem 0 3rem;
 }
 
+/* Services Table for Company Page */
+.services-table {
+  max-width: 720px;
+  margin: 2rem auto 3rem;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.service-row {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #333;
+  margin-bottom: 1rem;
+}
+
+.service-row:last-child {
+  border-bottom: none;
+}
+
+.service-cell {
+  padding: 1rem 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.service-title {
+  flex: 0 0 35%;
+  font-weight: 600;
+  color: #f6c915;
+}
+
 .service-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid #333;
@@ -268,17 +299,66 @@ h1 {
    LISTS
    ========================================================= */
 .benefits-list,
-.results-list {
+.results-list,
+.mission-list,
+.values-list,
+.tech-stack,
+.industries-list,
+.success-stories,
+.community-list,
+.certifications-list,
+.why-choose-list {
   max-width: 720px;
   margin: 1.5rem auto 2.5rem;
   padding-left: 2rem;
 }
 
 .benefits-list li,
-.results-list li {
+.results-list li,
+.mission-list li,
+.values-list li,
+.tech-stack li,
+.industries-list li,
+.success-stories li,
+.community-list li,
+.certifications-list li,
+.why-choose-list li {
   margin-bottom: 1rem;
   font-size: 1.05rem;
   line-height: 1.5;
+}
+
+.mission-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.leadership-section {
+  max-width: 720px;
+  margin: 1.5rem auto 2.5rem;
+}
+
+.leadership-section h3 {
+  margin-bottom: 1rem;
+  color: #f6c915;
+}
+
+.leadership-details {
+  padding-left: 1.5rem;
+}
+
+.leadership-details li {
+  margin-bottom: 1rem;
+}
+
+.leadership-details ul {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.leadership-details ul li {
+  margin-bottom: 0.5rem;
 }
 
 .cta-text {
@@ -350,10 +430,36 @@ h1 {
     padding: 0 1rem;
   }
 
+  .service-row {
+    flex-direction: column;
+    padding-bottom: 1rem;
+  }
+
+  .service-cell {
+    padding: 0.5rem 0;
+  }
+
+  .service-title {
+    padding-bottom: 0;
+  }
+
   .benefits-list,
-  .results-list {
-    padding-left: 2.5rem;
+  .results-list,
+  .mission-list,
+  .values-list,
+  .tech-stack,
+  .industries-list,
+  .success-stories,
+  .community-list,
+  .certifications-list,
+  .why-choose-list,
+  .leadership-section {
+    padding-left: 1.5rem;
     padding-right: 1rem;
+  }
+
+  .leadership-details {
+    padding-left: 1rem;
   }
 
   .cta-text {
