@@ -1,14 +1,14 @@
 /* =========================================================
    GLOBAL STYLES
    ========================================================= */
-* { 
-  box-sizing: border-box; 
-  margin: 0; 
-  padding: 0; 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html, body { 
-  height: 100%; 
+html, body {
+  height: 100%;
 }
 
 body {
@@ -41,8 +41,8 @@ body {
 /* Vertical stacking for main page sections */
 header.container,
 main.container,
-footer.container { 
-  flex-direction: column; 
+footer.container {
+  flex-direction: column;
 }
 
 /* Section spacing */
@@ -99,28 +99,28 @@ footer { padding: 1.5rem 1rem 3rem; font-size: 0.85rem; color: #999; }
 /* =========================================================
    TYPOGRAPHY
    ========================================================= */
-h1 { 
-  font-size: 3.25rem; 
-  font-weight: 600; 
-  letter-spacing: .5px; 
+h1 {
+  font-size: 3.25rem;
+  font-weight: 600;
+  letter-spacing: .5px;
 }
 
-.tagline { 
-  margin-top: .5rem; 
-  font-size: 1.25rem; 
-  font-weight: 300; 
-  color: #d0d0d0; 
+.tagline {
+  margin-top: .5rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #d0d0d0;
 }
 
-.intro p { 
-  max-width: 720px; 
-  margin: 0 auto; 
-  font-size: 1.1rem; 
+.intro p {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.1rem;
 }
 
-.accent { 
-  color: #f6c915; 
-  font-weight: 600; 
+.accent {
+  color: #f6c915;
+  font-weight: 600;
 }
 
 /* =========================================================
@@ -132,13 +132,13 @@ h1 {
 }
 
 @media (max-width: 500px) {
-  .top-nav { 
-    flex-direction: column; 
-    gap: 0.5rem; 
+  .top-nav {
+    flex-direction: column;
+    gap: 0.5rem;
   }
-  
-  .top-nav .links a { 
-    margin-left: 0; 
+
+  .top-nav .links a {
+    margin-left: 0;
   }
 
   h1 { font-size: 2.2rem; }
@@ -171,4 +171,73 @@ footer.container { flex-direction: column; }
 }
 
 /* ——— nothing else changed ——— */
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
+.contact-form {
+  width: 100%;
+  max-width: 720px;
+  margin: 2rem auto 0;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: #f3f3f3;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #f6c915;
+  box-shadow: 0 0 0 2px rgba(246, 201, 21, 0.2);
+}
+
+.submit-btn {
+  align-self: flex-start;
+  padding: 0.75rem 1.5rem;
+  background-color: #f6c915;
+  color: #111;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #ffd700;
+}
+
+@media (max-width: 720px) {
+  .contact-form {
+    padding: 0 1rem;
+  }
+}
 
