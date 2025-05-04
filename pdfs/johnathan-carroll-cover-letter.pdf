@@ -1,4 +1,4 @@
-%PDF-1.4
+%PDF-1.7
 1 0 obj
 <</Type /Catalog /Pages 2 0 R>>
 endobj
@@ -9,28 +9,215 @@ endobj
 <</Type /Page /Parent 2 0 R /Resources 4 0 R /MediaBox [0 0 612 792] /Contents 6 0 R>>
 endobj
 4 0 obj
-<</Font <</F1 5 0 R>>>>
+<</Font <</F1 5 0 R /F2 7 0 R /F3 9 0 R>>>>
 endobj
 5 0 obj
+<</Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold>>
+endobj
+7 0 obj
 <</Type /Font /Subtype /Type1 /BaseFont /Helvetica>>
 endobj
+9 0 obj
+<</Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique>>
+endobj
 6 0 obj
-<</Length 48>>
+<</Length 4500>>
 stream
-BT /F1 12 Tf 100 700 Td (Johnathan W. Carroll Cover Letter) Tj ET
+BT
+/F1 16 Tf
+50 750 Td
+(Johnathan W. Carroll) Tj
+ET
+
+BT
+/F2 11 Tf
+50 730 Td
+(Tucson, AZ \(520\) 302-4921 j.carroll@techsoftsys.com) Tj
+ET
+
+BT
+/F2 11 Tf
+50 715 Td
+(github.com/brandxx www.techsoftsys.com) Tj
+ET
+
+BT
+/F2 11 Tf
+50 680 Td
+(As an ) Tj
+ET
+
+BT
+/F1 11 Tf
+80 680 Td
+(IT Infrastructure & AI Systems Leader) Tj
+ET
+
+BT
+/F2 11 Tf
+280 680 Td
+( with more than two decades of hands-on and) Tj
+ET
+
+BT
+/F2 11 Tf
+50 665 Td
+(strategic experience, I deliver resilient, secure, and highly automated technology environments) Tj
+ET
+
+BT
+/F2 11 Tf
+50 650 Td
+(that help organizations thrive. My career highlights include:) Tj
+ET
+
+BT
+/F2 11 Tf
+60 625 Td
+(- Driving multi-million-dollar data-center modernizations that consolidate disparate OEM) Tj
+ET
+
+BT
+/F2 11 Tf
+65 610 Td
+(platforms and cut operating costs by double digits while boosting performance and uptime.) Tj
+ET
+
+BT
+/F2 11 Tf
+60 585 Td
+(- Leading cross-functional teams to implement AI-enabled observability and security) Tj
+ET
+
+BT
+/F2 11 Tf
+65 570 Td
+(platforms—such as Microsoft Sentinel, Defender for Endpoint/Server/Cloud, and) Tj
+ET
+
+BT
+/F2 11 Tf
+65 555 Td
+(Darktrace—to reduce mean-time-to-detect by 70%.) Tj
+ET
+
+BT
+/F2 11 Tf
+60 530 Td
+(- Building on-prem, containerized AI stacks \(Docker-based Open-WebUI, Ollama, ComfyUI,) Tj
+ET
+
+BT
+/F2 11 Tf
+65 515 Td
+(Qdrant, pgvector\) that keep sensitive data in-house and accelerate innovation.) Tj
+ET
+
+BT
+/F2 11 Tf
+60 490 Td
+(- Championing automation and DevOps best practices \(GitHub Actions, CI/CD,) Tj
+ET
+
+BT
+/F2 11 Tf
+65 475 Td
+(Infrastructure-as-Code\) to deliver reliable deployments and shorten project timelines.) Tj
+ET
+
+BT
+/F2 11 Tf
+50 450 Td
+(I combine deep technical expertise in hyperconverged Nutanix AHV, VMware, and Hyper-V with a) Tj
+ET
+
+BT
+/F2 11 Tf
+50 435 Td
+(people-centric leadership style that cultivates high-performing teams and strong stakeholder trust.) Tj
+ET
+
+BT
+/F2 11 Tf
+50 420 Td
+(Whether architecting hybrid-cloud strategies, fortifying cyber defenses, or mentoring the next) Tj
+ET
+
+BT
+/F2 11 Tf
+50 405 Td
+(generation of engineers, I thrive on turning complex challenges into streamlined, future-proof) Tj
+ET
+
+BT
+/F2 11 Tf
+50 390 Td
+(solutions.) Tj
+ET
+
+BT
+/F2 11 Tf
+50 365 Td
+(I am actively seeking new opportunities where I can leverage this breadth of experience to help an) Tj
+ET
+
+BT
+/F2 11 Tf
+50 350 Td
+(organization transform its infrastructure, harness AI responsibly, and drive sustainable growth. If) Tj
+ET
+
+BT
+/F2 11 Tf
+50 335 Td
+(you are looking for a proven leader who bridges hands-on engineering excellence with strategic) Tj
+ET
+
+BT
+/F2 11 Tf
+50 320 Td
+(vision, let's connect.) Tj
+ET
+
+BT
+/F2 11 Tf
+50 295 Td
+(Thank you for your time and consideration.) Tj
+ET
+
+BT
+/F1 11 Tf
+50 260 Td
+(Sincerely,) Tj
+ET
+
+BT
+/F1 11 Tf
+50 230 Td
+(Johnathan W. Carroll) Tj
+ET
+
+BT
+/F1 10 Tf
+500 30 Td
+(Page 1 of 1) Tj
+ET
 endstream
 endobj
 xref
-0 7
+0 10
 0000000000 65535 f
 0000000009 00000 n
 0000000056 00000 n
 0000000111 00000 n
 0000000212 00000 n
-0000000253 00000 n
-0000000321 00000 n
+0000000267 00000 n
+0000000401 00000 n
+0000000336 00000 n
+0000000000 00000 n
+0000000466 00000 n
 trailer
-<</Size 7 /Root 1 0 R>>
+<</Size 10 /Root 1 0 R>>
 startxref
-418
+4952
 %%EOF

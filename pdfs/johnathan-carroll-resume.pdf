@@ -1,4 +1,4 @@
-%PDF-1.4
+%PDF-1.7
 1 0 obj
 <</Type /Catalog /Pages 2 0 R>>
 endobj
@@ -9,28 +9,389 @@ endobj
 <</Type /Page /Parent 2 0 R /Resources 4 0 R /MediaBox [0 0 612 792] /Contents 6 0 R>>
 endobj
 4 0 obj
-<</Font <</F1 5 0 R>>>>
+<</Font <</F1 5 0 R /F2 7 0 R /F3 9 0 R>>>>
 endobj
 5 0 obj
+<</Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold>>
+endobj
+7 0 obj
 <</Type /Font /Subtype /Type1 /BaseFont /Helvetica>>
 endobj
+9 0 obj
+<</Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique>>
+endobj
 6 0 obj
-<</Length 44>>
+<</Length 5000>>
 stream
-BT /F1 12 Tf 100 700 Td (Johnathan W. Carroll Resume) Tj ET
+BT
+/F1 16 Tf
+50 750 Td
+(Johnathan W. Carroll) Tj
+ET
+
+BT
+/F2 11 Tf
+50 730 Td
+(IT Infrastructure & AI Systems Leader) Tj
+ET
+
+BT
+/F2 10 Tf
+50 715 Td
+(Tucson, AZ \(520\) 302-4921 j.carroll@techsoftsys.com) Tj
+ET
+
+BT
+/F2 10 Tf
+50 700 Td
+(github.com/brandxx www.techsoftsys.com) Tj
+ET
+
+BT
+/F1 12 Tf
+50 670 Td
+(Driving AI-enabled infrastructure transformations that cut costs & boost resilience) Tj
+ET
+
+BT
+/F1 14 Tf
+50 640 Td
+(Professional Summary) Tj
+ET
+
+BT
+/F2 10 Tf
+50 625 Td
+(Seasoned technology leader with 20+ years designing, deploying, and securing enterprise-class) Tj
+ET
+
+BT
+/F2 10 Tf
+50 610 Td
+(infrastructure for government and private-sector organizations. Proven track record leading $3M+) Tj
+ET
+
+BT
+/F2 10 Tf
+50 595 Td
+(data-center refreshes, consolidating six OEM platforms into three core systems, and integrating) Tj
+ET
+
+BT
+/F2 10 Tf
+50 580 Td
+(cutting-edge AI & security stacks \(Docker-based Open-WebUI, Ollama, ComfyUI, DarkTrace,) Tj
+ET
+
+BT
+/F2 10 Tf
+50 565 Td
+(Microsoft Sentinel/Defender, etc.\). Recently eliminated 6 legacy racks, trimmed annual infrastructure) Tj
+ET
+
+BT
+/F2 10 Tf
+50 550 Td
+(OPEX by $250K, and boosted compute & storage performance while shrinking physical footprint 50%) Tj
+ET
+
+BT
+/F2 10 Tf
+50 535 Td
+(and delivering 10x security resilience at the Pascua Yaqui Tribe. Ready to help a forward-thinking) Tj
+ET
+
+BT
+/F2 10 Tf
+50 520 Td
+(Tucson organization scale securely, cost-effectively, and AI-first.) Tj
+ET
+
+BT
+/F1 14 Tf
+50 490 Td
+(Core Competencies) Tj
+ET
+
+BT
+/F2 10 Tf
+60 475 Td
+(- ) Tj
+ET
+
+BT
+/F1 10 Tf
+70 475 Td
+(Infrastructure Modernization) Tj
+ET
+
+BT
+/F2 10 Tf
+220 475 Td
+(- Nutanix AHV \(Acropolis\), VMware, Hyper-V, Cisco UCS, Pure Storage) Tj
+ET
+
+BT
+/F2 10 Tf
+60 460 Td
+(- ) Tj
+ET
+
+BT
+/F1 10 Tf
+70 460 Td
+(AI & Machine Learning Engineering) Tj
+ET
+
+BT
+/F2 10 Tf
+220 460 Td
+(- Local LLM hosting, NVIDIA GPU optimization, multi-agent workflows) Tj
+ET
+
+BT
+/F2 10 Tf
+60 445 Td
+(- ) Tj
+ET
+
+BT
+/F1 10 Tf
+70 445 Td
+(Cloud & Hybrid Services) Tj
+ET
+
+BT
+/F2 10 Tf
+220 445 Td
+(- Microsoft Azure IaaS/PaaS, Office 365, Azure AD, Exchange Online) Tj
+ET
+
+BT
+/F2 10 Tf
+60 430 Td
+(- ) Tj
+ET
+
+BT
+/F1 10 Tf
+70 430 Td
+(Cybersecurity & SIEM) Tj
+ET
+
+BT
+/F2 10 Tf
+220 430 Td
+(- Microsoft Defender, Microsoft Sentinel, Darktrace, Zero-Trust) Tj
+ET
+
+BT
+/F2 10 Tf
+60 415 Td
+(- ) Tj
+ET
+
+BT
+/F1 10 Tf
+70 415 Td
+(Automation & DevOps) Tj
+ET
+
+BT
+/F2 10 Tf
+220 415 Td
+(- Docker & Compose, GitHub Actions, CI/CD, Python, Bash, PowerShell) Tj
+ET
+
+BT
+/F2 10 Tf
+60 400 Td
+(- ) Tj
+ET
+
+BT
+/F1 10 Tf
+70 400 Td
+(Team Leadership & Project Management) Tj
+ET
+
+BT
+/F2 10 Tf
+220 400 Td
+(- 7+ years leading cross-functional teams, $1M+ cap-ex projects) Tj
+ET
+
+BT
+/F1 14 Tf
+50 370 Td
+(Professional Experience) Tj
+ET
+
+BT
+/F1 12 Tf
+50 350 Td
+(IT Infrastructure Manager) Tj
+ET
+
+BT
+/F2 10 Tf
+200 350 Td
+(- Pascua Yaqui Tribe Government, Tucson AZ) Tj
+ET
+
+BT
+/F3 10 Tf
+50 335 Td
+(Aug 2023 - Present) Tj
+ET
+
+BT
+/F2 10 Tf
+60 320 Td
+(- Directed a nine-person Infrastructure & SecOps team supporting police, fire, health, HR, and) Tj
+ET
+
+BT
+/F2 10 Tf
+65 305 Td
+(finance departments across Tucson & Guadalupe.) Tj
+ET
+
+BT
+/F2 10 Tf
+60 290 Td
+(- Led enterprise-wide infrastructure refresh, consolidating from six OEM platforms and four) Tj
+ET
+
+BT
+/F2 10 Tf
+65 275 Td
+(support vendors down to three core systems \(Nutanix AHV, Cisco UCS, Pure Storage\).) Tj
+ET
+
+BT
+/F2 10 Tf
+60 260 Td
+(- Implemented Microsoft Defender suite across endpoints, servers, and Azure workloads and) Tj
+ET
+
+BT
+/F2 10 Tf
+65 245 Td
+(stood up Microsoft Sentinel SIEM, delivering 10x increase in threat-detection resilience.) Tj
+ET
+
+BT
+/F2 10 Tf
+60 230 Td
+(- Built an on-prem AI research lab leveraging RTX 4090 GPUs, Dockerized LLM services, and) Tj
+ET
+
+BT
+/F2 10 Tf
+65 215 Td
+(local SearXNG metasearch, enabling secure internal AI pilots while maintaining data sovereignty.) Tj
+ET
+
+BT
+/F1 12 Tf
+50 195 Td
+(Senior System Administrator) Tj
+ET
+
+BT
+/F2 10 Tf
+200 195 Td
+(- Pascua Yaqui Tribe Government, Tucson AZ) Tj
+ET
+
+BT
+/F3 10 Tf
+50 180 Td
+(Jan 2021 - Aug 2023) Tj
+ET
+
+BT
+/F2 10 Tf
+60 165 Td
+(- Administered multi-site AHV, Hyper-V & VMware clusters, 250+ virtual servers, and hybrid) Tj
+ET
+
+BT
+/F2 10 Tf
+65 150 Td
+(Office 365 tenant.) Tj
+ET
+
+BT
+/F2 10 Tf
+60 135 Td
+(- Led migration of 100+ TB file shares to Pure Storage & Cloudian S3 tiered solution for resilient,) Tj
+ET
+
+BT
+/F2 10 Tf
+65 120 Td
+(air-gapped backups.) Tj
+ET
+
+BT
+/F1 14 Tf
+50 90 Td
+(Education & Professional Development) Tj
+ET
+
+BT
+/F2 10 Tf
+60 75 Td
+(- ) Tj
+ET
+
+BT
+/F1 10 Tf
+70 75 Td
+(Computer Programming & Digital Repair Certificates) Tj
+ET
+
+BT
+/F2 10 Tf
+300 75 Td
+(- Norfolk Technical Vocational Center, VA) Tj
+ET
+
+BT
+/F2 10 Tf
+60 60 Td
+(- Continuous learning via Coursera, Pluralsight, and vendor bootcamps \(Pure Storage, Cisco UCS,) Tj
+ET
+
+BT
+/F2 10 Tf
+65 45 Td
+(Microsoft Azure, Nutanix Academy\).) Tj
+ET
+
+BT
+/F1 10 Tf
+500 30 Td
+(Page 1 of 1) Tj
+ET
 endstream
 endobj
 xref
-0 7
+0 10
 0000000000 65535 f
 0000000009 00000 n
 0000000056 00000 n
 0000000111 00000 n
 0000000212 00000 n
-0000000253 00000 n
-0000000321 00000 n
+0000000267 00000 n
+0000000401 00000 n
+0000000336 00000 n
+0000000000 00000 n
+0000000466 00000 n
 trailer
-<</Size 7 /Root 1 0 R>>
+<</Size 10 /Root 1 0 R>>
 startxref
-414
+5452
 %%EOF
