@@ -935,6 +935,151 @@ h1::after {
 }
 
 /* =========================================================
+   AI SOLUTIONS PAGE NEW STYLES
+   ========================================================= */
+.ai-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.ai-section-title {
+  font-size: 2rem;
+  color: #f6c915;
+  margin: 2rem 0 3rem;
+  text-align: center;
+  position: relative;
+}
+
+.ai-section-title::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 3px;
+  background-color: #f6c915;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.ai-flex-container {
+  display: flex;
+  gap: 4rem;
+  margin: 3rem 0;
+  align-items: center;
+}
+
+.ai-flex-container.reverse {
+  flex-direction: row-reverse;
+}
+
+.ai-text-content {
+  flex: 3;
+}
+
+.ai-image-wrapper {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ai-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+}
+
+.ai-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.ai-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ai-feature-list li {
+  margin-bottom: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.ai-feature-list li strong {
+  display: block;
+  color: #f6c915;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-left: 1.8rem;
+}
+
+.ai-feature-list li strong::before {
+  content: '\2192';
+  position: absolute;
+  left: 0;
+  color: #f6c915;
+  transition: all 0.3s ease;
+}
+
+.ai-feature-list li:hover strong::before {
+  transform: translateX(5px);
+}
+
+.ai-feature-list li p {
+  margin: 0;
+  padding-left: 1.8rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+  .ai-flex-container {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ai-flex-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .ai-flex-container.reverse {
+    flex-direction: column;
+  }
+
+  .ai-image-wrapper {
+    order: -1;
+    margin-bottom: 1rem;
+  }
+
+  .ai-section-title {
+    font-size: 1.8rem;
+    margin: 2rem 0 2.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .ai-section-title {
+    font-size: 1.6rem;
+  }
+
+  .ai-feature-list li strong {
+    font-size: 1.1rem;
+  }
+
+  .ai-feature-list li p {
+    font-size: 1rem;
+  }
+}
+
+/* =========================================================
    LISTS
    ========================================================= */
 .benefits-list,
