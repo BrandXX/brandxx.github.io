@@ -1735,10 +1735,14 @@ footer.container { flex-direction: column; }
 .thank-you-actions {
   margin-top: 2rem;
   text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .thank-you-actions p {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   font-size: 0.95rem;
   color: #aaa;
 }
