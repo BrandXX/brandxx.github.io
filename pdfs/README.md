@@ -9,11 +9,11 @@ This directory contains PDF documents for download from the TechSoft Systems web
 
 ## PDF Generation
 
-These are placeholder PDF files. To replace them with actual content:
+These are professionally formatted PDF files containing the resume and cover letter content:
 
-1. Generate proper PDF versions of the resume and cover letter
-2. Replace the placeholder files with the generated PDFs
-3. Keep the same filenames to maintain the existing links
+1. The PDFs match the content from the HTML pages
+2. They are formatted for professional presentation and printing
+3. The filenames are consistent with the HTML links
 
 ## Usage
 

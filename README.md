@@ -99,7 +99,8 @@ If using Visual Studio Code:
   - `https://techsoftsys.com/resume.html`
   - `https://techsoftsys.com/cover-letter.html`
 - They include navigation between each other
-- PDF download placeholders are included (update href when PDFs are available)
+- PDF downloads are available for both pages
+- Enhanced download buttons with interactive hover effects
 
 ### Contact Form
 
@@ -134,6 +135,11 @@ If using Visual Studio Code:
 
 ## Recent Updates
 
+- Added functional PDF downloads for resume and cover letter pages
+- Created professionally formatted PDF versions of resume and cover letter
+- Enhanced PDF download buttons with interactive hover effects
+- Removed italic formatting from company page tagline for consistent styling
+- Added documentation for PDF files in pdfs/README.md
 - Implemented consistent image naming convention across all pages
 - Added new section images to the Company page (Core Values, Why Choose TechSoft)
 - Added new section images to the Home page (Why TechSoft, Results That Matter)
@@ -142,7 +148,6 @@ If using Visual Studio Code:
 - Set up local development workflow with Python HTTP server on port 8181
 - Added wide card layout to all pages for consistent design
 - Created resume and cover letter pages with navigation between them
-- Added PDF download placeholders for future document links
 - Enhanced contact page with direct contact information
 - Updated thank you page with consistent styling
 - Improved navigation and visual hierarchy across all pages
