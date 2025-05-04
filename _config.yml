@@ -1,3 +1,5 @@
 # _config.yml
-title: TechSoft Systems      # what you WANT visitors to see
+name: TechSoft Systems   # used only for the browser tab title
+title: null              # ← forces the header to disappear
+# title: TechSoft Systems      # what you WANT visitors to see
 description: Cutting-edge infrastructure & AI solutions  # optional tagline
