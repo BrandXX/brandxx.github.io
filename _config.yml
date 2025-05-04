@@ -1,5 +1,5 @@
 # _config.yml
-remote_theme: pages-themes/midnight@v0.2.0
+theme: midnight@v0.2.0
 name: TechSoft Systems   # used only for the browser tab title
 title: null              # ← forces the header to disappear
 # title: TechSoft Systems      # what you WANT visitors to see
