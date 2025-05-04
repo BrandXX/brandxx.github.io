@@ -112,13 +112,32 @@ h1 {
   color: #f6c915;
 }
 
-.hero-description {
-  margin-top: 1.5rem;
-  font-size: 1.1rem;
-  max-width: 720px;
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+.hero-section {
+  padding: 5rem 0 3rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid #333;
+  margin-bottom: 2rem;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
+}
+
+.hero-description {
+  margin: 2rem auto;
+  max-width: 720px;
+}
+
+.hero-description p {
+  font-size: 1.1rem;
   line-height: 1.6;
   color: #d0d0d0;
+  margin: 0.75rem 0;
 }
 
 .intro p {
@@ -180,6 +199,7 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  padding: 0.5rem;
 }
 
 .primary-btn {
@@ -410,13 +430,17 @@ h1 {
     padding-right: 1.5rem;
   }
 
-  header { padding: 5rem 1rem 2rem; }
+  .hero-section { padding: 4rem 0 2rem; }
 }
 
 @media (max-width: 720px) {
   h1 { font-size: 2.6rem; }
   .tagline { font-size: 1.3rem; }
-  .hero-description { font-size: 1rem; }
+  .hero-description p { font-size: 1rem; }
+
+  .hero-content {
+    padding: 0 1rem;
+  }
 
   .top-nav {
     padding: 0.75rem 1rem;
@@ -492,10 +516,14 @@ h1 {
 }
 
 @media (max-width: 600px) {
-  header { padding: 4rem 1rem 1.5rem; }
+  .hero-section { padding: 3.5rem 0 1.5rem; }
 
   .top-nav .brand {
     font-size: 1rem;
+  }
+
+  .hero-content {
+    padding: 0 0.5rem;
   }
 }
 
@@ -519,7 +547,11 @@ h1 {
 
   h1 { font-size: 2.2rem; }
   .tagline { font-size: 1rem; }
-  .hero-description { font-size: 0.95rem; }
+  .hero-description p { font-size: 0.95rem; }
+
+  .hero-section {
+    padding: 3rem 0 1.5rem;
+  }
 
   .intro p {
     font-size: 0.95rem;
