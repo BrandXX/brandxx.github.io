@@ -1,6 +1,9 @@
 # _config.yml
-theme: midnight@v0.2.0
+theme: null
 name: TechSoft Systems   # used only for the browser tab title
-title: null              # ← forces the header to disappear
-# title: TechSoft Systems      # what you WANT visitors to see
-description: Cutting-edge infrastructure & AI solutions  # optional tagline
+title: null              # what you WANT visitors to see
+tagline: Cutting-edge infrastructure & AI solutions # optional tagline
+description: Cutting-edge infrastructure & AI solutions  # optional description
+
+
+description: [A short description of your site's purpose (e.g. for search engines)]
