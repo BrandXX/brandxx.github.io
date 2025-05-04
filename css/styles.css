@@ -1,0 +1,174 @@
+/* =========================================================
+   Global reset & base
+   ========================================================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #f3f3f3;
+
+  /* Dark gradient background + subtle stripes */
+  background:
+    radial-gradient(circle at 50% 0%, #1a1a1a 0%, #111 100%),
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,0.04) 0 2px,
+      transparent 2px 4px
+    );
+}
+
+/* =========================================================
+   Top navigation
+   ========================================================= */
+.top-nav {
+  position: sticky;    /* stays visible on scroll */
+  top: 0;
+  width: 100%;
+  background: #0e0e0e;
+  border-bottom: 1px solid #222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  z-index: 999;
+  backdrop-filter: blur(4px);
+}
+
+.top-nav .brand {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #f6c915;
+  text-decoration: none;
+}
+
+.top-nav .links a {
+  margin-left: 1.25rem;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: #ccc;
+  transition: color 0.2s ease;
+}
+
+.top-nav .links a:hover,
+.top-nav .links a[aria-current="page"] {
+  color: #fff;
+}
+
+/* =========================================================
+   Layout sections
+   ========================================================= */
+header, footer, main { width: 100%; text-align: center; }
+header   { padding: 6rem 1rem 2rem; }   /* extra top padding = nav height */
+main     { padding: 2rem 1rem 4rem; }
+footer   { padding: 1.5rem 1rem 3rem; font-size: 0.85rem; color: #999; }
+hr       { width: 60%; max-width: 640px; margin: 0 auto; border: 0; border-top: 1px solid #333; }
+
+/* =========================================================
+   Typography
+   ========================================================= */
+h1 { font-size: 3.25rem; font-weight: 600; letter-spacing: .5px; }
+.tagline { margin-top: .5rem; font-size: 1.25rem; font-weight: 300; color: #d0d0d0; }
+
+.intro p { max-width: 720px; margin: 0 auto; font-size: 1.1rem; }
+
+.accent { color: #f6c915; font-weight: 600; }
+
+/* =========================================================
+   Responsive tweaks
+   ========================================================= */
+@media (max-width: 720px) {
+  h1 { font-size: 2.6rem; }
+  .tagline { font-size: 1.1rem; }
+}
+
+@media (max-width: 500px) {
+  .top-nav { flex-direction: column; gap: 0.5rem; }
+  .top-nav .links a { margin-left: 0; }
+
+  h1 { font-size: 2.2rem; }
+  .tagline { font-size: 1rem; }
+}
+/* =====  Center-lock the whole page  =============================== */
+.container {
+  max-width: 1024px;   /* tweak to taste */
+  margin: 0 auto;      /* <-- the magic: keeps it centred */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* OPTIONAL: keep paragraphs & sections nicely centred too */
+header .container,
+main .container,
+footer .container {      /* if you later wrap these sections */
+  flex-direction: column;
+}
+/* ——— keep everything we had before ——— */
+
+/* ═══════════ SITE-WIDTH CONTAINER ═══════════ */
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Let header / main / footer stack vertically inside .container */
+header.container,
+main.container,
+footer.container { flex-direction: column; }
+
+/* Divider line that respects centring */
+.divider {
+  width: 60%;
+  max-width: 640px;
+  margin: 0 auto;
+  border: 0;
+  border-top: 1px solid #333;
+}
+
+/* ═══════════ DATA TABLES ═══════════ */
+.data-table {
+  width: 100%;
+  max-width: 780px;   /* keeps the columns from stretching too wide */
+  margin: 1.5rem auto;
+  border-collapse: collapse;
+}
+
+.data-table thead th {
+  padding-bottom: .6rem;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 1px solid #444;
+}
+
+.data-table td, .data-table th {
+  padding: .35rem .75rem;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.45;
+}
+
+/* shrink first column nicely on wide screens */
+@media (min-width: 640px) {
+  .data-table td:first-child,
+  .data-table th:first-child {
+    width: 40%;
+    white-space: nowrap;
+  }
+}
+
+/* center the “Practice Area / Expertise” header row */
+.data-table thead + tbody tr:first-child td {
+  padding-top: .6rem;
+}
+
+/* optional: soften bold table text */
+.data-table strong { font-weight: 500; }
+
