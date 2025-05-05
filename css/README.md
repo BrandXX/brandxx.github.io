@@ -24,7 +24,8 @@ The CSS is organized into the following major sections:
 
 ### 3. Navigation
 - Top navigation bar
-- Mobile navigation
+- Mobile hamburger menu (appears on screens ≤768px)
+- Mobile slide-out navigation panel
 - Active state styling
 - Responsive adjustments
 
@@ -115,6 +116,10 @@ The CSS follows these naming conventions:
 - `.ai-image-wrapper` - Image wrapper within flex containers
 - `.ai-section-title` - Section headings
 - `.reverse` - Modifier class to reverse flex direction
+- `.mobile-menu-toggle` - Hamburger menu button for mobile devices
+- `.hamburger-icon` - The three-line icon for the hamburger menu
+- `.menu-overlay` - Background overlay that appears when mobile menu is open
+- `.active` - State class for active mobile menu elements
 
 ## Color Scheme
 
@@ -139,6 +144,8 @@ When adding new styles:
 - Mobile: Up to 767px
 - Tablet: 768px to 1023px
 - Desktop: 1024px and above
+
+The mobile hamburger menu appears at 768px and below. This breakpoint was chosen to ensure comfortable navigation on tablets and smaller devices.
 
 ## Best Practices
 
@@ -168,23 +175,30 @@ Common issues and solutions:
 
 The website includes several interactive elements to enhance user experience:
 
-1. **Button Hover Effects**
+1. **Mobile Hamburger Menu**
+   - Animated hamburger-to-X transformation
+   - Slide-in navigation panel
+   - Background overlay with fade effect
+   - Touch-friendly tap targets
+   - Keyboard accessibility (Escape key closes menu)
+
+2. **Button Hover Effects**
    - Scale transformation
    - Color transitions
    - Shadow effects
    - Background gradient animations
 
-2. **Card Hover Effects**
+3. **Card Hover Effects**
    - Subtle elevation (translateY)
    - Border color changes
    - Background gradient fade-ins
 
-3. **Link Hover Effects**
+4. **Link Hover Effects**
    - Color transitions
    - Underline animations
    - Scale effects
 
-4. **Contact Link Hover Effects**
+5. **Contact Link Hover Effects**
    - Color change to yellow (#f6c915)
    - Animated underline that expands from left to right
    - Subtle upward movement (translateY)

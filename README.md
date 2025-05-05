@@ -180,9 +180,50 @@ If using Visual Studio Code:
 - Use yellow accents (`#f6c915`) for highlights and interactive elements
 - Keep the dark background theme throughout
 - Ensure responsive design works on all device sizes
+- Use hamburger menu for navigation on mobile devices (≤768px)
+- Maintain touch-friendly tap targets on mobile (at least 44×44px)
 - Use consistent email addresses (sales@techsoftsys.com for general pages, j.carroll@techsoftsys.com for personal pages)
 
+## Mobile Responsiveness
+
+The website is fully responsive and optimized for mobile devices:
+
+### Mobile Navigation
+
+- Hamburger menu appears on screens 768px and below
+- Menu slides in from the right when hamburger icon is clicked
+- Semi-transparent overlay appears behind the menu
+- Menu closes when a link is clicked, overlay is tapped, or Escape key is pressed
+- Body scrolling is prevented when menu is open
+- Smooth animations for opening/closing the menu
+- Hamburger icon transforms into an X when menu is open
+
+### Testing Mobile Responsiveness
+
+To test the mobile responsiveness on actual devices:
+
+1. Run the local server:
+   ```bash
+   python -m http.server 8181 --bind 0.0.0.0
+   ```
+
+2. Use ngrok to create a temporary public URL:
+   ```bash
+   ngrok http 8181
+   ```
+
+3. Access the ngrok URL on your mobile device
+
 ## Recent Updates
+
+### June 2025 Updates
+- Implemented mobile hamburger menu for improved navigation on small screens
+- Added JavaScript functionality for mobile menu toggle
+- Created slide-in animation for mobile navigation panel
+- Added keyboard accessibility for mobile menu (Escape key closes menu)
+- Prevented body scrolling when mobile menu is open
+- Updated documentation to include mobile menu implementation details
+- Added ngrok setup instructions for testing on actual mobile devices
 
 ### May 2025 Updates
 - Created page template system with detailed documentation for easier page creation
