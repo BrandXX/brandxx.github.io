@@ -17,9 +17,49 @@ The website consists of the following pages:
 
 ## Design Elements
 
-### Wide Card Layout
+### Header Layout
 
-All pages use a consistent wide card layout with the following structure:
+All pages use a consistent two-card header layout with the following structure:
+
+```html
+<header class="hero-section">
+  <div class="container">
+    <div class="hero-flex-container">
+      <!-- Main Content Card -->
+      <div class="wide-card hero-card main-card">
+        <div class="hero-content">
+          <p class="tagline">Page Tagline</p>
+          <div class="hero-description">
+            <p>Descriptive text about the page content.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Card -->
+      <div class="wide-card contact-card">
+        <h3>Contact Us</h3>
+        <div class="contact-links">
+          <a href="tel:5203024921" class="contact-link phone-link">
+            <span class="contact-icon phone-icon"></span>
+            <span>(520) 302-4921</span>
+          </a>
+          <a href="mailto:sales@techsoftsys.com" class="contact-link email-link">
+            <span class="contact-icon email-icon"></span>
+            <span>sales@techsoftsys.com</span>
+          </a>
+          <a href="mailto:sales@techsoftsys.com" class="primary-btn schedule-btn">
+            <span>Schedule a Consultation</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+```
+
+### Content Card Layout
+
+All content sections use a consistent wide card layout with the following structure:
 
 ```html
 <div class="wide-card">
@@ -111,9 +151,14 @@ If using Visual Studio Code:
 
 ### Adding New Pages
 
-1. Copy the structure from an existing page
-2. Update the navigation links as needed
-3. Maintain the wide card layout for consistency
+1. Use the template in the `/templates` directory:
+   ```bash
+   cp templates/page-template.html new-page-name.html
+   ```
+2. Follow the instructions in the template comments (look for `<!-- REPLACE: -->`)
+3. Update the navigation links as needed
+4. Maintain the wide card layout for consistency
+5. See `templates/README.md` for detailed instructions
 
 ### Adding Images
 
@@ -128,13 +173,34 @@ If using Visual Studio Code:
 
 ### Styling Guidelines
 
+- Use the two-card header layout for all pages (main content card and contact card)
+- Use the yellow tagline as the primary text element in the hero section
+- Apply consistent hover effects to all interactive elements (especially contact links)
 - Maintain consistent spacing between sections
 - Use yellow accents (`#f6c915`) for highlights and interactive elements
 - Keep the dark background theme throughout
 - Ensure responsive design works on all device sizes
+- Use consistent email addresses (sales@techsoftsys.com for general pages, j.carroll@techsoftsys.com for personal pages)
 
 ## Recent Updates
 
+### May 2025 Updates
+- Created page template system with detailed documentation for easier page creation
+- Implemented new two-card header layout across all pages for a more professional appearance
+- Created dedicated contact card in header with phone, email, and schedule button
+- Standardized the hero section to use yellow tagline as primary text element
+- Removed large white headings for a cleaner, more consistent look
+- Fixed email address on AI Solutions page (changed to sales@techsoftsys.com)
+- Fixed favicon configuration on AI Solutions page
+- Added hover effect to email links to match phone number links
+- Added descriptive text to hero sections on all pages
+- Cleaned up orphaned image files to reduce repository size
+- Fixed capitalization inconsistency in image filenames (why-techSoft-image.png → why-techsoft-image.png)
+- Ensured all image references use consistent lowercase naming
+- Updated documentation in CSS/README.md and main README.md
+- Ensured consistent styling across all pages
+
+### Previous Updates
 - Added functional PDF downloads for resume and cover letter pages
 - Created professionally formatted PDF versions of resume and cover letter
 - Enhanced PDF download buttons with interactive hover effects

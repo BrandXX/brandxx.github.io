@@ -35,10 +35,12 @@ The CSS is organized into the following major sections:
 - Font weights and sizes
 
 ### 5. Hero Section
+- Two-card layout with main content and contact information
 - Hero background and animations
-- Hero content positioning
-- Tagline styling
-- Call-to-action elements
+- Yellow tagline as primary text element
+- Contact card with phone, email, and schedule button
+- Consistent hover effects for all contact links
+- Consistent layout across all pages
 
 ### 6. Buttons & Call to Action
 - Primary and secondary buttons
@@ -101,6 +103,13 @@ The CSS follows these naming conventions:
 - `.container` - Main content container
 - `.section-divider` - Horizontal divider between sections
 - `.wide-card` - Card-style content container
+- `.hero-flex-container` - Flexbox container for hero section cards
+- `.main-card` - Left card in hero section containing main content
+- `.contact-card` - Right card in hero section containing contact information
+- `.contact-links` - Container for contact links in contact card
+- `.contact-link` - Individual contact link (phone, email)
+- `.contact-icon` - Icon for contact links
+- `.schedule-btn` - Schedule button in contact card
 - `.ai-flex-container` - Flexbox container for content and images
 - `.ai-text-content` - Text content within flex containers
 - `.ai-image-wrapper` - Image wrapper within flex containers
@@ -133,7 +142,10 @@ When adding new styles:
 
 ## Best Practices
 
-- Use the existing wide card layout for new sections
+- Use the page template in `/templates/page-template.html` for creating new pages
+- Use the two-card header layout for all pages (main content card and contact card)
+- Use the yellow tagline as the primary text element in the hero section
+- Use the existing wide card layout for content sections
 - Maintain consistent spacing between elements
 - Follow the established color scheme
 - Test all changes on mobile, tablet, and desktop views
@@ -141,6 +153,7 @@ When adding new styles:
 - Keep selectors as simple as possible
 - Follow the image naming convention (section-name-image.png)
 - Alternate image positions (left/right) for visual interest using the `reverse` class
+- Use consistent email addresses (sales@techsoftsys.com for general pages, j.carroll@techsoftsys.com for personal pages)
 
 ## Troubleshooting
 
@@ -150,6 +163,31 @@ Common issues and solutions:
 - **Mobile layout issues**: Check media queries and test on multiple device sizes
 - **Image sizing problems**: Use the ai-image-wrapper class and ensure images are properly sized
 - **Text contrast issues**: Ensure text has sufficient contrast against backgrounds
+
+## Interactive Elements
+
+The website includes several interactive elements to enhance user experience:
+
+1. **Button Hover Effects**
+   - Scale transformation
+   - Color transitions
+   - Shadow effects
+   - Background gradient animations
+
+2. **Card Hover Effects**
+   - Subtle elevation (translateY)
+   - Border color changes
+   - Background gradient fade-ins
+
+3. **Link Hover Effects**
+   - Color transitions
+   - Underline animations
+   - Scale effects
+
+4. **Contact Link Hover Effects**
+   - Color change to yellow (#f6c915)
+   - Animated underline that expands from left to right
+   - Subtle upward movement (translateY)
 
 ## Future Improvements
 
