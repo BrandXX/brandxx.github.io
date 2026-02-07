@@ -11,22 +11,22 @@ import SectionHeader from '../components/SectionHeader.astro';
   <section class="pt-12">
     <SectionHeader
       title="AI Lab"
-      subtitle="A technical look at private AI stack design patterns, tuning methodology, and reliability controls."
+      subtitle="Technical notes on how private AI platforms are designed, tuned, and operated for secure high-throughput delivery."
     />
 
     <div class="mt-8 grid gap-4 md:grid-cols-3">
-      <BentoCard title="How we build private AI stacks" description="Reference architecture from ingress to model serving to policy and audit boundaries in on-prem and hybrid footprints." />
-      <BentoCard title="Observability that operators trust" description="Metrics, logs, traces, and GPU telemetry pipelines with threshold design that minimizes false alarms." />
-      <BentoCard title="GPU workload tuning" description="Batch sizing, memory profile management, queue design, and I/O tuning based on benchmark-driven iteration." />
+      <BentoCard title="Private AI stack architecture" description="Reference blueprint from ingress to model serving to policy boundaries for on-prem and hybrid deployments." />
+      <BentoCard title="Observability that operators trust" description="Metrics, logs, traces, and GPU telemetry designed for signal quality and incident response speed." />
+      <BentoCard title="GPU workload tuning" description="Practical benchmark-driven tuning across batching, memory pressure, queue depth, and I/O behavior." />
     </div>
 
     <div class="mt-8 rounded-3xl border border-zinc-300/50 bg-white/80 p-6 dark:border-white/10 dark:bg-white/5">
       <h2 class="text-xl font-semibold">Technical notes</h2>
       <ul class="mt-4 grid gap-3 text-sm text-zinc-700 md:grid-cols-2 dark:text-zinc-300">
         <li>No sensitive client internals or private topology disclosures</li>
-        <li>Emphasis on repeatable patterns and measurable outcomes</li>
-        <li>Production-readiness checklists for architecture reviews</li>
-        <li>Operator-first runbook and alerting considerations</li>
+        <li>Repeatable implementation patterns tied to measurable outcomes</li>
+        <li>Production-readiness checklists for architecture and rollout reviews</li>
+        <li>Operator-first runbook and alerting design considerations</li>
       </ul>
     </div>
   </section>

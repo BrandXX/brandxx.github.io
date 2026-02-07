@@ -1,6 +1,6 @@
 ---
 title: Zero-Loss Virtualization Migration
-description: Planned and executed migration of 100+ servers with rollback-safe cutovers and no data loss.
+description: Planned and executed migration of 100+ servers with rollback-safe cutovers, no data loss, and minimal business disruption.
 industry: Infrastructure
 date: '2025-08-06'
 featured: true
@@ -15,13 +15,13 @@ tools:
 import ArchitecturePlaceholder from '../../components/ArchitecturePlaceholder.astro';
 
 ## Context
-A multi-site organization needed to modernize virtualization infrastructure without disrupting business-critical workloads.
+A multi-site organization needed to modernize its virtualization platform without disrupting business-critical systems.
 
 ## Problem
-Legacy clusters had capacity bottlenecks, uneven backup posture, and no consistent rollback model for large migration waves.
+Legacy clusters were capacity-constrained, backup posture was inconsistent, and there was no reliable rollback model for large migration waves.
 
 ## Approach
-We built a migration factory model: discovery baselines, dependency mapping, pilot waves, validation gates, and automated post-cutover checks.
+We built a migration-factory model with discovery baselines, dependency mapping, pilot waves, validation gates, and automated post-cutover checks.
 
 ## Architecture
 - Dual-track source and target environments during migration windows
@@ -41,4 +41,4 @@ We built a migration factory model: discovery baselines, dependency mapping, pil
 VMware, Proxmox, Veeam, Terraform automation, and NetBox-backed inventory controls.
 
 ## Lessons Learned
-Migration speed improves when validation checkpoints are automated and rollback criteria are explicit before each wave starts.
+Migration speed and safety both improve when validation checkpoints are automated and rollback criteria are explicit before each wave begins.

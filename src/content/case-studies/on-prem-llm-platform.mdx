@@ -1,6 +1,6 @@
 ---
 title: On-Prem LLM Platform
-description: Built a secure GPU-backed internal LLM platform for high-throughput enterprise workflows.
+description: Designed and delivered a secure GPU-backed internal LLM platform for high-throughput enterprise workflows.
 industry: Private AI
 date: '2025-11-21'
 featured: true
@@ -15,13 +15,13 @@ tools:
 import ArchitecturePlaceholder from '../../components/ArchitecturePlaceholder.astro';
 
 ## Context
-An enterprise team needed internal AI capabilities without sending confidential data to external SaaS platforms.
+An enterprise team needed internal AI capability without exposing confidential data to external SaaS AI endpoints.
 
 ## Problem
-The organization lacked a controlled model-serving platform with predictable latency, governance controls, and operational visibility.
+The organization lacked a controlled model-serving platform with predictable latency, policy controls, and operational visibility.
 
 ## Approach
-We designed a private AI stack with containerized inference services, access policies, observability, and workload tuning for sustained demand.
+We designed a private AI stack with containerized inference services, role-aware policy controls, observability, and workload tuning for sustained demand.
 
 ## Architecture
 - GPU inference tier with queue-based request handling
@@ -41,4 +41,4 @@ We designed a private AI stack with containerized inference services, access pol
 NVIDIA GPU nodes, Docker service composition, vLLM inference, Open-WebUI interface, and Loki-based log pipelines.
 
 ## Lessons Learned
-Private AI programs succeed when platform reliability and governance are treated as first-class requirements alongside model quality.
+Private AI programs succeed when reliability, governance, and operational ownership are treated as first-class requirements alongside model quality.

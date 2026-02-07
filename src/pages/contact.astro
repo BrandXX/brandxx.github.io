@@ -5,11 +5,14 @@ import SectionHeader from '../components/SectionHeader.astro';
 
 <BaseLayout title="Contact | TechSoft Systems" description="Contact TechSoft Systems for private AI, infrastructure, and training inquiries.">
   <section class="pt-12">
-    <SectionHeader title="Contact" subtitle="Email is fastest for project and training requests. Phone support is available for direct consultation." />
+    <SectionHeader title="Contact" subtitle="Email is fastest for project and training requests. Share your environment, timeline, and priorities to start scoping." />
 
     <div class="mt-8 grid gap-4 md:grid-cols-2">
       <div class="rounded-3xl border border-zinc-300/50 bg-white/80 p-6 dark:border-white/10 dark:bg-white/5">
         <h2 class="text-lg font-semibold">Primary contact</h2>
+        <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">
+          Most engagements start with a focused discovery email. Include current state, desired outcomes, and constraints.
+        </p>
         <div class="mt-4 flex flex-wrap gap-3">
           <a
             href="mailto:sales@techsoftsys.com?subject=Consultation%20Request"
@@ -26,7 +29,7 @@ import SectionHeader from '../components/SectionHeader.astro';
         </div>
 
         <p class="mt-4 text-sm text-zinc-700 dark:text-zinc-300">
-          Preset subjects: 
+          Preset subjects:
           <a class="text-cyan-600 dark:text-cyan-400" href="mailto:sales@techsoftsys.com?subject=AI%20Training%20Inquiry">Training</a>,
           <a class="text-cyan-600 dark:text-cyan-400" href="mailto:sales@techsoftsys.com?subject=Private%20AI%20Platform%20Inquiry">Private AI</a>,
           <a class="text-cyan-600 dark:text-cyan-400" href="mailto:sales@techsoftsys.com?subject=Infrastructure%20Modernization%20Inquiry">Infrastructure</a>
@@ -34,8 +37,8 @@ import SectionHeader from '../components/SectionHeader.astro';
       </div>
 
       <div class="rounded-3xl border border-zinc-300/50 bg-white/80 p-6 dark:border-white/10 dark:bg-white/5">
-        <h2 class="text-lg font-semibold">Quick intake (client-side only)</h2>
-        <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">This form does not submit without a backend. Use it as a planning template for fields you may wire later.</p>
+        <h2 class="text-lg font-semibold">Quick intake template</h2>
+        <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">This form is client-side only and does not submit. Use it as a field template for future backend integration.</p>
         <form class="mt-4 grid gap-3" aria-label="Contact planning form">
           <label class="text-sm">Name <input class="mt-1 w-full rounded-xl border border-zinc-300/70 bg-white px-3 py-2 text-sm dark:border-white/10 dark:bg-zinc-900" type="text" /></label>
           <label class="text-sm">Email <input class="mt-1 w-full rounded-xl border border-zinc-300/70 bg-white px-3 py-2 text-sm dark:border-white/10 dark:bg-zinc-900" type="email" /></label>
