@@ -1,0 +1,44 @@
+---
+title: Downtime Reduction Program
+description: Modernization and observability overhaul for a regulated environment that cut unplanned outages.
+industry: Government / Regulated
+date: '2025-10-18'
+featured: true
+stat: 65% less unplanned downtime
+tools:
+  - Docker
+  - Prometheus
+  - Grafana
+  - Ansible
+  - SIEM
+---
+import ArchitecturePlaceholder from '../../components/ArchitecturePlaceholder.astro';
+
+## Context
+A public-sector technology team ran legacy services with frequent late-night incidents and inconsistent recovery procedures.
+
+## Problem
+Unplanned outages were increasing, alert noise was high, and incident triage relied heavily on tribal knowledge.
+
+## Approach
+We implemented a phased reliability program: service hardening, monitoring standards, runbook revision, and weekly review loops with incident metrics.
+
+## Architecture
+- Segmented workload tiers for core services and supporting jobs
+- Standardized container runtime profiles and health checks
+- Unified metrics, logs, and trace ingestion with policy-aware retention
+- Alert routing based on service criticality and operating hours
+
+## Architecture Diagram Placeholder
+<ArchitecturePlaceholder title="Downtime reduction reference architecture" />
+
+## Results and Metrics
+- 65% reduction in unplanned downtime over two quarters
+- Mean time to recovery improved from 74 minutes to 26 minutes
+- Critical alert false positives reduced by 48%
+
+## Tools and Stack
+Docker, Prometheus, Grafana, centralized logging, Ansible hardening playbooks, and SIEM forwarding.
+
+## Lessons Learned
+Tight alert thresholds alone do not solve reliability; teams need clear ownership boundaries and practical runbooks that reflect real failure modes.

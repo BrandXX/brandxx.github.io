@@ -1,9 +1,0 @@
-# robots.txt for techsoftsys.com
-User-agent: *
-Allow: /
-
-# Allow all bots to access the entire site
-# This is a good default for most business websites
-
-# Sitemap location (to be added in the future)
-# Sitemap: https://techsoftsys.com/sitemap.xml

@@ -1,9 +1,0 @@
-# _config.yml
-theme: null
-name: TechSoft Systems   # used only for the browser tab title
-title: null              # what you WANT visitors to see
-tagline: Cutting-edge infrastructure & AI solutions # optional tagline
-description: Cutting-edge infrastructure & AI solutions  # optional description
-
-
-description: [A short description of your site's purpose (e.g. for search engines)]

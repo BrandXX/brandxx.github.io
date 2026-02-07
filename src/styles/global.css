@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 250 250 250;
+  --surface: 255 255 255;
+  --surface-soft: 244 244 245;
+  --text: 24 24 27;
+  --muted: 82 82 91;
+  --border: 212 212 216;
+}
+
+:root.dark {
+  --bg: 9 9 11;
+  --surface: 24 24 27;
+  --surface-soft: 39 39 42;
+  --text: 244 244 245;
+  --muted: 161 161 170;
+  --border: 63 63 70;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  @apply bg-[rgb(var(--bg))] text-[rgb(var(--text))] antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(34 211 238 / 0.9);
+  outline-offset: 2px;
+}
+
+.prose-tech {
+  @apply max-w-none leading-relaxed text-[rgb(var(--muted))];
+}
+
+.prose-tech h2,
+.prose-tech h3,
+.prose-tech h4 {
+  @apply mt-8 text-[rgb(var(--text))] font-semibold tracking-tight;
+}
+
+.prose-tech p,
+.prose-tech li {
+  @apply text-sm md:text-base;
+}
+
+.prose-tech ul {
+  @apply my-4 list-disc pl-5;
+}

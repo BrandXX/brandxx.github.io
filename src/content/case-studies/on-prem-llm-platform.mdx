@@ -1,0 +1,44 @@
+---
+title: On-Prem LLM Platform
+description: Built a secure GPU-backed internal LLM platform for high-throughput enterprise workflows.
+industry: Private AI
+date: '2025-11-21'
+featured: true
+stat: 30K secure on-prem LLM queries per day
+tools:
+  - NVIDIA
+  - Docker
+  - vLLM
+  - Open-WebUI
+  - Loki
+---
+import ArchitecturePlaceholder from '../../components/ArchitecturePlaceholder.astro';
+
+## Context
+An enterprise team needed internal AI capabilities without sending confidential data to external SaaS platforms.
+
+## Problem
+The organization lacked a controlled model-serving platform with predictable latency, governance controls, and operational visibility.
+
+## Approach
+We designed a private AI stack with containerized inference services, access policies, observability, and workload tuning for sustained demand.
+
+## Architecture
+- GPU inference tier with queue-based request handling
+- API and UI services isolated by role-aware access controls
+- Retrieval and caching layers for repeat query acceleration
+- Unified telemetry for latency, GPU utilization, and policy events
+
+## Architecture Diagram Placeholder
+<ArchitecturePlaceholder title="On-prem LLM platform architecture" />
+
+## Results and Metrics
+- 30,000 secure on-prem queries per day at steady state
+- P95 latency reduced by 38% after inference tuning
+- 100% authenticated access with auditable request logs
+
+## Tools and Stack
+NVIDIA GPU nodes, Docker service composition, vLLM inference, Open-WebUI interface, and Loki-based log pipelines.
+
+## Lessons Learned
+Private AI programs succeed when platform reliability and governance are treated as first-class requirements alongside model quality.

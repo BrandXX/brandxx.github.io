@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BentoCard from '../components/BentoCard.astro';
+import CTA from '../components/CTA.astro';
+import ProofStrip from '../components/ProofStrip.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import StackCard from '../components/StackCard.astro';
+import { getCollection } from 'astro:content';
+
+const caseStudies = (await getCollection('case-studies'))
+  .sort((a, b) => b.data.date.localeCompare(a.data.date))
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title="TechSoft Systems | Private AI & Infrastructure Engineering"
+  description="Security-first on-prem LLM platforms, GPU workloads, resilient infrastructure, and team training programs."
+>
+  <section class="grid gap-8 pt-12 md:grid-cols-2 md:items-center">
+    <div>
+      <p class="inline-flex items-center gap-2 rounded-full border border-zinc-300/70 bg-white/80 px-3 py-1 text-xs text-zinc-700 dark:border-white/10 dark:bg-white/5 dark:text-zinc-300">
+        <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+        Security-first. On-prem. Audit-ready.
+      </p>
+
+      <h1 class="mt-5 text-4xl font-semibold tracking-tight md:text-5xl">
+        Private AI & infrastructure that doesn’t flinch at 3 a.m.
+      </h1>
+
+      <p class="mt-4 text-zinc-700 dark:text-zinc-300">
+        Jonathan (John) designs and operates mission-critical environments, from hyperconverged clusters to GPU-accelerated
+        private LLM platforms, so your team ships faster without exposing sensitive data.
+      </p>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/work" class="rounded-xl bg-gradient-to-r from-cyan-400 to-indigo-500 px-4 py-2 text-sm font-semibold text-zinc-950">
+          View case studies
+        </a>
+        <a href="/services" class="rounded-xl border border-zinc-300/70 bg-white px-4 py-2 text-sm text-zinc-800 transition hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:text-zinc-200 dark:hover:bg-white/10">
+          Explore services
+        </a>
+      </div>
+
+      <ProofStrip />
+    </div>
+
+    <StackCard />
+  </section>
+
+  <section class="mt-16" id="services">
+    <SectionHeader
+      title="What we do"
+      subtitle="Infrastructure, private AI, security, and practical training that makes teams effective fast."
+    />
+    <div class="mt-6 grid gap-4 md:grid-cols-6">
+      <BentoCard className="md:col-span-3" title="Private LLM Platforms" description="On-prem deployments, fine-tuning pipelines, RAG, access controls, and audit logs." />
+      <BentoCard className="md:col-span-3" title="High-Performance Infrastructure" description="Virtualization, HCI, storage tuning, and network design for real workloads." />
+      <BentoCard className="md:col-span-2" title="Security & Compliance" description="Zero-trust patterns, incident readiness, and compliance-friendly architecture." />
+      <BentoCard className="md:col-span-2" title="Ops & Reliability" description="DR playbooks, patch cadence, observability, and automation that holds under stress." />
+      <BentoCard className="md:col-span-2" title="AI Training & Enablement" description="Hands-on programs for IT teams, business users, and leaders with measurable outcomes." />
+    </div>
+  </section>
+
+  <section class="mt-16" id="training">
+    <SectionHeader
+      title="Training"
+      subtitle="Adoption only works when your people can use AI safely and confidently in day-to-day operations."
+    />
+
+    <div class="mt-6 grid gap-4 md:grid-cols-3">
+      <BentoCard eyebrow="For IT & infrastructure teams" title="AI Workloads Bootcamp" description="GPUs, containerized serving, RAG pipelines, security boundaries, observability, and cost/performance tuning." />
+      <BentoCard eyebrow="For employees & power users" title="AI Literacy for the Real World" description="Prompting, validation, data handling, and practical workflows with policy-safe guardrails." />
+      <BentoCard eyebrow="For leaders & rollout teams" title="AI Adoption Playbook" description="Use-case triage, risk tiers, governance controls, and scaling without shadow AI." />
+    </div>
+
+    <div class="mt-8 grid gap-4 md:grid-cols-2">
+      <BentoCard eyebrow="Formats" title="Choose what fits your team">
+        <ul class="mt-4 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+          <li>2-4 hour workshop</li>
+          <li>1-2 day hands-on bootcamp</li>
+          <li>4-6 week cohort</li>
+          <li>Custom regulated-environment program</li>
+        </ul>
+      </BentoCard>
+      <BentoCard eyebrow="Outcomes" title="Measurable progress, not slides">
+        <ul class="mt-4 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+          <li>Lab exercises and architecture diagrams</li>
+          <li>Internal policy cheat-sheet</li>
+          <li>Approved workflows playbook</li>
+          <li>Adoption and risk metrics template</li>
+        </ul>
+      </BentoCard>
+    </div>
+
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a
+        class="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-zinc-50 transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+        href="mailto:sales@techsoftsys.com?subject=AI%20Training%20Inquiry"
+      >
+        Request training details
+      </a>
+      <a
+        class="rounded-xl border border-zinc-300/70 bg-white px-4 py-2 text-sm text-zinc-800 transition hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:text-zinc-200 dark:hover:bg-white/10"
+        href="/training"
+      >
+        See full training page
+      </a>
+    </div>
+  </section>
+
+  <section class="mt-16" id="work">
+    <div class="flex items-end justify-between gap-6">
+      <SectionHeader
+        title="Selected work"
+        subtitle="Case studies with architecture decisions, tradeoffs, and measurable outcomes."
+      />
+      <a class="hidden text-sm text-zinc-700 transition hover:text-zinc-900 md:inline dark:text-zinc-300 dark:hover:text-white" href="/work">
+        View all case studies →
+      </a>
+    </div>
+
+    <div class="mt-6 grid gap-4 md:grid-cols-3">
+      {caseStudies.map((study) => (
+        <BentoCard
+          href={`/work/${study.slug}`}
+          eyebrow={study.data.industry}
+          title={study.data.title}
+          description={study.data.description}
+        />
+      ))}
+    </div>
+  </section>
+
+  <section class="mt-16" id="lab">
+    <SectionHeader
+      title="AI Lab"
+      subtitle="How private AI stacks are built and tuned in real environments, without exposing internal sensitive details."
+    />
+    <div class="mt-6 rounded-3xl border border-zinc-300/50 bg-white/80 p-6 dark:border-white/10 dark:bg-white/5">
+      <ul class="grid gap-3 text-sm md:grid-cols-2">
+        <li>How we design private AI stack reference architectures</li>
+        <li>Inference performance tuning and benchmark strategy</li>
+        <li>Safety controls, policy routing, and model governance</li>
+        <li>Observability patterns for GPU workloads</li>
+      </ul>
+      <a href="/ai-lab" class="mt-5 inline-block text-sm font-semibold text-cyan-600 hover:text-cyan-500 dark:text-cyan-400">
+        Explore AI Lab →
+      </a>
+    </div>
+  </section>
+
+  <section class="mt-16" id="oss">
+    <SectionHeader
+      title="Open source"
+      subtitle="Contributions, internal tooling, and demos we can share publicly."
+    />
+    <div class="mt-6 rounded-3xl border border-zinc-300/50 bg-white/80 p-6 dark:border-white/10 dark:bg-white/5">
+      <p class="text-sm text-zinc-700 dark:text-zinc-200">Open-WebUI contributions, internal utility projects, and reproducible demo repos.</p>
+      <a href="/open-source" class="mt-4 inline-block text-sm font-semibold text-cyan-600 hover:text-cyan-500 dark:text-cyan-400">
+        See open-source work →
+      </a>
+    </div>
+  </section>
+
+  <CTA
+    title="Ready to build something resilient?"
+    description="Email is fastest. If you want to scope training, infrastructure, or private AI delivery, start here."
+    primaryHref="mailto:sales@techsoftsys.com?subject=Consultation%20Request"
+    primaryLabel="Email us"
+    secondaryHref="/contact"
+    secondaryLabel="Contact options"
+  />
+</BaseLayout>

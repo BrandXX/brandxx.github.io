@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BentoCard from '../../components/BentoCard.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import { getCollection } from 'astro:content';
+
+const caseStudies = (await getCollection('case-studies')).sort((a, b) =>
+  b.data.date.localeCompare(a.data.date)
+);
+---
+
+<BaseLayout
+  title="Work | TechSoft Systems"
+  description="Case studies covering private AI platforms, reliability engineering, and zero-loss migrations."
+>
+  <section class="pt-12">
+    <SectionHeader
+      title="Case studies"
+      subtitle="Architecture, process, and outcomes from delivery work across regulated infra, migrations, and private AI."
+    />
+
+    <div class="mt-8 grid gap-4 md:grid-cols-3">
+      {caseStudies.map((study) => (
+        <BentoCard
+          href={`/work/${study.slug}`}
+          eyebrow={study.data.industry}
+          title={study.data.title}
+          description={study.data.description}
+        >
+          <p class="mt-4 text-xs text-zinc-600 dark:text-zinc-400">Key metric: {study.data.stat}</p>
+        </BentoCard>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

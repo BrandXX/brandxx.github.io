@@ -1,0 +1,16 @@
+---
+const stats = [
+  { value: '65%', label: 'less unplanned downtime' },
+  { value: '100+', label: 'servers migrated, zero loss' },
+  { value: '30K/day', label: 'secure on-prem LLM queries' }
+];
+---
+
+<div class="mt-8 grid gap-3 sm:grid-cols-3">
+  {stats.map((item) => (
+    <div class="rounded-2xl border border-zinc-300/50 bg-white/80 p-4 dark:border-white/10 dark:bg-white/5">
+      <div class="text-2xl font-semibold">{item.value}</div>
+      <div class="text-xs text-zinc-600 dark:text-zinc-400">{item.label}</div>
+    </div>
+  ))}
+</div>

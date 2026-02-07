@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BentoCard from '../components/BentoCard.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+---
+
+<BaseLayout
+  title="Open Source | TechSoft Systems"
+  description="Open-source contributions, internal tooling extracts, and demo projects from TechSoft Systems."
+>
+  <section class="pt-12">
+    <SectionHeader
+      title="Open source"
+      subtitle="Public contributions and project placeholders that can link directly to GitHub repos as they are published."
+    />
+
+    <div class="mt-8 grid gap-4 md:grid-cols-3">
+      <BentoCard
+        title="Open-WebUI Contributions"
+        description="Enhancements, issue triage, and integration examples for secure private AI workflows."
+      >
+        <a href="#" class="mt-4 inline-block text-sm font-semibold text-cyan-600 dark:text-cyan-400">GitHub repo placeholder →</a>
+      </BentoCard>
+      <BentoCard
+        title="Internal Tools"
+        description="Sanitized utility scripts and automation helpers extracted from operational playbooks."
+      >
+        <a href="#" class="mt-4 inline-block text-sm font-semibold text-cyan-600 dark:text-cyan-400">GitHub repo placeholder →</a>
+      </BentoCard>
+      <BentoCard
+        title="Demos"
+        description="Reference demos for private inference pipelines, observability dashboards, and workflow gating."
+      >
+        <a href="#" class="mt-4 inline-block text-sm font-semibold text-cyan-600 dark:text-cyan-400">GitHub repo placeholder →</a>
+      </BentoCard>
+    </div>
+  </section>
+</BaseLayout>

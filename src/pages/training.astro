@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BentoCard from '../components/BentoCard.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+---
+
+<BaseLayout
+  title="Training | TechSoft Systems"
+  description="Hands-on AI training programs for IT teams, business users, and leaders with measurable outcomes."
+>
+  <section class="pt-12">
+    <SectionHeader
+      title="AI Training & Enablement"
+      subtitle="Training programs designed for practical adoption: technical depth for builders, safe workflows for users, and governance clarity for leaders."
+    />
+
+    <div class="mt-8 grid gap-4 md:grid-cols-3">
+      <BentoCard eyebrow="Audience" title="IT teams">
+        <ul class="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+          <li>GPU and container architecture for AI workloads</li>
+          <li>RAG, inference throughput, and observability</li>
+          <li>Logging, retention, and policy boundaries</li>
+        </ul>
+      </BentoCard>
+      <BentoCard eyebrow="Audience" title="Business users">
+        <ul class="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+          <li>Prompting for real workflows</li>
+          <li>Verification and hallucination controls</li>
+          <li>Safe handling of sensitive information</li>
+        </ul>
+      </BentoCard>
+      <BentoCard eyebrow="Audience" title="Leaders">
+        <ul class="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+          <li>Use-case prioritization and risk tiers</li>
+          <li>Governance and rollout design</li>
+          <li>Metrics for adoption and impact</li>
+        </ul>
+      </BentoCard>
+    </div>
+
+    <section class="mt-12">
+      <SectionHeader title="Formats" subtitle="Select the delivery model that fits your team and compliance posture." />
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <BentoCard title="Workshop (2-4 hours)" description="Focused, role-specific training for executive teams, business users, or IT operators." />
+        <BentoCard title="Bootcamp (1-2 days)" description="Hands-on lab sessions using practical architecture and policy scenarios." />
+        <BentoCard title="Cohort (4-6 weeks)" description="Weekly sessions, office hours, and implementation reviews between modules." />
+        <BentoCard title="Custom regulated program" description="Policy-first enablement for healthcare, government, and compliance-constrained organizations." />
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <SectionHeader title="Outcomes" subtitle="Every engagement targets concrete outputs your team can use immediately." />
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <BentoCard title="Deliverables">
+          <ul class="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+            <li>Lab exercises and architecture diagrams</li>
+            <li>Internal policy cheat-sheet</li>
+            <li>Approved workflows playbook</li>
+            <li>Adoption, risk, and productivity metrics template</li>
+          </ul>
+        </BentoCard>
+        <BentoCard title="Sample 1-day bootcamp agenda">
+          <ol class="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+            <li>09:00 - AI workload architecture and controls</li>
+            <li>10:30 - Lab: containerized inference services</li>
+            <li>13:00 - Governance design and policy checkpoints</li>
+            <li>15:00 - Observability, alerting, and runbook review</li>
+          </ol>
+        </BentoCard>
+      </div>
+    </section>
+
+    <div class="mt-10 flex flex-wrap gap-3">
+      <a
+        href="mailto:sales@techsoftsys.com?subject=AI%20Training%20Inquiry"
+        class="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-zinc-50 transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+      >
+        Request training details
+      </a>
+      <a
+        href="/contact"
+        class="rounded-xl border border-zinc-300/70 bg-white px-4 py-2 text-sm text-zinc-800 transition hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:text-zinc-200 dark:hover:bg-white/10"
+      >
+        Talk through goals
+      </a>
+    </div>
+  </section>
+</BaseLayout>

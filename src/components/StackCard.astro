@@ -1,0 +1,40 @@
+---
+const stack = [
+  {
+    layer: 'Compute',
+    detail: 'NVIDIA GPU acceleration · FP16/FP8 inference · tuned I/O'
+  },
+  {
+    layer: 'Orchestration',
+    detail: 'Docker-native deployments · CI/CD · healthchecks · self-healing'
+  },
+  {
+    layer: 'Data',
+    detail: 'Vector + metadata + caching · governance · retention controls'
+  },
+  {
+    layer: 'Observability',
+    detail: 'Metrics · logs · tracing · GPU telemetry · alerting that matters'
+  }
+];
+---
+
+<aside class="rounded-3xl border border-zinc-300/50 bg-gradient-to-b from-white to-zinc-100/80 p-6 shadow-glow dark:border-white/10 dark:from-white/10 dark:to-white/5">
+  <div class="flex items-center justify-between gap-4">
+    <h2 class="text-sm font-semibold">Reference Stack</h2>
+    <span class="text-xs text-zinc-600 dark:text-zinc-400">Compute → Orchestration → Data → Observability</span>
+  </div>
+
+  <div class="mt-5 grid gap-3">
+    {stack.map((item) => (
+      <div class="rounded-2xl border border-zinc-300/50 bg-zinc-50 p-4 dark:border-white/10 dark:bg-zinc-950/50">
+        <div class="text-xs text-zinc-600 dark:text-zinc-400">{item.layer}</div>
+        <div class="mt-1 font-medium">{item.detail}</div>
+      </div>
+    ))}
+  </div>
+
+  <p class="mt-5 text-xs text-zinc-600 dark:text-zinc-400">
+    (Yes, this is where we make “it keeps crashing” quietly disappear.)
+  </p>
+</aside>

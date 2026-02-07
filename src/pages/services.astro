@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BentoCard from '../components/BentoCard.astro';
+import CTA from '../components/CTA.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+---
+
+<BaseLayout title="Services | TechSoft Systems" description="Private AI, infrastructure engineering, reliability, and security services.">
+  <section class="pt-12">
+    <SectionHeader
+      title="Services"
+      subtitle="Delivery support for organizations building private AI and modern infrastructure under real uptime and compliance constraints."
+    />
+
+    <div class="mt-8 grid gap-4 md:grid-cols-2">
+      <BentoCard title="Private LLM Platform Engineering" description="Architecture, deployment, integration, and operations for on-prem and hybrid LLM stacks." />
+      <BentoCard title="GPU Workload & Performance Tuning" description="Scheduling, throughput tuning, memory planning, and benchmark-guided optimization." />
+      <BentoCard title="Container & Platform Reliability" description="Docker-native service composition, runtime hardening, health checks, and failover workflows." />
+      <BentoCard title="Security, Governance, and Compliance" description="Control design, logging strategy, data handling policy, and approval-aware automation." />
+      <BentoCard title="Migration and Modernization Programs" description="Large-scale virtualization and infrastructure transitions with rollback-safe execution plans." />
+      <BentoCard title="Training & Enablement" description="Hands-on training and rollout guidance for IT teams, business users, and leadership." />
+    </div>
+  </section>
+
+  <CTA
+    title="Need a scoped engagement?"
+    description="Share your environment and priorities. We’ll map an implementation plan with milestones and risk controls."
+    primaryHref="mailto:sales@techsoftsys.com?subject=Services%20Inquiry"
+    primaryLabel="Start via email"
+    secondaryHref="/contact"
+    secondaryLabel="Contact page"
+  />
+</BaseLayout>

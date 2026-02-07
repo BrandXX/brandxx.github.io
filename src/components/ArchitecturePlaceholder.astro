@@ -1,0 +1,24 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = 'Architecture diagram placeholder' } = Astro.props;
+---
+
+<div
+  class="my-6 rounded-2xl border border-dashed border-zinc-300/70 bg-zinc-50 p-4 dark:border-white/20 dark:bg-zinc-900/40"
+  role="img"
+  aria-label={title}
+>
+  <svg width="100%" height="160" viewBox="0 0 800 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect x="1" y="1" width="798" height="158" rx="16" fill="none" stroke="currentColor" stroke-opacity="0.35" />
+    <circle cx="120" cy="80" r="20" fill="currentColor" fill-opacity="0.18" />
+    <circle cx="400" cy="80" r="20" fill="currentColor" fill-opacity="0.18" />
+    <circle cx="680" cy="80" r="20" fill="currentColor" fill-opacity="0.18" />
+    <path d="M140 80H380M420 80H660" stroke="currentColor" stroke-opacity="0.35" stroke-dasharray="6 6" />
+    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="currentColor" fill-opacity="0.7" font-size="20">
+      {title}
+    </text>
+  </svg>
+</div>

@@ -1,0 +1,44 @@
+---
+title: Zero-Loss Virtualization Migration
+description: Planned and executed migration of 100+ servers with rollback-safe cutovers and no data loss.
+industry: Infrastructure
+date: '2025-08-06'
+featured: true
+stat: 100+ servers migrated with zero data loss
+tools:
+  - VMware
+  - Proxmox
+  - Veeam
+  - Terraform
+  - NetBox
+---
+import ArchitecturePlaceholder from '../../components/ArchitecturePlaceholder.astro';
+
+## Context
+A multi-site organization needed to modernize virtualization infrastructure without disrupting business-critical workloads.
+
+## Problem
+Legacy clusters had capacity bottlenecks, uneven backup posture, and no consistent rollback model for large migration waves.
+
+## Approach
+We built a migration factory model: discovery baselines, dependency mapping, pilot waves, validation gates, and automated post-cutover checks.
+
+## Architecture
+- Dual-track source and target environments during migration windows
+- Snapshot plus backup verification before each cutover wave
+- Automated inventory and topology mapping for dependency-aware sequencing
+- Defined rollback checkpoints for every migration batch
+
+## Architecture Diagram Placeholder
+<ArchitecturePlaceholder title="Zero-loss migration architecture" />
+
+## Results and Metrics
+- 100+ servers migrated with zero data loss
+- 97% first-pass cutover success rate
+- 41% reduction in backup job failures after standardization
+
+## Tools and Stack
+VMware, Proxmox, Veeam, Terraform automation, and NetBox-backed inventory controls.
+
+## Lessons Learned
+Migration speed improves when validation checkpoints are automated and rollback criteria are explicit before each wave starts.
