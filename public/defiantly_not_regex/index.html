@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>defiantly_not_regex | TechSoft Systems</title>
+  <meta name="description" content="defiantly_not_regex, a visual artifact about context, meaning, and brittle parsing." />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="stylesheet" href="style.css" />
+  
+<script>
+  (() => {
+    const saved = localStorage.getItem('theme');
+    const root = document.documentElement;
+    if (saved === 'light') root.classList.remove('dark');
+    else root.classList.add('dark');
+  })();
+</script>
+
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="shell image-shell">
+    <header class="topbar">
+      <div class="brand">TechSoft Systems · defiantly_not_regex</div>
+      <div class="controls">
+        <a class="btn" href="pages/thesis.html">Thesis</a>
+        <a class="btn" href="pages/backstory.html">Backstory</a>
+        <a class="btn" href="pages/whitepaper.html">White paper</a>
+        <a class="btn" href="/">Back to site</a>
+        <button id="themeBtn" class="btn" type="button" aria-label="Toggle theme">Toggle theme</button>
+      </div>
+    </header>
+    <main class="image-frame">
+      <img
+        class="main-image"
+        src="defiantly_not_regex_b64_ocrsafe_3000.png"
+        alt="DEFIANTLY NOT REGEX. Parse carefully. Humans are not strings. Meaning: context matters more than brittle pattern matching; parse for intent, not just tokens."
+      />
+    </main>
+    <p class="foot">defiantly_not_regex · <a href="/">Return to techsoftsys.com</a></p>
+  </div>
+  
+<script>
+  const btn = document.getElementById('themeBtn');
+  btn?.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+  });
+</script>
+
+</body>
+</html>
