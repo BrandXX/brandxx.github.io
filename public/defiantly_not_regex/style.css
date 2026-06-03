@@ -99,7 +99,7 @@ body {
   inset: 0;
   z-index: 2;
   opacity: 1;
-  transition: opacity 520ms ease;
+  transition: opacity 1040ms ease;
 }
 .image-stack:hover .blurry-image,
 .image-stack:focus .blurry-image,
