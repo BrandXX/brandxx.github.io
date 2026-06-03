@@ -32,11 +32,28 @@
       </div>
     </header>
     <main class="image-frame">
-      <img
-        class="main-image"
-        src="defiantly_not_regex_b64_ocrsafe_3000.png"
-        alt="DEFIANTLY NOT REGEX. Parse carefully. Humans are not strings. Meaning: context matters more than brittle pattern matching; parse for intent, not just tokens."
-      />
+      <figure
+        id="imageStack"
+        class="image-stack"
+        tabindex="0"
+        aria-label="Defiantly not regex image. Hover, focus, or tap to fade from blurry tokens to clear meaning."
+      >
+        <img
+          class="main-image clean-image"
+          src="defiantly_not_regex_b64_ocrsafe_3000.png"
+          alt="DEFIANTLY NOT REGEX. Parse carefully. Humans are not strings. Meaning: context matters more than brittle pattern matching; parse for intent, not just tokens."
+        />
+        <img
+          class="main-image blurry-image"
+          src="defiantly_not_regex_blurry.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <figcaption class="image-caption">
+          <span class="caption-blurry">blurry tokens</span>
+          <span class="caption-clean">clear meaning</span>
+        </figcaption>
+      </figure>
     </main>
     <p class="foot">defiantly_not_regex · <a href="/">Return to techsoftsys.com</a></p>
   </div>
@@ -46,6 +63,11 @@
   btn?.addEventListener('click', () => {
     document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+  });
+
+  const imageStack = document.getElementById('imageStack');
+  imageStack?.addEventListener('click', () => {
+    imageStack.classList.toggle('is-clean');
   });
 </script>
 
