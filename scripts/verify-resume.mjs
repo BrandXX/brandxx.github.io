@@ -22,6 +22,10 @@ try {
       await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `Overflow: ${route} at ${width}`);
       assert.equal(await page.locator('.resume-nav img').count(), 0);
+      const printName = route === '/cover-letter.html' ? 'Print cover letter' : 'Print resume';
+      for (const region of ['.resume-nav', '.resume-footer']) {
+        assert.equal(await page.locator(region).getByRole('button', { name: printName, exact: true }).count(), 1);
+      }
       const background = await page.locator('body').evaluate(body => {
         const style = getComputedStyle(body, '::before');
         return { image: style.backgroundImage, position: style.position, filter: style.filter, opacity: style.opacity, pointerEvents: style.pointerEvents };
@@ -42,7 +46,7 @@ try {
       await page.screenshot({ path: path.join(screenshots, `${route.slice(1)}-${width}-dark.png`), fullPage: true, animations: 'disabled' });
       await page.screenshot({ path: path.join(screenshots, `${route.slice(1)}-${width}-dark-viewport.png`), animations: 'disabled' });
       await page.getByRole('button', { name: 'Switch to light theme' }).click();
-      checks += 12;
+      checks += 14;
     }
     await page.goto(base + '/resume');
     const text = await page.locator('main').innerText();
@@ -50,10 +54,21 @@ try {
     for (const excluded of ['Guadalupe', '36 TB', '400 switching', 'known threat group', '10x', 'two network-wide', '114 successful live']) assert(!text.includes(excluded), excluded);
     await page.locator('a[href="/resume-research#piper"]').click();
     await page.waitForURL('**/resume-research#piper');
-    await page.goto(base + '/resume');
+    for (const route of ['/resume', '/resume-research']) {
+      for (const region of ['.resume-nav', '.resume-footer']) {
+        await page.goto(base + route);
+        await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
+        await page.locator(region).getByRole('button', { name: 'Print resume', exact: true }).click();
+        await page.waitForURL('**/resume-print');
+        assert.equal(await page.locator('.print-page').count(), 2);
+        checks++;
+      }
+    }
+    await page.evaluate(() => { window.print = () => { window.__resumePrintCalls = (window.__resumePrintCalls || 0) + 1; }; });
     await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
-    await page.getByRole('button', { name: 'Print resume', exact: true }).click();
-    await page.waitForURL('**/resume-print');
+    for (const region of ['.resume-nav', '.resume-footer']) await page.locator(region).getByRole('button', { name: 'Print resume', exact: true }).click();
+    assert.equal(await page.evaluate(() => window.__resumePrintCalls), 2);
+    checks++;
     await page.goto(base + '/resume.html', { waitUntil: 'networkidle' });
     await page.waitForURL(url => url.pathname.replace(/\/$/, '') === '/resume');
     assert.equal(await page.locator('main h1').innerText(), 'Johnathan W. Carroll');
@@ -104,7 +119,7 @@ try {
       assert.equal(await header.locator('img').count(), 0);
       assert.equal(await header.locator('.document-theme-toggle svg').count(), 1);
       assert.equal(await header.getByRole('link', { name: 'Back to site', exact: true }).getAttribute('href'), '/');
-      assert.equal(await header.locator('button').innerText(), '');
+      assert.equal(await header.locator('button').evaluateAll(buttons => buttons.every(button => button.innerText === '')), true);
       await header.getByRole('button', { name: 'Switch to dark theme' }).click();
       assert.equal(await header.locator('.document-theme-toggle use').getAttribute('href'), '/resume-icons.svg#sun');
       await header.getByRole('button', { name: 'Switch to light theme' }).click();
@@ -131,9 +146,9 @@ try {
     assert.equal(await page.locator('.cover-letter-body li').count(), 4);
     assert((await page.locator('.cover-letter-body').innerText()).includes('IT Infrastructure & AI Systems Leader'));
     await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
-    await page.evaluate(() => { window.print = () => { window.__coverLetterPrinted = true; }; });
-    await page.getByRole('button', { name: 'Print cover letter', exact: true }).click();
-    assert.equal(await page.evaluate(() => window.__coverLetterPrinted), true);
+    await page.evaluate(() => { window.print = () => { window.__coverLetterPrintCalls = (window.__coverLetterPrintCalls || 0) + 1; }; });
+    for (const region of ['.resume-nav', '.resume-footer']) await page.locator(region).getByRole('button', { name: 'Print cover letter', exact: true }).click();
+    assert.equal(await page.evaluate(() => window.__coverLetterPrintCalls), 2);
     await page.goto(base + '/cover_letter.html');
     await page.waitForURL('**/cover-letter.html');
     await page.locator('.document-nav').getByRole('link', { name: 'Research', exact: true }).click();
