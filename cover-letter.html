@@ -125,7 +125,9 @@
           <a class="document-nav-link" href="/cover-letter.html" aria-current="page">Cover Letter</a>
           <a class="document-nav-link" href="/resume-research">Research</a>
         </nav>
-        <button id="themeBtn" class="btn" type="button" aria-label="Toggle theme">Toggle theme</button>
+        <button id="themeBtn" class="btn document-theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">
+          <svg width="18" height="18" aria-hidden="true"><use href="/resume-icons.svg#sun" /></svg>
+        </button>
         <a class="btn primary" href="/pdfs/johnathan-carroll-cover-letter.pdf" download>Download PDF</a>
       </div>
     </header>
@@ -158,9 +160,17 @@
 
   <script>
     const btn = document.getElementById('themeBtn');
+    const updateThemeButton = () => {
+      const dark = document.documentElement.classList.contains('dark');
+      btn?.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+      btn?.setAttribute('title', dark ? 'Switch to light theme' : 'Switch to dark theme');
+      btn?.querySelector('use')?.setAttribute('href', dark ? '/resume-icons.svg#sun' : '/resume-icons.svg#moon');
+    };
+    updateThemeButton();
     btn?.addEventListener('click', () => {
       document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      try { localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); } catch {}
+      updateThemeButton();
     });
   </script>
 </body>

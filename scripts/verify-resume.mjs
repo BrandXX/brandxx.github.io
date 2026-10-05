@@ -21,7 +21,7 @@ try {
       assert.equal(await page.locator('main h1').count(), 1);
       await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `Overflow: ${route} at ${width}`);
-      assert.equal(await page.locator('.site-brand img').evaluate(image => image.complete && image.naturalWidth > 0), true);
+      assert.equal(await page.locator('.resume-nav img').count(), 0);
       assert.equal(await page.locator('.resume-nav').evaluate(nav => {
         const rects = [...nav.querySelectorAll('a, button')].map(element => element.getBoundingClientRect());
         return rects.every((a, i) => rects.every((b, j) => i === j || a.right <= b.left + 1 || b.right <= a.left + 1 || a.bottom <= b.top + 1 || b.bottom <= a.top + 1));
@@ -42,16 +42,18 @@ try {
     await page.locator('a[href="/resume-research#piper"]').click();
     await page.waitForURL('**/resume-research#piper');
     await page.goto(base + '/resume');
+    await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
     await page.getByRole('button', { name: 'Print resume', exact: true }).click();
     await page.waitForURL('**/resume-print');
     await page.goto(base + '/resume.html', { waitUntil: 'networkidle' });
     await page.waitForURL(url => url.pathname.replace(/\/$/, '') === '/resume');
+    assert.equal(await page.locator('main h1').innerText(), 'Johnathan W. Carroll');
     const pdfResponse = await context.request.get(base + '/pdfs/johnathan-carroll-resume.pdf');
     assert.equal(pdfResponse.status(), 200);
     assert((await pdfResponse.body()).subarray(0, 5).toString() === '%PDF-');
     assert.equal((await context.request.get(base + '/cover-letter.html')).status(), 200);
     assert.equal((await context.request.get(base + '/resume-icons.svg')).status(), 200);
-    checks += 21;
+    checks += 22;
     for (const [route, activeLabel] of [['/resume', 'Resume'], ['/cover-letter.html', 'Cover Letter'], ['/resume-research', 'Research']]) {
       await page.goto(base + route, { waitUntil: 'networkidle' });
       const navigation = page.locator('.document-nav');
@@ -68,6 +70,15 @@ try {
       assert.equal(presentation.headerRadius, '16px');
       assert.equal(presentation.documentRadius, '20px');
       assert(presentation.pdfBackground.includes('linear-gradient'));
+      const header = page.locator('.resume-nav, .topbar');
+      assert.equal(await header.locator('img').count(), 0);
+      assert.equal(await header.locator('.document-theme-toggle svg').count(), 1);
+      assert.equal(await header.getByRole('link', { name: 'Back to site', exact: true }).getAttribute('href'), '/');
+      assert.equal(await header.locator('button').innerText(), '');
+      await header.getByRole('button', { name: 'Switch to dark theme' }).click();
+      assert.equal(await header.locator('.document-theme-toggle use').getAttribute('href'), '/resume-icons.svg#sun');
+      await header.getByRole('button', { name: 'Switch to light theme' }).click();
+      assert.equal(await header.locator('.document-theme-toggle use').getAttribute('href'), '/resume-icons.svg#moon');
       assert.equal(await navigation.locator('a').count(), 3);
       assert.equal(await navigation.locator('[aria-current="page"]').innerText(), activeLabel);
       assert.equal(await navigation.locator('a').evaluateAll(links => {
@@ -80,7 +91,7 @@ try {
       })), true, `Navigation button styling: ${route}`);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `Overflow: ${route} at ${width}`);
       await page.locator('.resume-nav, .topbar').screenshot({ path: path.join(screenshots, `navigation-${activeLabel.toLowerCase().replaceAll(' ', '-')}-${width}.png`), animations: 'disabled' });
-      checks += 9;
+      checks += 15;
     }
     await page.goto(base + '/resume');
     await page.locator('.document-nav').getByRole('link', { name: 'Cover Letter', exact: true }).click();
@@ -90,6 +101,9 @@ try {
     await page.locator('.document-nav').getByRole('link', { name: 'Resume', exact: true }).click();
     await page.waitForURL(url => url.pathname.replace(/\/$/, '') === '/resume');
     checks += 3;
+    await page.locator('.resume-nav').getByRole('link', { name: 'Back to site', exact: true }).click();
+    await page.waitForURL(url => url.pathname === '/');
+    checks++;
     await context.close();
   }
   const page = await browser.newPage({ viewport: { width: 710, height: 970 } });

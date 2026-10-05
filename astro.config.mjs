@@ -9,7 +9,7 @@ const base = process.env.BASE_PATH || '/';
 export default defineConfig({
   site,
   base,
-  trailingSlash: 'never',
+  trailingSlash: 'ignore',
   integrations: [tailwind(), mdx(), sitemap()],
   markdown: {
     shikiConfig: {

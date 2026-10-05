@@ -11,11 +11,10 @@ button { font: inherit; }
 .skip-link:focus { top: 10px; }
 .document-shell { max-width: 980px; margin: auto; padding: 24px; }
 .resume-nav { padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); backdrop-filter: blur(10px); }
-.site-brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font-weight: 700; }
-.site-brand img { flex-shrink: 0; }
-.brand-document { white-space: nowrap; }
+.resume-nav .brand { font-size: 16px; font-weight: 700; }
 .resume-nav nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.resume-actions { display: flex; align-items: center; gap: 8px; }
+.header-button { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 8px 13px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--text); font-size: .86rem; font-weight: 600; line-height: 1.5; text-decoration: none; cursor: pointer; transition: transform .2s ease; }
+.header-button:hover { transform: translateY(-1px); text-decoration: none; }
 .icon-button { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--text); cursor: pointer; transition: transform .2s ease, border-color .2s ease; }
 .icon-button:hover { border-color: var(--accent); transform: translateY(-1px); }
 .download-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 8px 13px; border: 1px solid transparent; border-radius: 12px; background: linear-gradient(90deg, #22d3ee, #6366f1); color: #09090b; text-decoration: none; font-size: 13px; font-weight: 600; transition: transform .2s ease; }
@@ -54,7 +53,7 @@ h3 { font-size: 16px; font-weight: 650; line-height: 1.4; margin: 0; }
 .skill-list dt { font-weight: 600; font-size: 13px; }
 .skill-list dd { margin: 0; font-size: 14px; }
 .resume-section .education-list { margin-top: 0; }
-.resume-footer { padding: 16px 0 0; display: flex; justify-content: center; gap: 8px 16px; flex-wrap: wrap; color: var(--muted); font-size: 12px; text-align: center; }
+.resume-footer { padding: 16px 0 0; display: flex; align-items: center; justify-content: center; gap: 8px 16px; flex-wrap: wrap; color: var(--muted); font-size: 12px; text-align: center; }
 .resume-footer a { color: inherit; }
 .research-heading h1 { margin-top: 16px; }
 .research-heading > p { max-width: 760px; font-size: 16px; }
