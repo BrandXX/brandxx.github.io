@@ -1,0 +1,14 @@
+---
+import { profile } from '../data/publicResume';
+---
+<header class="resume-identity">
+  <h1>{profile.name}</h1>
+  <p class="professional-title">{profile.title}</p>
+  <ul class="contact-links" aria-label="Contact">
+    <li>{profile.location}</li>
+    <li><a href={`mailto:${profile.email}`}>{profile.email}</a></li>
+    <li><a href="https://github.com/brandxx" rel="noreferrer">github.com/brandxx</a></li>
+    <li><a href="https://techsoftsys.com">techsoftsys.com</a></li>
+  </ul>
+  <p class="profile-summary">{profile.summary}</p>
+</header>

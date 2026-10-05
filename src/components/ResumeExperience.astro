@@ -1,0 +1,34 @@
+---
+import { tribalRoles, tribalBullets, techsoftBullets, previousRoles, tribalPrintBullets, techsoftPrintBullets } from '../data/publicResume';
+interface Props { previous?: boolean; compact?: boolean; }
+const { previous = false, compact = false } = Astro.props;
+---
+{previous ? (
+  <section class="resume-section" aria-labelledby="previous-experience">
+    <h2 id="previous-experience">Previous Experience</h2>
+    {previousRoles.map(role => (
+      <article class="experience-entry">
+        <div class="entry-heading"><h3>{role.employer}</h3><span class="dates">{role.dates}</span></div>
+        <p class="role-title">{role.title}</p>
+        <ul>{(compact && role.printBullets ? role.printBullets : role.bullets).map(bullet => <li>{bullet}</li>)}</ul>
+      </article>
+    ))}
+  </section>
+) : (
+  <section class="resume-section" aria-labelledby="current-experience">
+    <h2 id="current-experience">Current Experience</h2>
+    <article class="experience-entry">
+      <div class="entry-heading"><h3>Pascua Yaqui Tribe Government</h3><span class="dates">Tucson, Arizona</span></div>
+      <dl class="role-history">
+        {tribalRoles.map(role => <div><dt>{role.title}</dt><dd>{role.dates}</dd></div>)}
+      </dl>
+      {!compact && <p class="tenure-note">Selected accomplishments across successive roles; hands-on engineering responsibilities continued through promotion.</p>}
+      <ul>{(compact ? tribalPrintBullets : tribalBullets).map(bullet => <li>{bullet}</li>)}</ul>
+    </article>
+    <article class="experience-entry">
+      <div class="entry-heading"><h3>TechSoft Systems</h3><span class="dates">2012 - Present</span></div>
+      <p class="role-title">Founder, Owner &amp; Operator</p>
+      <ul>{(compact ? techsoftPrintBullets : techsoftBullets).map(bullet => <li>{bullet}</li>)}</ul>
+    </article>
+  </section>
+)}

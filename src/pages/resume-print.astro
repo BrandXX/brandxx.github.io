@@ -1,0 +1,11 @@
+---
+import ResumeLayout from '../layouts/ResumeLayout.astro';
+import ResumeIdentity from '../components/ResumeIdentity.astro';
+import ResumeExperience from '../components/ResumeExperience.astro';
+import ResumeProjects from '../components/ResumeProjects.astro';
+import ResumeSkills from '../components/ResumeSkills.astro';
+---
+<ResumeLayout title="Johnathan W. Carroll Resume" description="Printable general resume for Johnathan W. Carroll." print>
+  <div class="print-page"><ResumeIdentity /><ResumeExperience compact /><ResumeProjects compact /></div>
+  <div class="print-page"><ResumeExperience previous compact /><ResumeSkills compact /></div>
+</ResumeLayout>

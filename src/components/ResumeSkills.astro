@@ -1,0 +1,13 @@
+---
+import { skills, printSkills, education } from '../data/publicResume';
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+---
+<section class="resume-section" aria-labelledby="technical-domains">
+  <h2 id="technical-domains">Technical Domains</h2>
+  <dl class="skill-list">{(compact ? printSkills : skills).map(skill => <div><dt>{skill.name}</dt><dd>{skill.items}</dd></div>)}</dl>
+</section>
+<section class="resume-section" aria-labelledby="education">
+  <h2 id="education">Education &amp; Affiliations</h2>
+  <ul class="education-list">{education.map(item => <li>{item}</li>)}</ul>
+</section>

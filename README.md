@@ -92,11 +92,32 @@ If you need to change or remove custom domain usage, edit or delete `public/CNAM
 
 ## Resume and Cover Letter URLs
 
-These static pages are published directly from `public/`:
+The resume is rendered by Astro from the public-only presentation in
+`src/data/publicResume.ts`. Private career records and source archives do not
+belong in this repository.
 
-- `/resume.html`
+- `/resume` - public resume and selected research highlights
+- `/resume-research` - qualified project details and local benchmark methodology
+- `/resume-print` - two-page general resume used to generate the downloadable PDF
+- `/resume.html` - compatibility redirect to `/resume` (legacy root copy matches)
+
+The cover letter pages remain static files in `public/`:
+
 - `/cover-letter.html`
 - `/cover_letter.html` (compatibility alias)
+
+To verify and regenerate the resume PDF:
+
+1. Run `npm ci` and `npx playwright install chromium`.
+2. Start `npm run dev -- --host 127.0.0.1 --port 4322`.
+3. Run `npm run test:resume` for desktop/mobile, theme, navigation, disclosure,
+   asset, and print checks; screenshots default to `/tmp/resume-preview`.
+4. Run `npm run resume:pdf` to update `public/pdfs/johnathan-carroll-resume.pdf`
+   from the same public data. Set `RESUME_BASE_URL` for a different preview URL.
+5. Run `npm run build` after PDF generation so the build contains the new file.
+
+Local edits and PDF generation are review artifacts, not deployment approval.
+Do not push to `main` or dispatch deployment until publication is approved.
 
 ## Legacy Assets
 

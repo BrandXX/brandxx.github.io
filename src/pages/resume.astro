@@ -1,0 +1,21 @@
+---
+import ResumeLayout from '../layouts/ResumeLayout.astro';
+import ResumeIdentity from '../components/ResumeIdentity.astro';
+import ResumeExperience from '../components/ResumeExperience.astro';
+import ResumeProjects from '../components/ResumeProjects.astro';
+import ResumeSkills from '../components/ResumeSkills.astro';
+---
+<ResumeLayout title="Resume | Johnathan W. Carroll" description="Infrastructure, security, and AI platform engineering leadership across government, enterprise, ISP operations, and independent applied research.">
+  <ResumeIdentity />
+  <div class="outcome-strip" aria-label="Selected career outcomes">
+    <div><strong>25+ years</strong><span>Cross-sector technology experience</span></div>
+    <div><strong>Approx. $250K</strong><span>Annual Tribal infrastructure savings</span></div>
+    <div><strong>50%</strong><span>Tribal infrastructure footprint reduction</span></div>
+  </div>
+  <div class="resume-body">
+    <ResumeExperience />
+    <ResumeProjects />
+    <ResumeExperience previous />
+    <ResumeSkills />
+  </div>
+</ResumeLayout>
