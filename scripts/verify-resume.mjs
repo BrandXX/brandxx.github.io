@@ -22,7 +22,7 @@ try {
       await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `Overflow: ${route} at ${width}`);
       assert.equal(await page.locator('.resume-nav img').count(), 0);
-      const printName = route === '/cover-letter.html' ? 'Print cover letter' : 'Print resume';
+      const printName = route === '/cover-letter.html' ? 'Print cover letter' : route === '/resume-research' ? 'Print research' : 'Print resume';
       for (const region of ['.resume-nav', '.resume-footer']) {
         assert.equal(await page.locator(region).getByRole('button', { name: printName, exact: true }).count(), 1);
       }
@@ -54,7 +54,7 @@ try {
     for (const excluded of ['Guadalupe', '36 TB', '400 switching', 'known threat group', '10x', 'two network-wide', '114 successful live']) assert(!text.includes(excluded), excluded);
     await page.locator('a[href="/resume-research#piper"]').click();
     await page.waitForURL('**/resume-research#piper');
-    for (const route of ['/resume', '/resume-research']) {
+    for (const route of ['/resume']) {
       for (const region of ['.resume-nav', '.resume-footer']) {
         await page.goto(base + route);
         await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
@@ -69,6 +69,19 @@ try {
     for (const region of ['.resume-nav', '.resume-footer']) await page.locator(region).getByRole('button', { name: 'Print resume', exact: true }).click();
     assert.equal(await page.evaluate(() => window.__resumePrintCalls), 2);
     checks++;
+    await page.goto(base + '/resume-research#piper');
+    await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
+    const researchUrl = page.url();
+    const researchText = await page.locator('main').innerText();
+    await page.evaluate(() => { window.print = () => { window.__researchPrintCalls = (window.__researchPrintCalls || 0) + 1; }; });
+    for (const region of ['.resume-nav', '.resume-footer']) {
+      await page.locator(region).getByRole('button', { name: 'Print research', exact: true }).click();
+      assert.equal(page.url(), researchUrl);
+      checks++;
+    }
+    assert.equal(await page.evaluate(() => window.__researchPrintCalls), 2);
+    assert.equal(await page.locator('main').innerText(), researchText);
+    checks += 2;
     await page.goto(base + '/resume.html', { waitUntil: 'networkidle' });
     await page.waitForURL(url => url.pathname.replace(/\/$/, '') === '/resume');
     assert.equal(await page.locator('main h1').innerText(), 'Johnathan W. Carroll');
@@ -174,6 +187,29 @@ try {
     await context.close();
   }
   const page = await browser.newPage({ viewport: { width: 710, height: 970 } });
+  await page.goto(base + '/resume-research', { waitUntil: 'networkidle' });
+  const researchScreenText = await page.locator('main').innerText();
+  await page.emulateMedia({ media: 'print' });
+  for (const selector of ['.resume-nav', '.resume-footer', '.back-link', '.project-nav']) {
+    assert.equal(await page.locator(selector).isVisible(), false);
+    checks++;
+  }
+  assert.equal(await page.locator('main h1').innerText(), 'Applied AI Research');
+  assert.equal(await page.locator('.research-section').count(), 4);
+  assert.equal(await page.locator('.claim-boundary').count(), 4);
+  assert.equal(await page.locator('body').evaluate(body => getComputedStyle(body, '::before').display), 'none');
+  for (const selector of ['.research-section', '.claim-boundary', '.benchmark-list article']) {
+    assert.equal(await page.locator(selector).evaluateAll(elements => elements.every(element => getComputedStyle(element).display !== 'none')), true);
+    checks++;
+  }
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+  const researchPdf = await page.pdf({ path: path.join(screenshots, 'research-print.pdf'), preferCSSPageSize: true, printBackground: true, tagged: true });
+  const researchPdfPages = [...researchPdf.toString('latin1').matchAll(/\/Type\s*\/Page\b/g)].length;
+  assert(researchPdfPages >= 1);
+  await page.screenshot({ path: path.join(screenshots, 'research-print.png'), animations: 'disabled' });
+  await page.emulateMedia({ media: 'screen' });
+  assert.equal(await page.locator('main').innerText(), researchScreenText);
+  checks += 7;
   await page.goto(base + '/cover-letter.html', { waitUntil: 'networkidle' });
   await page.emulateMedia({ media: 'print' });
   assert.equal(await page.locator('.resume-nav').isVisible(), false);
@@ -199,7 +235,7 @@ try {
     assert.equal([...saved.toString('latin1').matchAll(/\/Type\s*\/Page\b/g)].length, 2);
   }
   assert.deepEqual(errors, []);
-  console.log(JSON.stringify({ checks, pdfPages: pages, printHeights: heights, screenshots, pdfUpdated: generatePdf }));
+  console.log(JSON.stringify({ checks, pdfPages: pages, researchPdfPages, printHeights: heights, screenshots, pdfUpdated: generatePdf }));
 } finally {
   await browser.close();
 }
