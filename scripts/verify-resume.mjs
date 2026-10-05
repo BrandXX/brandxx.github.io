@@ -22,6 +22,15 @@ try {
       await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `Overflow: ${route} at ${width}`);
       assert.equal(await page.locator('.resume-nav img').count(), 0);
+      const background = await page.locator('body').evaluate(body => {
+        const style = getComputedStyle(body, '::before');
+        return { image: style.backgroundImage, position: style.position, filter: style.filter, opacity: style.opacity, pointerEvents: style.pointerEvents };
+      });
+      assert(background.image.includes('linear-gradient'));
+      assert.equal(background.position, 'fixed');
+      assert.equal(background.filter, 'blur(56px)');
+      assert.equal(background.opacity, '0.6');
+      assert.equal(background.pointerEvents, 'none');
       assert.equal(await page.locator('.resume-nav').evaluate(nav => {
         const rects = [...nav.querySelectorAll('a, button')].map(element => element.getBoundingClientRect());
         return rects.every((a, i) => rects.every((b, j) => i === j || a.right <= b.left + 1 || b.right <= a.left + 1 || a.bottom <= b.top + 1 || b.bottom <= a.top + 1));
@@ -33,7 +42,7 @@ try {
       await page.screenshot({ path: path.join(screenshots, `${route.slice(1)}-${width}-dark.png`), fullPage: true, animations: 'disabled' });
       await page.screenshot({ path: path.join(screenshots, `${route.slice(1)}-${width}-dark-viewport.png`), animations: 'disabled' });
       await page.getByRole('button', { name: 'Switch to light theme' }).click();
-      checks += 7;
+      checks += 12;
     }
     await page.goto(base + '/resume');
     const text = await page.locator('main').innerText();
@@ -109,6 +118,8 @@ try {
   const page = await browser.newPage({ viewport: { width: 710, height: 970 } });
   await page.goto(base + '/resume-print', { waitUntil: 'networkidle' });
   await page.emulateMedia({ media: 'print' });
+  assert.equal(await page.locator('body').evaluate(body => getComputedStyle(body, '::before').display), 'none');
+  checks++;
   const heights = await page.locator('.print-page').evaluateAll(pages => pages.map(page => page.getBoundingClientRect().height));
   assert.equal(heights.length, 2);
   assert(heights.every(height => height <= 970), `Print page overflow: ${heights.join(', ')}`);
