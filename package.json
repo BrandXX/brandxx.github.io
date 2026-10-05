@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "test:resume": "node scripts/verify-resume.mjs",
-    "resume:pdf": "node scripts/verify-resume.mjs --pdf"
+    "resume:pdf": "node scripts/verify-resume.mjs --pdf",
+    "cover-letter:pdf": "node scripts/verify-resume.mjs --cover-pdf"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",

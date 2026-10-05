@@ -1,11 +1,12 @@
 import assert from 'node:assert/strict';
-import { mkdir, readFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { chromium } from 'playwright';
 
 const base = process.env.RESUME_BASE_URL || 'http://127.0.0.1:4322';
 const screenshots = process.env.RESUME_SCREENSHOTS || '/tmp/resume-preview';
 const generatePdf = process.argv.includes('--pdf');
+const generateCoverPdf = process.argv.includes('--cover-pdf');
 await mkdir(screenshots, { recursive: true });
 const browser = await chromium.launch({ headless: true });
 const errors = [];
@@ -52,6 +53,8 @@ try {
     const text = await page.locator('main').innerText();
     for (const expected of ['Aug 2023 - Present', 'Jan 2021 - Aug 2023', 'Jan 2019 - Jan 2021', '$250,000', '25+ years', 'advisory', 'Tier 2/3 Windows']) assert(text.includes(expected), expected);
     for (const excluded of ['Guadalupe', '36 TB', '400 switching', 'known threat group', '10x', 'two network-wide', '114 successful live']) assert(!text.includes(excluded), excluded);
+    assert(text.includes('Originated and serve as primary architect for an estimated $6 million'));
+    checks++;
     await page.locator('a[href="/resume-research#piper"]').click();
     await page.waitForURL('**/resume-research#piper');
     for (const route of ['/resume']) {
@@ -156,8 +159,13 @@ try {
     await page.locator('.document-nav').getByRole('link', { name: 'Cover Letter', exact: true }).click();
     await page.waitForURL('**/cover-letter.html');
     assert.equal(await page.locator('.download-button').getAttribute('href'), '/pdfs/johnathan-carroll-cover-letter.pdf');
-    assert.equal(await page.locator('.cover-letter-body li').count(), 4);
-    assert((await page.locator('.cover-letter-body').innerText()).includes('IT Infrastructure & AI Systems Leader'));
+    assert.equal(await page.locator('.cover-letter-body li').count(), 5);
+    const letterText = await page.locator('.cover-letter-body').innerText();
+    assert(letterText.includes('Infrastructure, Security & AI Platform Engineering Leader'));
+    for (const expected of ['25 years', '$250,000 in annual operating savings', '50% reduction in physical footprint', 'vLLM, Ollama, NVIDIA GPUs', 'emerging enterprise AI program']) {
+      assert(letterText.includes(expected), expected);
+      checks++;
+    }
     await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
     await page.evaluate(() => { window.print = () => { window.__coverLetterPrintCalls = (window.__coverLetterPrintCalls || 0) + 1; }; });
     for (const region of ['.resume-nav', '.resume-footer']) await page.locator(region).getByRole('button', { name: 'Print cover letter', exact: true }).click();
@@ -216,6 +224,7 @@ try {
   assert.equal(await page.locator('.resume-footer').isVisible(), false);
   const coverLetterPdf = await page.pdf({ preferCSSPageSize: true, printBackground: true, tagged: true });
   assert.equal([...coverLetterPdf.toString('latin1').matchAll(/\/Type\s*\/Page\b/g)].length, 1);
+  if (generateCoverPdf) await writeFile('public/pdfs/johnathan-carroll-cover-letter.pdf', coverLetterPdf);
   checks += 3;
   await page.goto(base + '/resume-print', { waitUntil: 'networkidle' });
   await page.emulateMedia({ media: 'print' });
@@ -235,7 +244,7 @@ try {
     assert.equal([...saved.toString('latin1').matchAll(/\/Type\s*\/Page\b/g)].length, 2);
   }
   assert.deepEqual(errors, []);
-  console.log(JSON.stringify({ checks, pdfPages: pages, researchPdfPages, printHeights: heights, screenshots, pdfUpdated: generatePdf }));
+  console.log(JSON.stringify({ checks, pdfPages: pages, researchPdfPages, printHeights: heights, screenshots, pdfUpdated: generatePdf, coverLetterPdfUpdated: generateCoverPdf }));
 } finally {
   await browser.close();
 }

@@ -121,6 +121,11 @@ To verify and regenerate the resume PDF:
    from the same public data. Set `RESUME_BASE_URL` for a different preview URL.
 5. Run `npm run build` after PDF generation so the build contains the new file.
 
+Use `npm run cover-letter:pdf` to regenerate the cover-letter download from the
+same reviewed local HTML. To regenerate both PDFs in one verification pass, run
+`npm run test:resume -- --pdf --cover-pdf`. These are local review artifacts;
+generating them does not authorize publication.
+
 Local edits and PDF generation are review artifacts, not deployment approval.
 Do not push to `main` or dispatch deployment until publication is approved.
 

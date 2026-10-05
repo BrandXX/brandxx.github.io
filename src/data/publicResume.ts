@@ -20,7 +20,7 @@ export const tribalBullets = [
   'Lead infrastructure vendor evaluation, technical requirements, RFPs, procurement recommendations, licensing, and renewals; develop and manage infrastructure portions of the annual CapEx and OpEx budget.',
   'Led Darktrace adoption and expanded layered security through Microsoft Defender, Sentinel, Rapid7 MDR, vulnerability management, managed patching, and employee awareness. Helped establish dedicated Cybersecurity and Physical Security functions.',
   'Designed and maintain backup and disaster-recovery architecture using Veeam, immutable backups, storage replication, and geographically separated recovery infrastructure.',
-  'Originated and architect an estimated $6 million centralized data-center and combined SOC/NOC program, including APC POD, power, cooling, civil infrastructure, and migration planning. The partially funded program remains in design and procurement, not commissioned.',
+  'Originated and serve as primary architect for an estimated $6 million centralized data-center and combined SOC/NOC program, including APC POD, power, cooling, civil infrastructure, and migration planning. The partially funded program remains in design and procurement, not commissioned.',
   'Translate independent AI research into the emerging Tribal AI architecture, governance, policy, and security program, including collaboration with the Tribal Attorney General. The program remains in development and scoped pilot testing.',
 ];
 
@@ -36,7 +36,7 @@ export const tribalPrintBullets = [
   'Serve as sole systems infrastructure engineer and systems/security architect, reporting to the IT Director; own compute, virtualization, storage, capacity, standards, and lifecycle planning.',
   'Consolidated legacy platforms around Nutanix AHV, Cisco UCS, and Pure Storage, producing approximately $250,000 in annual savings and a 50% infrastructure footprint reduction.',
   'Lead vendor evaluation, RFPs, licensing, procurement recommendations, and infrastructure CapEx/OpEx planning; led Darktrace adoption and layered security modernization.',
-  'Designed Veeam-based backup/DR architecture with immutable backups and geographically separated recovery; originated an estimated $6M data-center/SOC/NOC program, still in design/procurement and partially funded.',
+  'Designed Veeam-based backup/DR architecture with immutable backups and geographically separated recovery; originated and serve as primary architect for an estimated $6M data-center/SOC/NOC program, still in design/procurement and partially funded.',
   'Inform the emerging Tribal AI architecture, security, governance, and policy program through independent research and Attorney General collaboration; development and scoped pilots remain distinct from production.',
 ];
 
