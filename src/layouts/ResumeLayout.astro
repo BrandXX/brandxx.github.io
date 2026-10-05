@@ -4,7 +4,6 @@ interface Props { title: string; description: string; print?: boolean; }
 const { title, description, print = false } = Astro.props;
 const currentPath = Astro.url.pathname.replace(/\/$/, '');
 const canonical = new URL(`${currentPath}/`, Astro.site);
-const documentName = currentPath === '/resume-research' ? 'Research' : 'Resume';
 ---
 <!doctype html>
 <html lang="en" class="dark">
@@ -30,7 +29,7 @@ const documentName = currentPath === '/resume-research' ? 'Research' : 'Resume';
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="document-shell">
     <header class="resume-nav">
-      <div class="brand">TechSoft Systems &middot; {documentName}</div>
+      <div class="brand">TechSoft Systems</div>
       <nav aria-label="Resume navigation">
         <a class="header-button" href="/">Back to site</a>
         <div class="document-nav">

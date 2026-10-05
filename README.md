@@ -101,10 +101,15 @@ belong in this repository.
 - `/resume-print` - two-page general resume used to generate the downloadable PDF
 - `/resume.html` - compatibility redirect to `/resume` (legacy root copy matches)
 
-The cover letter pages remain static files in `public/`:
+The cover letter remains a static file in `public/`:
 
 - `/cover-letter.html`
-- `/cover_letter.html` (compatibility alias)
+- `/cover_letter.html` (compatibility redirect)
+
+Resume, research, print, and cover letter share `public/resume.css` and
+`public/resume-navigation.css`. Keep their header structure aligned; the common
+brand and reserved scrollbar gutter prevent jumps when switching documents.
+The root `cover-letter.html` copy matches the public file for legacy reference.
 
 To verify and regenerate the resume PDF:
 

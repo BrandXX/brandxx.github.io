@@ -11,11 +11,11 @@ const browser = await chromium.launch({ headless: true });
 const errors = [];
 let checks = 0;
 try {
-  for (const width of [320, 390, 1440]) {
+  for (const width of [320, 390, 768, 1024, 1440]) {
     const context = await browser.newContext({ viewport: { width, height: 1000 }, colorScheme: 'light' });
     const page = await context.newPage();
     page.on('pageerror', error => errors.push(error.message));
-    for (const route of ['/resume', '/resume-research', '/resume-print']) {
+    for (const route of ['/resume', '/resume-research', '/resume-print', '/cover-letter.html']) {
       const response = await page.goto(base + route, { waitUntil: 'networkidle' });
       assert.equal(response.status(), 200, route);
       assert.equal(await page.locator('main h1').count(), 1);
@@ -63,6 +63,7 @@ try {
     assert.equal((await context.request.get(base + '/cover-letter.html')).status(), 200);
     assert.equal((await context.request.get(base + '/resume-icons.svg')).status(), 200);
     checks += 22;
+    let documentGeometry;
     for (const [route, activeLabel] of [['/resume', 'Resume'], ['/cover-letter.html', 'Cover Letter'], ['/resume-research', 'Research']]) {
       await page.goto(base + route, { waitUntil: 'networkidle' });
       const navigation = page.locator('.document-nav');
@@ -73,12 +74,32 @@ try {
           headerRadius: css('.resume-nav, .topbar').borderRadius,
           documentRadius: css('.resume-shell, .content').borderRadius,
           pdfBackground: css('.download-button, .btn.primary').backgroundImage,
+          gutter: css('html').scrollbarGutter,
+          lineHeight: css('body').lineHeight,
+          geometry: {
+            header: (() => {
+              const { x, y, width, height } = document.querySelector('.resume-nav').getBoundingClientRect();
+              return { x, y, width, height };
+            })(),
+            content: (() => {
+              const { x, y, width } = document.querySelector('main').getBoundingClientRect();
+              return { x, y, width };
+            })(),
+            navigation: [...document.querySelectorAll('.document-nav a')].map(link => {
+              const { x, y, width, height } = link.getBoundingClientRect();
+              return { x, y, width, height };
+            }),
+          },
         };
       });
       assert.equal(presentation.width, '980px');
       assert.equal(presentation.headerRadius, '16px');
       assert.equal(presentation.documentRadius, '20px');
       assert(presentation.pdfBackground.includes('linear-gradient'));
+      assert.equal(presentation.gutter, 'stable');
+      documentGeometry ??= presentation.geometry;
+      assert.deepEqual(presentation.geometry, documentGeometry, `Document layout jump: ${route} at ${width}`);
+      assert.equal(presentation.lineHeight, '25.5px');
       const header = page.locator('.resume-nav, .topbar');
       assert.equal(await header.locator('img').count(), 0);
       assert.equal(await header.locator('.document-theme-toggle svg').count(), 1);
@@ -100,26 +121,56 @@ try {
       })), true, `Navigation button styling: ${route}`);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `Overflow: ${route} at ${width}`);
       await page.locator('.resume-nav, .topbar').screenshot({ path: path.join(screenshots, `navigation-${activeLabel.toLowerCase().replaceAll(' ', '-')}-${width}.png`), animations: 'disabled' });
-      checks += 15;
+      await page.screenshot({ path: path.join(screenshots, `document-${activeLabel.toLowerCase().replaceAll(' ', '-')}-${width}.png`), animations: 'disabled' });
+      checks += 18;
     }
     await page.goto(base + '/resume');
     await page.locator('.document-nav').getByRole('link', { name: 'Cover Letter', exact: true }).click();
+    await page.waitForURL('**/cover-letter.html');
+    assert.equal(await page.locator('.download-button').getAttribute('href'), '/pdfs/johnathan-carroll-cover-letter.pdf');
+    assert.equal(await page.locator('.cover-letter-body li').count(), 4);
+    assert((await page.locator('.cover-letter-body').innerText()).includes('IT Infrastructure & AI Systems Leader'));
+    await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
+    await page.evaluate(() => { window.print = () => { window.__coverLetterPrinted = true; }; });
+    await page.getByRole('button', { name: 'Print cover letter', exact: true }).click();
+    assert.equal(await page.evaluate(() => window.__coverLetterPrinted), true);
+    await page.goto(base + '/cover_letter.html');
     await page.waitForURL('**/cover-letter.html');
     await page.locator('.document-nav').getByRole('link', { name: 'Research', exact: true }).click();
     await page.waitForURL('**/resume-research');
     await page.locator('.document-nav').getByRole('link', { name: 'Resume', exact: true }).click();
     await page.waitForURL(url => url.pathname.replace(/\/$/, '') === '/resume');
-    checks += 3;
+    checks += 8;
     await page.locator('.resume-nav').getByRole('link', { name: 'Back to site', exact: true }).click();
     await page.waitForURL(url => url.pathname === '/');
     checks++;
     await context.close();
   }
+  assert.equal(await readFile('cover-letter.html', 'utf8'), await readFile('public/cover-letter.html', 'utf8'));
+  checks++;
+  for (const colorScheme of ['light', 'dark']) {
+    const context = await browser.newContext({ colorScheme });
+    const page = await context.newPage();
+    for (const route of ['/resume', '/resume-research', '/cover-letter.html']) {
+      await page.goto(base + route, { waitUntil: 'networkidle' });
+      assert.equal(await page.locator('html').evaluate(root => root.classList.contains('dark')), colorScheme === 'dark');
+      checks++;
+    }
+    await context.close();
+  }
   const page = await browser.newPage({ viewport: { width: 710, height: 970 } });
+  await page.goto(base + '/cover-letter.html', { waitUntil: 'networkidle' });
+  await page.emulateMedia({ media: 'print' });
+  assert.equal(await page.locator('.resume-nav').isVisible(), false);
+  assert.equal(await page.locator('.resume-footer').isVisible(), false);
+  const coverLetterPdf = await page.pdf({ preferCSSPageSize: true, printBackground: true, tagged: true });
+  assert.equal([...coverLetterPdf.toString('latin1').matchAll(/\/Type\s*\/Page\b/g)].length, 1);
+  checks += 3;
   await page.goto(base + '/resume-print', { waitUntil: 'networkidle' });
   await page.emulateMedia({ media: 'print' });
   assert.equal(await page.locator('body').evaluate(body => getComputedStyle(body, '::before').display), 'none');
-  checks++;
+  assert.equal(await page.locator('html').evaluate(root => getComputedStyle(root).scrollbarGutter), 'auto');
+  checks += 2;
   const heights = await page.locator('.print-page').evaluateAll(pages => pages.map(page => page.getBoundingClientRect().height));
   assert.equal(heights.length, 2);
   assert(heights.every(height => height <= 970), `Print page overflow: ${heights.join(', ')}`);
