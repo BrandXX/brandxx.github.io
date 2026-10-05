@@ -15,4 +15,5 @@ const { compact = false } = Astro.props;
       <p>{compact ? project.printSummary : project.summary}</p>
     </article>
   ))}
+  {!compact && <p class="section-note"><a href="/resume-research#inference">Inference &amp; platform engineering <span aria-hidden="true">&rarr;</span></a></p>}
 </section>

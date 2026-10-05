@@ -57,6 +57,23 @@ try {
     checks++;
     await page.locator('a[href="/resume-research#piper"]').click();
     await page.waitForURL('**/resume-research#piper');
+    const researchMain = await page.locator('main').innerText();
+    for (const expected of ['typed request, budget, and evidence contracts', 'pre-work intake from post-work agent handoff', 'blocked approval on source drift', 'live-memory application disabled', 'single-GPU serving configuration', 'workload-specific model selection']) {
+      assert(researchMain.includes(expected), expected);
+      checks++;
+    }
+    for (const excluded of ['/home/', 'ACCESS-INVENTORY', 'EVIDENCE-INDEX', 'RD19-', '3,352', '3,157,856']) {
+      assert(!researchMain.includes(excluded), excluded);
+      checks++;
+    }
+    for (const id of ['ai-q', 'piper', 'memory', 'inference']) {
+      assert.equal(await page.locator(`#${id}`).count(), 1);
+      await page.goto(base + '/resume');
+      await page.locator(`a[href="/resume-research#${id}"]`).click();
+      await page.waitForURL(`**/resume-research#${id}`);
+      assert.equal(await page.locator(`#${id}`).count(), 1);
+      checks += 2;
+    }
     for (const route of ['/resume']) {
       for (const region of ['.resume-nav', '.resume-footer']) {
         await page.goto(base + route);
