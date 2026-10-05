@@ -45,7 +45,7 @@ try {
     await page.getByRole('button', { name: 'Print resume', exact: true }).click();
     await page.waitForURL('**/resume-print');
     await page.goto(base + '/resume.html', { waitUntil: 'networkidle' });
-    await page.waitForURL('**/resume');
+    await page.waitForURL(url => url.pathname.replace(/\/$/, '') === '/resume');
     const pdfResponse = await context.request.get(base + '/pdfs/johnathan-carroll-resume.pdf');
     assert.equal(pdfResponse.status(), 200);
     assert((await pdfResponse.body()).subarray(0, 5).toString() === '%PDF-');
@@ -88,7 +88,7 @@ try {
     await page.locator('.document-nav').getByRole('link', { name: 'Research', exact: true }).click();
     await page.waitForURL('**/resume-research');
     await page.locator('.document-nav').getByRole('link', { name: 'Resume', exact: true }).click();
-    await page.waitForURL('**/resume');
+    await page.waitForURL(url => url.pathname.replace(/\/$/, '') === '/resume');
     checks += 3;
     await context.close();
   }
