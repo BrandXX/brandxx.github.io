@@ -6,6 +6,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '');
 const canonical = new URL(`${currentPath}/`, Astro.site);
 const isResearch = currentPath === '/resume-research';
 const printLabel = isResearch ? 'Print research' : 'Print resume';
+const pdfPath = isResearch ? '/pdfs/johnathan-carroll-applied-ai-research.pdf' : '/pdfs/johnathan-carroll-resume.pdf';
 ---
 <!doctype html>
 <html lang="en" class="dark">
@@ -45,7 +46,7 @@ const printLabel = isResearch ? 'Print research' : 'Print resume';
         <button class="icon-button" data-print-document={isResearch ? 'research' : 'resume'} type="button" aria-label={printLabel} title={printLabel}>
           <svg width="18" height="18" aria-hidden="true"><use href="/resume-icons.svg#printer" /></svg>
         </button>
-        <a class="download-button" href="/pdfs/johnathan-carroll-resume.pdf" download>
+        <a class="download-button" href={pdfPath} download>
           <span>Download PDF</span>
         </a>
       </nav>

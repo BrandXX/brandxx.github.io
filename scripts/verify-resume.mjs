@@ -20,6 +20,20 @@ try {
       const response = await page.goto(base + route, { waitUntil: 'networkidle' });
       assert.equal(response.status(), 200, route);
       assert.equal(await page.locator('main h1').count(), 1);
+      const [downloadPath, downloadPages] = route === '/resume-research'
+        ? ['/pdfs/johnathan-carroll-applied-ai-research.pdf', 4]
+        : route === '/cover-letter.html'
+          ? ['/pdfs/johnathan-carroll-cover-letter.pdf', 1]
+          : ['/pdfs/johnathan-carroll-resume.pdf', 3];
+      assert.equal(await page.locator('.download-button').getAttribute('href'), downloadPath);
+      const downloadResponse = await context.request.get(base + downloadPath);
+      assert.equal(downloadResponse.status(), 200, downloadPath);
+      assert(downloadResponse.headers()['content-type'].includes('application/pdf'));
+      const downloadBody = await downloadResponse.body();
+      assert.equal(downloadBody.subarray(0, 5).toString(), '%PDF-');
+      assert.deepEqual(downloadBody, await readFile('public' + downloadPath), `Unexpected PDF bytes: ${route}`);
+      assert.equal([...downloadBody.toString('latin1').matchAll(/\/Type\s*\/Page\b/g)].length, downloadPages);
+      checks += 6;
       await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `Overflow: ${route} at ${width}`);
       assert.equal(await page.locator('.resume-nav img').count(), 0);
@@ -76,7 +90,7 @@ try {
     }
     for (const route of ['/resume']) {
       for (const region of ['.resume-nav', '.resume-footer']) {
-        await page.goto(base + route);
+        await page.goto(base + route, { waitUntil: 'networkidle' });
         await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
         await page.locator(region).getByRole('button', { name: 'Print resume', exact: true }).click();
         await page.waitForURL('**/resume-print');

@@ -6,16 +6,19 @@ This directory contains PDF documents for download from the TechSoft Systems web
 
 - `johnathan-carroll-resume.pdf` - Resume PDF for download from the resume page
 - `johnathan-carroll-cover-letter.pdf` - Cover Letter PDF for download from the cover letter page
+- `johnathan-carroll-applied-ai-research.pdf` - Applied AI Research PDF for download from the research page
 
 ## PDF Generation
 
-These are professionally formatted PDF files containing the resume and cover letter content:
+The current downloads are the approved, uniform employer-facing set published October 6, 2026:
 
-1. The resume PDF is the shorter general version rendered at `/resume-print`,
-   using the same public-only data as `/resume`; extended research is at
-   `/resume-research`. The cover letter is unchanged.
-2. They are formatted for professional presentation and printing
-3. The filenames are consistent with the HTML links
+1. Resume: three pages; cover letter: one page; applied AI research: four pages.
+2. All three use consistent formatting, selectable text, embedded fonts, and
+   clickable contact and online-document links. The research PDF includes
+   internal section links and outline bookmarks.
+3. The approved PDFs are exported from editable document sources maintained
+   privately, not regenerated from the web print views. DOCX sources and private
+   career evidence are not published here.
 
 ## Usage
 
@@ -23,6 +26,7 @@ These PDFs are linked from:
 
 - `/resume` - Links to `johnathan-carroll-resume.pdf`; `/resume.html` redirects there
 - `cover-letter.html` - Links to `johnathan-carroll-cover-letter.pdf`
+- `/resume-research` - Links to `johnathan-carroll-applied-ai-research.pdf`
 
 The download links include the `download` attribute to prompt the browser to download the file rather than opening it in a new tab.
 
@@ -34,9 +38,14 @@ When updating the content of these PDFs:
 2. Ensure the PDFs are properly formatted and professional in appearance
 3. Keep file sizes reasonable (ideally under 1MB) for fast downloads
 
-For the resume, start the local preview on port 4322 and run `npm run resume:pdf`.
-This runs the browser checks and generates the two-page PDF from `/resume-print`.
-Run `npm run build` afterward. See the root README for setup and alternate URLs.
+Replace these files only with a newly reviewed and approved document export.
+Run `npm run build` and `npm run test:resume` against a local preview before
+publishing; the checks verify each download's link, bytes, and page count.
+
+`npm run resume:pdf` and `npm run cover-letter:pdf` are legacy web-print
+generators and overwrite the corresponding downloads. Do not use them to
+refresh this approved document set. The site's Print controls still use the
+web print views, independently of these PDF downloads.
 
 ## Future Improvements
 
