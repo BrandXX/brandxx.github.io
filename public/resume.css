@@ -67,6 +67,7 @@ h3 { font-size: 16px; font-weight: 650; line-height: 1.4; margin: 0; }
 .back-link { font-size: 13px; }
 .project-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 13px; padding: 16px 0 24px; }
 .research-focus { margin: 0 0 8px; color: var(--muted); font-size: 12px; }
+.research-status { color: var(--muted); font-size: 13px; }
 .research-section > p:not(.research-focus):not(.claim-boundary) { margin: 12px 0; }
 .research-section > h3 { margin-top: 24px; }
 .claim-boundary { border-left: 2px solid var(--line); padding-left: 16px; margin: 20px 0 0; color: var(--muted); font-size: 13px; }

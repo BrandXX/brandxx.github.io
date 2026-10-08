@@ -1,12 +1,14 @@
 ---
 import { tribalRoles, tribalBullets, techsoftBullets, previousRoles, tribalPrintBullets, techsoftPrintBullets } from '../data/publicResume';
-interface Props { previous?: boolean; compact?: boolean; }
-const { previous = false, compact = false } = Astro.props;
+interface Props { previous?: boolean; compact?: boolean; currentGroup?: 'all' | 'tribal' | 'techsoft'; start?: number; end?: number; }
+const { previous = false, compact = false, currentGroup = 'all', start = 0, end } = Astro.props;
+const previousId = start > 0 ? 'previous-experience-continued' : 'previous-experience';
+const currentId = currentGroup === 'techsoft' ? 'current-experience-techsoft' : 'current-experience';
 ---
 {previous ? (
-  <section class="resume-section" aria-labelledby="previous-experience">
-    <h2 id="previous-experience">Previous Experience</h2>
-    {previousRoles.map(role => (
+  <section class="resume-section" aria-labelledby={previousId}>
+    <h2 id={previousId}>Previous Experience{start > 0 && ' (Continued)'}</h2>
+    {previousRoles.slice(start, end).map(role => (
       <article class="experience-entry">
         <div class="entry-heading"><h3>{role.employer}</h3><span class="dates">{role.dates}</span></div>
         <p class="role-title">{role.title}</p>
@@ -15,20 +17,20 @@ const { previous = false, compact = false } = Astro.props;
     ))}
   </section>
 ) : (
-  <section class="resume-section" aria-labelledby="current-experience">
-    <h2 id="current-experience">Current Experience</h2>
-    <article class="experience-entry">
+  <section class="resume-section" aria-labelledby={currentId}>
+    <h2 id={currentId}>Current Experience{currentGroup === 'techsoft' && ' (Continued)'}</h2>
+    {currentGroup !== 'techsoft' && <article class="experience-entry">
       <div class="entry-heading"><h3>Pascua Yaqui Tribe Government</h3><span class="dates">Tucson, Arizona</span></div>
       <dl class="role-history">
         {tribalRoles.map(role => <div><dt>{role.title}</dt><dd>{role.dates}</dd></div>)}
       </dl>
       {!compact && <p class="tenure-note">Selected accomplishments across successive roles; hands-on engineering responsibilities continued through promotion.</p>}
       <ul>{(compact ? tribalPrintBullets : tribalBullets).map(bullet => <li>{bullet}</li>)}</ul>
-    </article>
-    <article class="experience-entry">
+    </article>}
+    {currentGroup !== 'tribal' && <article class="experience-entry">
       <div class="entry-heading"><h3>TechSoft Systems</h3><span class="dates">2012 - Present</span></div>
       <p class="role-title">Founder, Owner &amp; Operator</p>
       <ul>{(compact ? techsoftPrintBullets : techsoftBullets).map(bullet => <li>{bullet}</li>)}</ul>
-    </article>
+    </article>}
   </section>
 )}

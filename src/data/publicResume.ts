@@ -4,7 +4,7 @@ export const profile = {
   title: 'Infrastructure, Security & AI Platform Engineering Leader',
   location: 'Tucson, Arizona',
   email: 'j.carroll@techsoftsys.com',
-  summary: 'Hands-on technology leader with 25+ years across government, enterprise IT, ISP operations, entrepreneurship, and applied AI. Combines systems architecture and operational leadership with infrastructure modernization, cybersecurity, disaster recovery, and local AI platform engineering.',
+  summary: 'Hands-on technology leader with 25+ years across government, enterprise IT, ISP operations, entrepreneurship, and applied AI. Combines systems architecture and operational leadership with infrastructure modernization, cybersecurity, disaster recovery, AI infrastructure, and LLMOps.',
 };
 
 export const tribalRoles = [
@@ -27,8 +27,9 @@ export const tribalBullets = [
 export const techsoftBullets = [
   'Founded and operate a technology consultancy, now focused primarily on independent applied AI R&D alongside the full-time Tribal role; specialize in small local AI labs and custom GPU/server systems.',
   'Engineered a Threadripper PRO lab around dual RTX PRO 6000 Blackwell GPUs with 192 GB aggregate GPU memory, 512 GB ECC DDR5 memory, and PCIe 5.0 NVMe storage. Dedicated AI research began in January 2025.',
-  'Convert base models to NVFP4 with NVIDIA Model Optimizer, then test, tune, and deploy with vLLM. Work spans CUDA, tensor parallelism, FP8 KV caching, speculative decoding, GPU residency, embeddings, reranking, and multimodal services.',
-  'Lead AI-assisted agent and memory-system engineering, evidence-integrity evaluation, observability, and state-preserving container updates. Use Ollama for basic testing and selected project embedding workloads.',
+  'Convert base models to NVFP4 with NVIDIA Model Optimizer, then test, tune, and deploy with vLLM. LLMOps work spans CUDA, FP8 KV caching, speculative decoding, embeddings/reranking, multimodal services, observability, and reproducible container operations. Use Ollama for basic testing and selected project embedding workloads.',
+  'Engineered vLLM/NVFP4 model-residency workflows, recording 0.96-0.97-second source-sleep-to-first-visible-token latency in selected bidirectional lab tests.',
+  'Validated a historical Lightning inference-runtime candidate through 61 successful sleep/wake cycles and 122/122 post-wake arithmetic/tool checks, with approximately 473 ms mean wake time. Results qualify the tested residency components, not the complete agent architecture.',
 ];
 
 export const tribalPrintBullets = [
@@ -43,7 +44,8 @@ export const tribalPrintBullets = [
 export const techsoftPrintBullets = [
   'Founded a technology consultancy, now primarily independent applied AI R&D alongside the full-time Tribal role; build local AI labs and GPU/server systems.',
   'Engineered a dual RTX PRO 6000 Blackwell platform with 192 GB aggregate GPU memory and 512 GB ECC DDR5; convert and optimize base models to NVFP4 with NVIDIA Model Optimizer for vLLM deployment.',
-  'Work across CUDA, tensor parallelism, FP8 KV caching, speculative decoding, model residency, embeddings/reranking, agent memory, observability, and reproducible AI-assisted engineering.',
+  'LLMOps spans CUDA, FP8 KV caching, speculative decoding, embeddings/reranking, observability, and reversible container updates; Ollama remains for basic testing and selected embedding workloads.',
+  'Recorded 0.96-0.97-second source-sleep-to-first-visible-token switching in selected lab tests; a separate historical Lightning runtime candidate passed 61 sleep/wake cycles and 122/122 arithmetic/tool checks, with approximately 473 ms mean wake time.',
 ];
 
 export const previousRoles = [
@@ -83,8 +85,24 @@ export const previousRoles = [
 
 export const projects = [
   {
+    id: 'residency', title: 'Dynamic GPU Residency & LLMOps', focus: 'Inference architecture and operational validation',
+    status: 'Historical lab tests; residency components validated',
+    summary: 'Designed a private multi-model, multi-agent inference architecture and experimentally validated dynamic GPU residency components using vLLM and NVFP4-quantized MoE models. Evaluated retained-weight transitions under embedding load and controlled host-memory bandwidth contention.',
+    printSummary: 'Designed a multi-model, multi-agent inference architecture; validated residency components under embedding and host-memory bandwidth load with reproducible timing, correctness checks, fault telemetry, and rollback records.',
+    resumeBoundary: 'Historical component validation, not whole-architecture production qualification. Nano numerical failures and long-duration near-saturation testing remained unresolved in the record.',
+    details: [
+      'Measured strictly sequential source sleep, retained target wake, and streamed Chat Completions through the first nonempty visible token. Both short, nonthinking bidirectional probes completed their required response marker.',
+      'Validated a pinned vLLM runtime incorporating an upstream sleep/wake fix. Distinguished cold host-mapping setup from warmed transitions, checked arithmetic/tool output after wake, and retained the previous runtime for rollback.',
+      'Tested synchronized wakes across two GPUs while an embedder was active, then ran a separate five-level STREAM memory-bandwidth contention matrix with paired-wake timing and post-wake arithmetic gates.',
+      'Preserved a failed initial Nano arithmetic gate and its zero-pressure reproduction before completing the replacement stable-gate matrix. Later numerical failures remain qualifications; successful residency does not establish general model correctness.',
+      'Separated model-local KV capacity from per-request context and scheduler concurrency. The four deployments in the capacity snapshot were single-GPU TP1 engines on a two-GPU host, not a successful TP2 configuration or a cross-model shared KV pool.',
+    ],
+    boundary: 'Historical August/September 2026 independent lab results, not whole-architecture production qualification or confirmation of restored dual-GPU availability after RMA. Full-switch, target-wake, and paired-wake timings have different boundaries. Long-duration near-saturation contention testing remained outstanding; the Responses API was excluded from the Lightning acceptance campaign because of a separately tracked streaming defect. Upstream fix authorship is not claimed. Architecture name and internal design remain private.',
+  },
+  {
     id: 'ai-q', title: 'NVIDIA AI-Q Research Assistant', focus: 'Agentic research and evidence integrity',
-    summary: 'Built a self-hosted AI-Q/NeMo research platform; analyzed 4.68M+ reported model tokens in selected retained studies and 1,448 calls across 45 diagnostic runs. Corrected a citation-accounting defect with 196 focused passing tests.',
+    status: 'Implemented private research platform; evaluation ongoing',
+    summary: 'Built a self-hosted AI-Q/NeMo research platform with persistent jobs, cited reports, and reproducible evidence evaluation. Diagnosed and corrected a specific citation-accounting defect, validated with 196 focused passing tests.',
     printSummary: 'Built a self-hosted AI-Q/NeMo platform and reproducible evidence evaluation; repaired a specific citation-accounting defect, validated with 196 focused passing tests.',
     details: [
       'Integrated NVIDIA AI-Q, NeMo Agent Toolkit, FastAPI, Dask, PostgreSQL, Next.js, vLLM, and Ollama for persistent research jobs, cited reports, and streaming progress.',
@@ -92,24 +110,28 @@ export const projects = [
       'Designed typed request, budget, and evidence contracts to make research jobs traceable and replayable. Separated successful software execution from accepted research quality.',
       'Investigated source-binding, structured-output, and agent-handoff failures; tested source-first comparisons in independent contexts and identified limits in domain-specific controllers and generalization.',
       'Diagnosed a citation-accounting defect and restored 30 cited sources from a 77-source report in an exact-image replay; validated the repair with 196 focused passing tests and regression comparisons.',
+      'Analyzed 4.68M+ reported model tokens in selected retained studies and 1,448 calls across 45 diagnostic runs. These supplied study scopes are not lifetime totals or a newly reconciled aggregate.',
     ],
     boundary: 'Active independent AI-assisted research, not commercial deployment. Token/call counts cover selected retained work, not lifetime totals. Software tests and execution journals do not establish factual correctness; bounded comparisons do not establish overall model superiority or reliable general research.',
   },
   {
     id: 'piper', title: 'PIPER Intent Gateway', focus: 'Intent classification and memory routing',
-    summary: 'Architected a native Hermes advisory plugin for intent and memory selection, deterministic contracts, monitoring, and human review; expanded a historical acceptance suite to 114 passing tests and audited 106 selected decisions.',
+    status: 'Implemented advisory lab integration; historical regression coverage',
+    summary: 'Architected a Hermes advisory intent/memory integration with deterministic contracts, monitoring, human review, and failure analysis. Preserved a historical 114-test intake milestone and a separate selected 106-decision audit.',
     printSummary: 'Architected a Hermes advisory intent/memory plugin with deterministic contracts, monitoring, human review, historical regression coverage, and a selected 106-decision audit.',
     details: [
-      'Led AI-assisted intent-routing research across early hybrid intake, Open-WebUI filters, and a later native Hermes advisory plugin. Historical gateway work included structured LLM output, deterministic policy mappings, bounded context, session isolation, timeout/fallback controls, and circuit breaking.',
-      'Separated pre-work intake from post-work agent handoff. Historical routing contracts used schema validation, bounded repair, and fallback; model-assisted classification supplied hints rather than owning agent execution.',
-      'Defined retrieval boundaries across conversation history, user profile, assistant operational memory, and authoritative durable knowledge. The executing agent retains planning and tool-use responsibility.',
+      'Led AI-assisted integration research across early intake tooling, Open-WebUI filters, and a later native Hermes advisory plugin. Historical work used structured output, contract validation, failure tracing, and rollback.',
+      'Separated advisory classification from agent execution, using schema validation and output checks while retaining evidence and explicit uncertainty in handoffs.',
+      'Evaluated retrieval and memory-selection behavior without treating model output or remembered content as independent evidence of correctness. Detailed routing and memory architecture remain private.',
       'Built gateway monitoring and review tooling with FastAPI/React, authenticated source-turn review, append-only corrections, revision-checked configuration, atomic replacement, backups, and rollback.',
       'Expanded the early gateway acceptance suite to 114 reported passing tests in May 2026. Re-reviewed 106 previously recovery-labeled decisions in September to separate memory-routing errors, classifier misses, internal turns, correct routes, and downstream recovery.',
+      'Retained historical regression source files and a test log supporting the early 114-test milestone. Investigated dependent-hop latency, oversized handoffs, nested timeouts, output-contract failures, and test traffic entering durable memory; those artifacts do not establish a current native-plugin passing suite.',
     ],
     boundary: 'Independent R&D, documented May 2026 - Present. The native plugin is advisory, not autonomous memory enforcement. Historical packages do not establish feature parity across generations. The selected audit is failure analysis, not a general accuracy score; historical tests are not a full current-plugin passing run.',
   },
   {
     id: 'memory', title: 'Ogden / Memory Workbench', focus: 'Proposal-only memory evaluation',
+    status: 'Implemented review tooling; model proposals do not mutate live memory',
     summary: 'Evaluated 280 conclusions across 72 cases, completed after retries and serving recovery; produced 19 proposals for human review without mutating live memory.',
     printSummary: 'Evaluated 280 conclusions across 72 cases after retries/recovery, yielding 19 human-review proposals without mutating live memory.',
     details: [
@@ -121,7 +143,63 @@ export const projects = [
     ],
     boundary: 'Independent AI-assisted research. The 19 proposals are not 19 proven errors or applied fixes. Semantic clustering, a full memory compiler, and compaction concepts remain research/planned work, not completed features.',
   },
+  {
+    id: 'preloader', title: 'Open-WebUI Model Preloader', focus: 'Browser-side AI workflow integration',
+    status: 'Built and used in the lab; performance gains not benchmarked',
+    summary: 'Built and used a JavaScript/Tampermonkey integration that initiates model warmup on Open-WebUI selection, aiming to overlap initialization with user interaction before the first prompt.',
+    printSummary: 'Built a browser-side Open-WebUI integration for selection-triggered model warmup, with debounced events, authenticated requests, cooldown controls, and documented operating behavior.',
+    details: [
+      'Implemented debounced DOM-driven selection handling, deterministic model-ID mapping, client request cancellation, cooldown/force-warm controls, authenticated API fallback, and persisted state.',
+      'Maintained versioned source, architecture documentation, change notes, troubleshooting guidance, and a structured manual-validation checklist.',
+      'Preserved implementation caveats and separated confirmed lab use from static source checks, unperformed runtime tests, and roadmap features.',
+    ],
+    boundary: 'Implemented independent lab software, not an upstream Open-WebUI contribution or commercial deployment. No retained before/after latency or GPU-overhead benchmark establishes cold-start elimination. Client cancellation does not guarantee backend work stops. Public repository, license clearance, and current-version compatibility are not established by the supplied artifacts.',
+  },
+  {
+    id: 'proposals', title: 'Reasoning Reliability Research Proposals', focus: 'Research design and evaluation planning',
+    status: 'Proposal and design only; no combined-system experiments',
+    summary: 'Authored technical proposals on LLM reasoning reliability, with planned evaluation of correctness and computational cost. The work remains proposal and design only, with no combined-system implementation, experiments, or measured gains.',
+    printSummary: 'Authored design-only reasoning and repair proposals with evaluation plans; no implementation, measured gains, or peer-reviewed publication claimed.',
+    details: [
+      'Defined evaluation questions, controls, failure modes, and comparison criteria before implementation, keeping intended benefits separate from measured results.',
+      'Distinguished model confidence from correctness and proposed independent artifact validation for agent repairs.',
+      'Credited existing research methods; the contribution is synthesis and integration design, not an established first-ever algorithm or published/peer-reviewed paper.',
+    ],
+    boundary: 'Proposal/design only, as confirmed by the author. No combined-system implementation, experimental improvement, safety guarantee, or publication is claimed. Papers, diagrams, and internal architecture details remain private; this entry is a high-level abstract only.',
+  },
 ];
+
+export const resumeProjects = projects.filter(project => ['residency', 'ai-q', 'piper'].includes(project.id));
+
+export const researchProfile = {
+  title: 'Applied AI Research',
+  summary: 'Independent research through TechSoft Systems in AI infrastructure, LLMOps, agent reliability, evidence integrity, and governed evaluation. Project leadership, hands-on integration, and AI-assisted development; implemented lab work and design-only proposals retain separate status.',
+};
+
+export const residencyMeasurements = [
+  { title: 'Bidirectional model switching', result: '0.960760 / 0.973000 seconds', method: 'September 1 selected Omni-to-Lightning and reverse tests. Wall time from source Level-1 sleep start through the target first nonempty visible content delta, including state verification; short nonthinking streamed marker requests.' },
+  { title: 'Pinned-runtime sleep/wake acceptance', result: '61/61 cycles; 122/122 checks; approx. 473 ms mean wake', method: 'Separate September 1 Lightning acceptance campaign with vLLM 0.28.1rc1.dev130+g44fe2a392. The dedicated 50-cycle soak is included in the 61-cycle total. First sleep established retained host mappings; Responses API testing was excluded.' },
+  { title: 'Synchronized dual-GPU wakes', result: '1.630-1.634 seconds', method: 'Median pair completion for four three-cycle conditions (twelve pair cycles overall) with an active embedder. Concurrent target-wake timing, not source-sleep-to-first-token or general agent-task latency.' },
+  { title: 'Host-memory bandwidth contention', result: '274.7 GB/s STREAM; 3.5-3.9% higher median pair wake', method: 'Separate near-saturation matrix: paired-wake medians rose from 1.625/1.622 to 1.682/1.685 seconds. Individual smaller-model wakes rose approximately 10%. Bandwidth stress, not RAM-capacity exhaustion or proof of PCIe saturation.' },
+  { title: 'Final stable-gate contention matrix', result: '60/60 arithmetic checks', method: 'Final replacement-gate matrix with no observed restarts, matching GPU/kernel faults, or swap use. Earlier failed Nano gates and later numerical failures remain part of the record; this is not universal model correctness or a long-duration soak.' },
+];
+
+export const inferenceEngineering = {
+  title: 'Inference & Platform Engineering',
+  focus: 'AI infrastructure, LLMOps, and reproducible operations',
+  status: 'Implemented lab serving; historical workload-specific benchmarks',
+  paragraphs: [
+    'Convert base models to NVFP4 using NVIDIA Model Optimizer, validate and optimize the converted checkpoints, and deploy through vLLM. Work includes FP8 KV caching, MTP speculative decoding, prefix caching, chunked prefill, CUDA graphs, and model residency. Personal conversion experience is distinct from deploying publisher-supplied NVFP4 checkpoints.',
+    'Integrate embedding/reranking services, local speech, and multimodal workloads. LLMOps includes pinned runtime images, functional acceptance checks, model-local capacity planning, observability, verified backups, state-preserving container updates, and narrow rollback procedures. Ollama remains for basic testing and selected embedding workloads.',
+  ],
+  details: [
+    'Designed reproducible inference comparisons using matched decoding settings, immutable model/runtime identities, bounded concurrency, and explicit timing definitions; retained failed attempts and workload-specific acceptance limits.',
+    'Investigated unsuccessful TP2 attempts and tested a bounded single-GPU serving configuration for Nemotron Super. Workspace and retained-VRAM headroom remained narrow. Distinguished per-sequence context limits from each engine\'s own KV capacity; startup capacity did not establish simultaneous maximum-context workload support.',
+    'Evaluated role-aware embedding formats against public retrieval datasets and a separate hard-negative technical suite, informing workload-specific model selection rather than an overall quality ranking.',
+    'Used infrastructure and GPU telemetry with Prometheus, Grafana, Loki, and NVIDIA DCGM Exporter, alongside fault logs and post-update checks. Monitoring coverage and bounded fault-free tests are not a production SLA.',
+  ],
+  boundary: 'Historical local-lab results use different workloads, timing definitions, and recorded runtime configurations. They are not direct cross-model rankings, universal model-performance claims, or guarantees on the current runtime. Residency acceptance-phase measurements do not replace these throughput campaigns. Detailed source artifacts and internal configuration remain private.',
+};
 
 export const benchmarks = [
   { model: 'Nemotron Super 120B NVFP4', result: '212.20 output tokens/sec', method: 'Warmed single-request technical workload; end-to-end rate across the configured generation, not decode-only throughput.' },
@@ -133,7 +211,7 @@ export const skills = [
   { name: 'Infrastructure', items: 'Nutanix AHV, VMware, Hyper-V, Cisco UCS, Pure Storage, NetApp, Veeam, Linux, GPU/server engineering' },
   { name: 'Networking', items: 'Cisco Nexus/Catalyst, Palo Alto, VLAN/VXLAN, VPN, multi-site infrastructure' },
   { name: 'Security', items: 'Darktrace, Defender, Sentinel, Rapid7, Syxsense, identity controls, incident response, vulnerability management' },
-  { name: 'AI platforms', items: 'CUDA, NVIDIA Model Optimizer, NVFP4, vLLM, embeddings/reranking, AI-Q, NeMo Agent Toolkit, Hermes, Honcho, MCP' },
+  { name: 'AI Infrastructure & LLMOps', items: 'CUDA, NVIDIA Model Optimizer, NVFP4, vLLM, GPU residency, capacity planning, inference evaluation, embeddings/reranking, AI-Q, NeMo Agent Toolkit, Hermes, Honcho, MCP' },
   { name: 'Engineering', items: 'Docker, Python, Bash, PowerShell, SQL, TypeScript/JavaScript, FastAPI, PostgreSQL, Redis, GitHub Actions' },
   { name: 'Observability', items: 'Prometheus, Grafana, Loki, NVIDIA DCGM Exporter, infrastructure and GPU telemetry' },
 ];
@@ -142,7 +220,7 @@ export const printSkills = [
   { name: 'Infrastructure', items: 'Nutanix AHV, VMware, Hyper-V, Cisco UCS, Pure Storage, NetApp, Veeam, Linux' },
   { name: 'Networking', items: 'Cisco Nexus/Catalyst, Palo Alto, VLAN/VXLAN, VPN' },
   { name: 'Security', items: 'Darktrace, Defender, Sentinel, Rapid7, Syxsense, identity, incident response' },
-  { name: 'AI platforms', items: 'CUDA, Model Optimizer, NVFP4, vLLM, AI-Q/NeMo, Hermes, Honcho, MCP' },
+  { name: 'AI Infrastructure & LLMOps', items: 'CUDA, Model Optimizer, NVFP4, vLLM, residency/capacity, inference evaluation, AI-Q/NeMo, Hermes, Honcho, MCP' },
   { name: 'Engineering', items: 'Docker, Python, Bash, PowerShell, SQL, TypeScript/JavaScript, FastAPI, GitHub Actions' },
   { name: 'Observability', items: 'Prometheus, Grafana, Loki, NVIDIA DCGM Exporter' },
 ];

@@ -10,15 +10,21 @@ This directory contains PDF documents for download from the TechSoft Systems web
 
 ## PDF Generation
 
-The current downloads are the approved, uniform employer-facing set published October 6, 2026:
+The current downloads are the approved, uniform employer-facing set updated October 7, 2026:
 
-1. Resume: three pages; cover letter: one page; applied AI research: four pages.
+1. Resume: three pages; cover letter: one page; applied AI research: five pages.
 2. All three use consistent formatting, selectable text, embedded fonts, and
    clickable contact and online-document links. The research PDF includes
    internal section links and outline bookmarks.
-3. The approved PDFs are exported from editable document sources maintained
-   privately, not regenerated from the web print views. DOCX sources and private
-   career evidence are not published here.
+3. Site content is finalized first, then matched DOCX documents are created.
+   PDFs are exported by parsing those finished DOCX documents, including their
+   paragraphs, styles, hyperlinks, and bookmarks. They are not generated from
+   the web print views or a separate parallel content model. DOCX sources,
+   export tools, and private career evidence remain local and are not published here.
+4. Document verification checks ordered text, clickable links, internal
+   destinations, outline structure, embedded fonts, margins, and overlap.
+   The PDF layout is verified independently; native Word pagination depends
+   on the reader's installed fonts and has not been tested in Microsoft Word.
 
 ## Usage
 

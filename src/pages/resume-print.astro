@@ -6,6 +6,7 @@ import ResumeProjects from '../components/ResumeProjects.astro';
 import ResumeSkills from '../components/ResumeSkills.astro';
 ---
 <ResumeLayout title="Johnathan W. Carroll Resume" description="Printable general resume for Johnathan W. Carroll." print>
-  <div class="print-page"><ResumeIdentity /><ResumeExperience compact /><ResumeProjects compact /></div>
-  <div class="print-page"><ResumeExperience previous compact /><ResumeSkills compact /></div>
+  <div class="print-page"><ResumeIdentity /><ResumeExperience compact currentGroup="tribal" /></div>
+  <div class="print-page"><ResumeExperience compact currentGroup="techsoft" /><ResumeProjects compact /><ResumeExperience previous compact end={2} /></div>
+  <div class="print-page"><ResumeExperience previous compact start={2} /><ResumeSkills compact /></div>
 </ResumeLayout>

@@ -1,5 +1,5 @@
 ---
-import { projects } from '../data/publicResume';
+import { resumeProjects } from '../data/publicResume';
 interface Props { compact?: boolean; }
 const { compact = false } = Astro.props;
 ---
@@ -9,10 +9,11 @@ const { compact = false } = Astro.props;
     {!compact && <a href="/resume-research">Project details <span aria-hidden="true">&rarr;</span></a>}
   </div>
   <p class="section-note">Independent applied R&amp;D and AI-assisted engineering; not commercial or completed Tribal production deployments.</p>
-  {projects.map(project => (
+  {resumeProjects.map(project => (
     <article class="project-entry">
       <h3>{compact ? project.title : <a href={`/resume-research#${project.id}`}>{project.title}</a>}</h3>
-      <p>{compact ? project.printSummary : project.summary}</p>
+      <p>{project.printSummary}</p>
+      {'resumeBoundary' in project && <p class="section-note">{project.resumeBoundary}</p>}
     </article>
   ))}
   {!compact && <p class="section-note"><a href="/resume-research#inference">Inference &amp; platform engineering <span aria-hidden="true">&rarr;</span></a></p>}

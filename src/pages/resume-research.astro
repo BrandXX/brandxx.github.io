@@ -1,12 +1,12 @@
 ---
 import ResumeLayout from '../layouts/ResumeLayout.astro';
-import { projects, benchmarks } from '../data/publicResume';
+import { projects, benchmarks, researchProfile, residencyMeasurements, inferenceEngineering } from '../data/publicResume';
 ---
-<ResumeLayout title="AI Research | Johnathan W. Carroll" description="Independent AI infrastructure, agent orchestration, memory evaluation, and reproducible local inference research by Johnathan W. Carroll.">
+<ResumeLayout title="AI Research | Johnathan W. Carroll" description="Independent AI infrastructure, LLMOps, GPU residency, agent reliability, and reproducible inference research by Johnathan W. Carroll.">
   <header class="research-heading">
     <a class="back-link" href="/resume/">&larr; Johnathan W. Carroll</a>
-    <h1>Applied AI Research</h1>
-    <p>Independent research through TechSoft Systems in agent reliability, memory provenance, evidence integrity, and local inference. Project leadership, hands-on integration, and AI-assisted development.</p>
+    <h1>{researchProfile.title}</h1>
+    <p>{researchProfile.summary}</p>
     <nav class="project-nav" aria-label="Research projects">
       {projects.map(project => <a href={`#${project.id}`}>{project.title}</a>)}
       <a href="#inference">Inference engineering</a>
@@ -16,25 +16,28 @@ import { projects, benchmarks } from '../data/publicResume';
     <section id={project.id} class="resume-section research-section">
       <p class="research-focus">{project.focus}</p>
       <h2>{project.title}</h2>
+      <p class="research-status">{project.status}</p>
       <p>{project.summary}</p>
       <ul>{project.details.map(detail => <li>{detail}</li>)}</ul>
+      {project.id === 'residency' && <>
+        <h3>Selected Residency Measurements</h3>
+        <div class="benchmark-list">
+          {residencyMeasurements.map(measurement => <article><h4>{measurement.title}</h4><p class="benchmark-result">{measurement.result}</p><p>{measurement.method}</p></article>)}
+        </div>
+      </>}
       <p class="claim-boundary">{project.boundary}</p>
     </section>
   ))}
   <section id="inference" class="resume-section research-section">
-    <p class="research-focus">Local infrastructure and LLMOps</p>
-    <h2>Inference &amp; Platform Engineering</h2>
-    <p>Convert base models to NVFP4 using NVIDIA Model Optimizer, validate and optimize the converted checkpoints, and deploy through vLLM. Work includes tensor parallelism, FP8 KV caching, MTP speculative decoding, prefix caching, chunked prefill, CUDA graphs, and model residency.</p>
-    <p>Integrate embedding/reranking services, local speech, and multimodal workloads. Preserve service state during container updates with verified backups, functional checks, and narrow rollback procedures.</p>
-    <ul>
-      <li>Designed reproducible inference comparisons using matched decoding settings, immutable model/runtime identities, bounded concurrency, and explicit timing definitions; retained failed attempts and workload-specific acceptance limits.</li>
-      <li>Investigated tensor-parallel transport/IOMMU and GPU workspace failures, qualifying a single-GPU serving configuration for Nemotron Super. Distinguished per-sequence context limits from shared KV capacity and scheduling headroom.</li>
-      <li>Evaluated role-aware embedding formats against public retrieval datasets and a separate hard-negative technical suite, informing workload-specific model selection rather than an overall quality ranking.</li>
-    </ul>
+    <p class="research-focus">{inferenceEngineering.focus}</p>
+    <h2>{inferenceEngineering.title}</h2>
+    <p class="research-status">{inferenceEngineering.status}</p>
+    {inferenceEngineering.paragraphs.map(paragraph => <p>{paragraph}</p>)}
+    <ul>{inferenceEngineering.details.map(detail => <li>{detail}</li>)}</ul>
     <h3>Selected Local Measurements</h3>
     <div class="benchmark-list">
       {benchmarks.map(benchmark => <article><h4>{benchmark.model}</h4><p class="benchmark-result">{benchmark.result}</p><p>{benchmark.method}</p></article>)}
     </div>
-    <p class="claim-boundary">Historical local-lab results use different workloads, timing definitions, and recorded runtime configurations. They are not direct cross-model rankings, universal model-performance claims, or guarantees on the current runtime. Detailed methodology remains in the private evidence record.</p>
+    <p class="claim-boundary">{inferenceEngineering.boundary}</p>
   </section>
 </ResumeLayout>
