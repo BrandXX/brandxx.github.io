@@ -115,6 +115,20 @@ export const projects = [
     boundary: 'Active independent AI-assisted research, not commercial deployment. Token/call counts cover selected retained work, not lifetime totals. Software tests and execution journals do not establish factual correctness; bounded comparisons do not establish overall model superiority or reliable general research.',
   },
   {
+    id: 'platform', title: 'Stateful AI Platform Operations & Reliability', focus: 'Inference migration, recovery, and integration engineering',
+    status: 'Implemented independent lab operations; historical functional checks',
+    summary: 'Migrated a stateful Hermes/Honcho assistant platform from Ollama GGUF to vLLM-hosted NVFP4 inference while preserving 3,045 active memory documents and the existing embedding service. Developed recoverable deployment procedures and tested the actual agent paths for browser, vision/video, speech, and other native tools.',
+    printSummary: 'Migrated Hermes/Honcho inference to vLLM/NVFP4 while preserving 3,045 active memory documents; engineered state-preserving recovery and consumer-path integration checks.',
+    details: [
+      'Coordinated service cutover with PostgreSQL, Redis, assistant, and Memory Workbench backups, preserving memory and review progress. Used stopped-state snapshots, retained container images, verified Git bundles, SHA-256 manifests, and database integrity checks.',
+      'Separated image-only rollback from full-state restoration so application recovery would not unnecessarily discard newer conversations or review work. Diagnosed persistent Python native-extension/ABI and missing declared dependency failures that an image revert alone did not resolve.',
+      'Repaired service-user ownership, protected configuration access, and stale MCP registry problems through scoped recovery actions rather than broad state replacement.',
+      'Corrected a false-positive browser smoke check by following the agent\'s actual managed-browser resolver and readiness contract, rather than treating a cached Chrome launch as proof of usable agent tooling.',
+      'Repaired unavailable auxiliary-model dependencies and verified native image/video tooling without frame-extraction workarounds. A September 30 functional audit covered terminal, file, browser, search/extraction, image/video, and local speech paths; the October 1 update used narrower health, catalog, browser, and deterministic audio checks.',
+    ],
+    boundary: 'Independent AI-assisted lab engineering, not a commercial or Tribal deployment. The 3,045-document count describes the recorded migration, not a current inventory or the separate memory-review cohort. Functional checks do not establish visual accuracy or a security certification; LLM/TTS/STT inference was not repeated in the October 1 update. No measured uptime, SLA, recovery-time objective, or general fault-elimination claim. Private configuration, credentials, and architecture remain undisclosed.',
+  },
+  {
     id: 'audio', title: 'Production Agent Audio and Voice Integration', focus: 'Model-directed audio and operational engineering',
     status: 'Operational personal deployment; owner-confirmed October 2026',
     summary: 'Designed and deployed a self-hosted audio stack for a personal AI assistant using Hermes, Whisper, Qwen3 TTS, and Kokoro. Built model-callable media tools and evidence-aware guidance that separate speech transcripts, deterministic acoustic measurements, and visual inference.',
@@ -159,6 +173,31 @@ export const projects = [
     boundary: 'Independent AI-assisted research. The 19 proposals are not 19 proven errors or applied fixes. Semantic clustering, a full memory compiler, and compaction concepts remain research/planned work, not completed features.',
   },
   {
+    id: 'embeddings', title: 'Embedding & Retrieval Evaluation', focus: 'Quantized serving, retrieval quality, and evidence-aware evaluation',
+    status: 'Historical matched lab comparisons; workload-specific results',
+    summary: 'Evaluated four 1B/8B BF16 and NVFP4 embedding releases under matched serving conditions, combining throughput, latency, vector integrity, retrieval quality, and sampled GPU-memory checks. Kept serving performance separate from retrieval relevance and label quality.',
+    printSummary: 'Compared four BF16/NVFP4 embedding releases with matched serving and retrieval evaluation; recorded 20,936 requests with zero errors across four bounded soaks.',
+    details: [
+      'The 8B NVFP4 candidate recorded 32.0 versus 16.0 inputs/sec in the matched mixed-length, eight-worker soak. Across four 60-second soaks, 20,936 embedding requests completed with zero recorded errors; the rate comparison and total request count describe different scopes within the same four-release study.',
+      'At 2,048 dimensions, three-dataset retrieval means were 0.6183 for NVFP4 and 0.6185 for BF16 across SciFact, NFCorpus, and ArguAna. The retained summary does not identify the exact metric for those means; close values are not proof of statistical equivalence.',
+      'Evaluated a separate memory corpus of 214 sessions and 1,061 candidates using source-linked, unreviewed labels and paired bootstrap comparisons. Treated model-derived memory and source-link labels as evaluation context, not human-adjudicated ground truth.',
+      'Investigated GPU contention, role-aware query/document formatting, and consistent vector truncation with L2 normalization. A separate public-dataset and 48-query hard-negative technical comparison showed workload-dependent model tradeoffs; truncation reduced stored vector payload, not inference memory or network payload in that run.',
+    ],
+    boundary: 'Historical independent AI-assisted lab results, not newly rerun benchmarks. The 2x serving comparison applies only to the recorded 8B workload; zero-error soaks do not establish a production SLA. Serving, public-retrieval, and memory-corpus evaluations are distinct scopes, not a combined accuracy score or an overall model ranking. Unreviewed labels are not gold labels; no statistical equivalence or human-approved training dataset is claimed.',
+  },
+  {
+    id: 'storage', title: 'AI Lab NVMe Storage Engineering', focus: 'High-throughput storage and reproducible I/O measurement',
+    status: 'Engineered lab storage; historical sequential direct-read tests',
+    summary: 'Engineered two independent four-drive PCIe 5.0 NVMe RAID0 arrays for the AI lab. Repeated fio sequential direct-read testing against prepared 100 GiB files recorded 53.21 GB/s on the 8 TB array and 55.24 GB/s on the 16 TB array, with each array tested independently.',
+    printSummary: 'Engineered independent four-drive PCIe 5.0 NVMe RAID0 arrays delivering 53.21 and 55.24 GB/s sequential direct reads in bounded fio tests.',
+    details: [
+      'The 8 TB array (4 x 2 TB) recorded 53.21 GB/s / 49.56 GiB/s at approximately 50,748 IOPS; the 16 TB array (4 x 4 TB) recorded 55.24 GB/s / 51.44 GiB/s at approximately 52,678 IOPS. Kept decimal and binary units distinct.',
+      'Both tests completed with zero fio errors. All eight NVMe devices reported zero SMART critical warnings or media errors, no matching kernel faults were observed during testing, and all 54 running container workloads remained intact.',
+      'Retained the direct-I/O workload, prepared-file size, per-array scope, and approximately 90-97% system CPU utilization per job. The CPU observation suggests submission overhead may constrain the single-job workload; it does not establish a specific bottleneck or PCIe saturation.',
+    ],
+    boundary: 'Historical owner-reported read results, not a new benchmark or independently reproduced performance test. Rates are per array, not combined throughput or write performance; no PCIe-bus saturation or application-level speedup is claimed. Fault checks cover the recorded test window. RAID0 provides no redundancy and is not presented as a backup or resilient production-storage design. Current hardware availability is not established by these results.',
+  },
+  {
     id: 'preloader', title: 'Open-WebUI Model Preloader', focus: 'Browser-side AI workflow integration',
     status: 'Built and used in the lab; performance gains not benchmarked',
     summary: 'Built and used a JavaScript/Tampermonkey integration that initiates model warmup on Open-WebUI selection, aiming to overlap initialization with user interaction before the first prompt.',
@@ -188,7 +227,7 @@ export const resumeProjects = projects.filter(project => ['residency', 'ai-q', '
 
 export const researchProfile = {
   title: 'Applied AI Research',
-  summary: 'Independent research through TechSoft Systems in AI infrastructure, LLMOps, agent reliability, evidence integrity, and governed evaluation. Project leadership, hands-on integration, and AI-assisted development; implemented lab systems, operational personal deployments, and design-only proposals retain separate status.',
+  summary: 'Independent research through TechSoft Systems in AI infrastructure, LLMOps, retrieval evaluation, stateful platform reliability, agent systems, and evidence integrity. Project leadership, hands-on integration, and AI-assisted development; implemented lab systems, operational personal deployments, and design-only proposals retain separate status.',
 };
 
 export const residencyMeasurements = [

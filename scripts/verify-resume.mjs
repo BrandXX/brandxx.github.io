@@ -140,6 +140,17 @@ function assertAudioStatus(project, label) {
   assertContains(project.details.join(' '), 'Implementation and testing used AI coding assistance', `${label}: attribution`);
 }
 
+function assertResearchExpansion(project, label) {
+  const fullText = [project.summary, ...project.details, project.boundary].join(' ');
+  const requirements = {
+    platform: ['3,045 active memory documents', 'image-only rollback', 'native-extension/ABI', 'managed-browser resolver', 'native image/video', 'September 30', 'October 1', 'LLM/TTS/STT inference was not repeated', 'not a current inventory'],
+    embeddings: ['four 60-second soaks', '20,936 embedding requests', '32.0 versus 16.0 inputs/sec', 'eight-worker', '0.6183', '0.6185', 'does not identify the exact metric', '214 sessions and 1,061 candidates', 'not gold labels', 'not newly rerun benchmarks'],
+    storage: ['53.21 GB/s', '55.24 GB/s', '100 GiB files', 'each array tested independently', '49.56 GiB/s', '51.44 GiB/s', 'zero fio errors', 'not combined throughput or write performance', 'RAID0 provides no redundancy', 'not a new benchmark'],
+  };
+  assert(requirements[project.id], `${label}: expected an expansion project`);
+  for (const text of requirements[project.id]) assertContains(fullText, text, label);
+}
+
 function pdfPageCount(pdf, label) {
   const pages = [...pdf.toString('latin1').matchAll(/\/Type\s*\/Page\b/g)].length;
   assert(pages > 0, `${label}: PDF has no readable page objects`);
@@ -215,7 +226,7 @@ const { projects, benchmarks, resumeProjects: selectedProjects, residencyMeasure
 assert(Array.isArray(projects) && projects.length > 0, 'Public projects are required');
 assert(Array.isArray(benchmarks) && benchmarks.length > 0, 'Retain the inference benchmark data');
 const selectedProjectIds = ['residency', 'ai-q', 'piper'];
-for (const id of [...selectedProjectIds, 'audio', 'memory', 'preloader', 'proposals']) {
+for (const id of [...selectedProjectIds, 'audio', 'platform', 'embeddings', 'storage', 'memory', 'preloader', 'proposals']) {
   assert.equal(projects.filter(project => project.id === id).length, 1, `Missing or duplicate public project: ${id}`);
   checks++;
 }
@@ -235,6 +246,11 @@ assertProposalStatus(projects.find(project => project.id === 'proposals'), 'Publ
 assertAudioStatus(projects.find(project => project.id === 'audio'), 'Public audio project');
 assert(!selectedProjects.some(project => project.id === 'audio'), 'Audio remains research-only on the general resume');
 checks++;
+for (const id of ['platform', 'embeddings', 'storage']) {
+  assertResearchExpansion(projects.find(project => project.id === id), `Public ${id} project`);
+  assert(!selectedProjects.some(project => project.id === id), `${id} remains research-only on the general resume`);
+  checks++;
+}
 
 const base = process.env.RESUME_BASE_URL || 'http://127.0.0.1:4322';
 const screenshots = process.env.RESUME_SCREENSHOTS || '/tmp/resume-preview';
@@ -336,6 +352,9 @@ try {
       assertContains(await section.locator('.claim-boundary').innerText(), project.boundary, `${project.id}: claim boundary`);
       const sectionText = await section.innerText();
       for (const expected of [project.focus, project.summary, ...project.details]) assertContains(sectionText, expected, `${project.id}: public content`);
+      if (['platform', 'embeddings', 'storage'].includes(project.id)) {
+        assertResearchExpansion({ ...project, summary: sectionText, details: [], boundary: '' }, `Rendered ${project.id}`);
+      }
       checks += 3;
     }
     const proposalSection = page.locator('#proposals');
