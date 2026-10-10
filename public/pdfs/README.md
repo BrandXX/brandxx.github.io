@@ -10,9 +10,11 @@ This directory contains PDF documents for download from the TechSoft Systems web
 
 ## PDF Generation
 
-The current downloads are the approved, uniform employer-facing set updated October 7, 2026:
+The resume and cover letter retain their approved October 7, 2026 exports.
+The applied AI research document was updated October 10, 2026 to add the
+operational personal audio project; the general resume and cover letter are unchanged.
 
-1. Resume: three pages; cover letter: one page; applied AI research: five pages.
+1. Resume: three pages; cover letter: one page; applied AI research: six pages.
 2. All three use consistent formatting, selectable text, embedded fonts, and
    clickable contact and online-document links. The research PDF includes
    internal section links and outline bookmarks.

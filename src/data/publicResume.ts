@@ -115,6 +115,21 @@ export const projects = [
     boundary: 'Active independent AI-assisted research, not commercial deployment. Token/call counts cover selected retained work, not lifetime totals. Software tests and execution journals do not establish factual correctness; bounded comparisons do not establish overall model superiority or reliable general research.',
   },
   {
+    id: 'audio', title: 'Production Agent Audio and Voice Integration', focus: 'Model-directed audio and operational engineering',
+    status: 'Operational personal deployment; owner-confirmed October 2026',
+    summary: 'Designed and deployed a self-hosted audio stack for a personal AI assistant using Hermes, Whisper, Qwen3 TTS, and Kokoro. Built model-callable media tools and evidence-aware guidance that separate speech transcripts, deterministic acoustic measurements, and visual inference.',
+    printSummary: 'Designed and deployed native agent audio tooling with self-hosted speech services, bounded media processing, deterministic acoustic evidence, and repeatable acceptance checks in an operational personal AI environment.',
+    details: [
+      'Directed architecture, integration, operations, and acceptance for a three-tool native audio plugin and companion skill. Implementation and testing used AI coding assistance; the speech models and Hermes framework remain upstream components.',
+      'Added audio-track selection, source-relative ranges, sequential five-minute 16 kHz mono PCM chunks, approximate speech-segment timestamps, and explicit continuation on transcript output-budget exhaustion.',
+      'Separated Whisper speech recognition from FFT-based tone and timing analysis. Recorded controlled rising/falling/constant-tone, silence, speech, track-selection, and fresh-session native-tool checks using fixture manifests with expected results and tolerances.',
+      'Restricted media decoder protocols and formats, rejected playlists, retained protected-file and approved-output controls, and documented specific unsafe-input/output rejection tests. Agent guidance treats recorded speech as evidence, not instruction authority.',
+      'Integrated profile-scoped Qwen3 TTS through native speech providers while preserving existing Kokoro output; verified MP3 generation and 24 kHz PCM through the actual Hermes read-aloud path.',
+      'Maintained custom capability through backend upgrades with registration and deterministic DSP checks, configuration fingerprints, stopped-state backups, retained images, and documented narrow rollback procedures.',
+    ],
+    boundary: 'Owner-operated personal production confirmed October 10, 2026; exact cutover date, commercial scale, and Tribal deployment are not established. Functional results are dated historical checks, not new benchmark runs. Processing limits are not full-length success measurements; timestamps are segment-level. No standardized speech-accuracy, latency/SLA, native hearing, DTMF decoding, cloning, or diarization claim. Specific security checks do not establish general prompt-injection immunity. Internal deployment details and raw evidence remain private.',
+  },
+  {
     id: 'piper', title: 'PIPER Intent Gateway', focus: 'Intent classification and memory routing',
     status: 'Implemented advisory lab integration; historical regression coverage',
     summary: 'Architected a Hermes advisory intent/memory integration with deterministic contracts, monitoring, human review, and failure analysis. Preserved a historical 114-test intake milestone and a separate selected 106-decision audit.',
@@ -173,7 +188,7 @@ export const resumeProjects = projects.filter(project => ['residency', 'ai-q', '
 
 export const researchProfile = {
   title: 'Applied AI Research',
-  summary: 'Independent research through TechSoft Systems in AI infrastructure, LLMOps, agent reliability, evidence integrity, and governed evaluation. Project leadership, hands-on integration, and AI-assisted development; implemented lab work and design-only proposals retain separate status.',
+  summary: 'Independent research through TechSoft Systems in AI infrastructure, LLMOps, agent reliability, evidence integrity, and governed evaluation. Project leadership, hands-on integration, and AI-assisted development; implemented lab systems, operational personal deployments, and design-only proposals retain separate status.',
 };
 
 export const residencyMeasurements = [

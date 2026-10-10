@@ -125,6 +125,21 @@ function assertProposalStatus(project, label) {
   assertContains(project.boundary, 'high-level abstract only', label);
 }
 
+function assertAudioStatus(project, label) {
+  assertContains(project.status, 'Operational personal deployment', `${label}: status`);
+  assertContains(project.summary, 'personal AI assistant', label);
+  for (const name of ['Hermes', 'Whisper', 'Qwen3 TTS', 'Kokoro']) assertContains(project.summary, name, label);
+  for (const boundary of [
+    'Owner-operated personal production confirmed October 10, 2026',
+    'exact cutover date, commercial scale, and Tribal deployment are not established',
+    'dated historical checks, not new benchmark runs',
+    'Processing limits are not full-length success measurements',
+    'timestamps are segment-level',
+    'Specific security checks do not establish general prompt-injection immunity',
+  ]) assertContains(project.boundary, boundary, `${label}: scope`);
+  assertContains(project.details.join(' '), 'Implementation and testing used AI coding assistance', `${label}: attribution`);
+}
+
 function pdfPageCount(pdf, label) {
   const pages = [...pdf.toString('latin1').matchAll(/\/Type\s*\/Page\b/g)].length;
   assert(pages > 0, `${label}: PDF has no readable page objects`);
@@ -200,7 +215,7 @@ const { projects, benchmarks, resumeProjects: selectedProjects, residencyMeasure
 assert(Array.isArray(projects) && projects.length > 0, 'Public projects are required');
 assert(Array.isArray(benchmarks) && benchmarks.length > 0, 'Retain the inference benchmark data');
 const selectedProjectIds = ['residency', 'ai-q', 'piper'];
-for (const id of [...selectedProjectIds, 'memory', 'preloader', 'proposals']) {
+for (const id of [...selectedProjectIds, 'audio', 'memory', 'preloader', 'proposals']) {
   assert.equal(projects.filter(project => project.id === id).length, 1, `Missing or duplicate public project: ${id}`);
   checks++;
 }
@@ -217,6 +232,9 @@ assertResidencyEvidence([selectedProjects[0].summary, ...selectedProjects[0].det
 assertContains(selectedProjects[0].resumeBoundary, 'Historical component validation, not whole-architecture production qualification', 'Residency resume boundary');
 assertContains(selectedProjects[0].resumeBoundary, 'Nano numerical failures and long-duration near-saturation testing remained unresolved', 'Residency resume boundary');
 assertProposalStatus(projects.find(project => project.id === 'proposals'), 'Public proposals');
+assertAudioStatus(projects.find(project => project.id === 'audio'), 'Public audio project');
+assert(!selectedProjects.some(project => project.id === 'audio'), 'Audio remains research-only on the general resume');
+checks++;
 
 const base = process.env.RESUME_BASE_URL || 'http://127.0.0.1:4322';
 const screenshots = process.env.RESUME_SCREENSHOTS || '/tmp/resume-preview';
@@ -321,6 +339,13 @@ try {
       checks += 3;
     }
     const proposalSection = page.locator('#proposals');
+    const audioSection = page.locator('#audio');
+    assertAudioStatus({
+      status: await audioSection.locator('.research-status').innerText(),
+      summary: await audioSection.innerText(),
+      details: [await audioSection.innerText()],
+      boundary: await audioSection.locator('.claim-boundary').innerText(),
+    }, 'Rendered audio project');
     assertProposalStatus({
       status: await proposalSection.locator('.research-status').innerText(),
       summary: await proposalSection.innerText(),
