@@ -1,0 +1,50 @@
+.about-page { max-width: 64rem; margin-inline: auto; padding-top: 3.5rem; letter-spacing: 0; color: var(--brand-ink); }
+.about-page * { min-width: 0; }
+.about-page p { font-size: 1rem; line-height: 1.8; }
+.about-page strong { font-weight: 650; }
+.about-page h1 { font-size: 2.75rem; line-height: 1.15; font-weight: 650; }
+.about-page h2 { font-size: 1.625rem; line-height: 1.35; font-weight: 650; }
+.about-page h3 { font-size: 1.125rem; line-height: 1.5; font-weight: 650; }
+.about-page .about-kicker { margin-bottom: .85rem; color: var(--brand-accent); font-size: .8125rem; font-weight: 550; }
+.about-heading { padding-bottom: 3rem; }
+.about-page .about-lead { max-width: 47rem; margin-top: 1.5rem; font-size: 1.375rem; line-height: 1.6; }
+.about-page .about-introduction { max-width: 47rem; margin-top: 1.25rem; color: var(--brand-muted); }
+.about-section { padding-block: 3rem; border-top: 1px solid var(--brand-line); }
+.about-story, .about-founder, .about-principles { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 3rem; }
+.about-copy p + p { margin-top: 1.25rem; }
+.about-section-intro { max-width: 48rem; margin-top: 1rem; color: var(--brand-muted); }
+.about-focus-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-top: 2rem; }
+.about-focus-item { display: flex; flex-direction: column; align-items: flex-start; }
+.about-focus-icon { color: var(--brand-accent); margin-bottom: 1.25rem; flex-shrink: 0; }
+.about-tone-blue .about-focus-icon { color: #2167d9; }
+.about-tone-green .about-focus-icon { color: #087d63; }
+.dark .about-tone-blue .about-focus-icon { color: #68aaff; }
+.dark .about-tone-green .about-focus-icon { color: #72ddaf; }
+.about-focus-item h3 { margin-bottom: .75rem; }
+.about-page .about-focus-item p { font-size: .9375rem; color: var(--brand-muted); margin-bottom: 1.25rem; }
+.about-focus-item .about-link { margin-top: auto; }
+.about-link { display: inline-flex; align-items: center; gap: .5rem; color: var(--brand-accent); font-size: .875rem; line-height: 1.7; text-decoration: underline; text-underline-offset: 4px; }
+.about-link svg, .about-contact-link svg { flex-shrink: 0; }
+.about-link:hover { text-decoration-thickness: 2px; }
+.about-page .about-research-note { border-left: 2px solid var(--brand-line); padding-left: 1.25rem; margin-top: 2rem; font-size: .8125rem; color: var(--brand-muted); }
+.about-page .about-founder-role { font-size: .9375rem; color: var(--brand-muted); margin-top: .75rem; }
+.about-founder .about-link { margin-top: 1.25rem; }
+.about-principles .about-link { margin-top: 1.25rem; }
+.about-contact { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; padding-top: 2.5rem; border-top: 1px solid var(--brand-line); }
+.about-contact > div { flex: 1 1 24rem; }
+.about-contact p { margin-top: .75rem; color: var(--brand-muted); }
+.about-contact-link { display: inline-flex; align-items: center; justify-content: center; gap: .65rem; min-height: 44px; padding: .8rem 1.2rem; background: var(--brand-accent); color: var(--brand-paper); border-radius: 6px; font-size: .9375rem; font-weight: 600; }
+.about-contact-link:hover { filter: brightness(1.1); }
+@media (max-width: 54rem) {
+  .about-story, .about-founder, .about-principles { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .about-focus-grid { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .about-focus-item + .about-focus-item { border-top: 1px solid var(--brand-line); padding-top: 1.5rem; }
+}
+@media (max-width: 40rem) {
+  .about-page { padding-top: 2rem; }
+  .about-page h1 { font-size: 2rem; }
+  .about-page h2 { font-size: 1.375rem; }
+  .about-page .about-lead { font-size: 1.125rem; margin-top: 1.25rem; }
+  .about-heading { padding-bottom: 2rem; }
+  .about-section { padding-block: 2rem; }
+}

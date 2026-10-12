@@ -1,3 +1,42 @@
-<footer class="mt-16 border-t border-zinc-300/50 py-8 text-center text-xs text-zinc-600 dark:border-white/10 dark:text-zinc-500">
-  <p>© {new Date().getFullYear()} TechSoft Systems · Tucson, AZ</p>
+---
+import { ArrowUpRight } from '@lucide/astro';
+---
+<footer class="site-footer">
+  <div class="site-width">
+    <div class="footer-grid">
+      <div class="footer-identity">
+        <a class="site-brand" href="/" aria-label="TechSoft Systems home">
+          <img class="brand-on-light" src="/branding/logo-header-light.svg" width="400" height="86" alt="TechSoft Systems" loading="lazy" />
+          <img class="brand-on-dark" src="/branding/logo-header-dark.svg" width="400" height="86" alt="" aria-hidden="true" loading="lazy" />
+        </a>
+        <p>From infrastructure to intelligence.</p>
+        <span>Independent research. Hands-on engineering.<br />Tucson, Arizona.</span>
+      </div>
+      <nav aria-label="Explore TechSoft">
+        <h2>Explore</h2>
+        <a href="/resume-research">Applied AI research</a>
+        <a href="/ai-lab">AI Lab</a>
+        <a href="/open-source">Open source</a>
+        <a href="/defiantly_not_regex/">Defiantly Not Regex</a>
+      </nav>
+      <nav aria-label="Work with TechSoft">
+        <h2>Work together</h2>
+        <a href="/services">Services</a>
+        <a href="/training">Training</a>
+        <a href="/work">Selected work</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <nav aria-label="About and background">
+        <h2>Background</h2>
+        <a href="/about">About TechSoft</a>
+        <a href="/resume">Johnathan W. Carroll</a>
+        <a href="/cover-letter.html">Cover letter</a>
+        <a href="https://github.com/BrandXX">GitHub <ArrowUpRight size={14} aria-hidden="true" /></a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; {new Date().getFullYear()} TechSoft Systems</p>
+      <a href="mailto:j.carroll@techsoftsys.com">j.carroll@techsoftsys.com <ArrowUpRight size={14} aria-hidden="true" /></a>
+    </div>
+  </div>
 </footer>

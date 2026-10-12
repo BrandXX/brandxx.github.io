@@ -5,3 +5,9 @@ dist
 
 # Local editorial originals and draft snapshots; never publish or commit.
 source-docs/defiantly_not_regex/history/
+
+# Original brand packages retained locally; only approved web assets are public.
+source-docs/branding/
+
+# Isolated local previews and timestamped canonical-document snapshots.
+.staging/

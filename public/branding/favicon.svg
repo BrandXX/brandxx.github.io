@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="440" height="440" viewBox="0 0 440 440" role="img" aria-label="TechSoft Systems simplified small icon">
+<title>TechSoft Systems simplified small icon</title><desc>TechSoft Systems visual identity</desc>
+
+<rect width="440" height="440" rx="90" fill="#061624"/><polygon id="top-compute-rail" points="58,126 247,31 247,82 58,178" fill="#00E5F5"/>
+<polygon id="lower-ribbon" points="178,359 367,303 367,347 178,403" fill="#E8F1FF"/>
+<polygon id="t-stem" points="107,201 151,179 151,294 107,317" fill="#E8F1FF"/>
+<polygon id="top-execution-rail" points="178,158 367,61 367,112 178,209" fill="#00E5F5"/>
+<polygon id="forward-ribbon" points="178,208 367,300 367,352 178,261" fill="#00E5F5"/>
+</svg>

@@ -1,203 +1,119 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import BentoCard from '../components/BentoCard.astro';
-import CTA from '../components/CTA.astro';
-import ProofStrip from '../components/ProofStrip.astro';
-import SectionHeader from '../components/SectionHeader.astro';
-import StackCard from '../components/StackCard.astro';
-import { getCollection } from 'astro:content';
+import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Code2, Cpu, Layers3, Network, ShieldCheck } from '@lucide/astro';
+import '../styles/home.css';
 
-const caseStudies = (await getCollection('case-studies'))
-  .sort((a, b) => b.data.date.localeCompare(a.data.date))
-  .slice(0, 3);
+const research = [
+  {
+    number: '01', label: 'Intent & agent systems', title: 'PIPER',
+    description: 'Connecting intent to task contracts, evidence requirements, and workflow guards. The current Hermes advisory plugin explores one part of a broader architecture.',
+    href: '/resume-research#piper', link: 'Explore PIPER', Icon: Network, tone: 'cyan',
+    terms: ['Intent', 'Contracts', 'Evidence']
+  },
+  {
+    number: '02', label: 'Compute & inference', title: 'Beyond model serving',
+    description: 'NVFP4 model conversion, vLLM deployment, and workload-specific tuning. Performance research grounded in reproducible tests and explicit limits.',
+    href: '/resume-research#inference', link: 'Inside inference engineering', Icon: Cpu, tone: 'blue',
+    terms: ['CUDA', 'NVFP4', 'vLLM']
+  },
+  {
+    number: '03', label: 'Research & evidence', title: 'Can the result be trusted?',
+    description: 'Self-hosted AI-Q research workflows, source traceability, and replayable evaluation. Investigating what changes as evidence moves between agents.',
+    href: '/resume-research#ai-q', link: 'Read the research', Icon: BookOpen, tone: 'green',
+    terms: ['Sources', 'Evaluation', 'Replay']
+  }
+];
 ---
 
 <BaseLayout
-  title="TechSoft Systems | Private AI & Infrastructure Engineering"
-  description="Security-first on-prem LLM platforms, GPU workloads, resilient infrastructure, and team training programs."
+  title="TechSoft Systems | Independent AI Research & Engineering"
+  description="From infrastructure to intelligence. Independent research in GPU inference, agent systems, evidence integrity, and the infrastructure that makes them reliable."
+  fullWidth
 >
-  <section class="grid gap-8 pt-12 md:grid-cols-2 md:items-center">
-    <div>
-      <p class="inline-flex items-center gap-2 rounded-full border border-zinc-300/70 bg-white/80 px-3 py-1 text-xs text-zinc-700 dark:border-white/10 dark:bg-white/5 dark:text-zinc-300">
-        <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-        Security-first. On-prem. Audit-ready.
-      </p>
-
-      <h1 class="mt-5 text-4xl font-semibold tracking-tight md:text-5xl">
-        Private AI & infrastructure that doesn’t flinch at 3 a.m.
-      </h1>
-
-      <p class="mt-4 text-zinc-700 dark:text-zinc-300">
-        TechSoft Systems helps organizations design, deploy, and operate mission-critical environments, from hyperconverged
-        infrastructure to GPU-accelerated private LLM platforms. You get performance, reliability, and governance without
-        handing sensitive data to public AI endpoints.
-      </p>
-
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="/work" class="rounded-xl bg-gradient-to-r from-cyan-400 to-indigo-500 px-4 py-2 text-sm font-semibold text-zinc-950">
-          View case studies
-        </a>
-        <a href="/services" class="rounded-xl border border-zinc-300/70 bg-white px-4 py-2 text-sm text-zinc-800 transition hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:text-zinc-200 dark:hover:bg-white/10">
-          Explore services
-        </a>
-      </div>
-
-      <ProofStrip />
-    </div>
-
-    <StackCard />
-  </section>
-
-  <section class="mt-16" id="services">
-    <SectionHeader
-      title="What we do"
-      subtitle="Infrastructure, private AI, security, and training that makes your team effective fast."
-    />
-    <div class="mt-6 grid gap-4 md:grid-cols-6">
-      <BentoCard className="md:col-span-3" title="Private LLM Platforms" description="On-prem and hybrid AI platform delivery with model serving, RAG integration, access controls, and audit-friendly logging." />
-      <BentoCard className="md:col-span-3" title="High-Performance Infrastructure" description="Virtualization, storage, and network architecture tuned for real-world workloads and predictable uptime." />
-      <BentoCard className="md:col-span-2" title="Security & Compliance" description="Policy-aware architecture, identity controls, monitoring, and incident readiness for regulated environments." />
-      <BentoCard className="md:col-span-2" title="Ops & Reliability" description="Runbooks, patch cadence, backup and DR strategy, and observability that improves response quality." />
-      <BentoCard className="md:col-span-2" title="AI Training & Enablement" description="Hands-on programs for IT teams, business users, and leaders with measurable outcomes." />
-    </div>
-  </section>
-
-  <section class="mt-16" id="trust">
-    <SectionHeader
-      title="Trusted delivery signals"
-      subtitle="Delivery outcomes and governance patterns that organizations use to evaluate technical execution risk."
-    />
-    <div class="mt-6 grid gap-4 md:grid-cols-3">
-      <BentoCard title="Compliance Badges" eyebrow="Governance posture">
-        <ul class="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
-          <li>Audit-ready architecture patterns</li>
-          <li>PII-aware workflow controls</li>
-          <li>Policy-linked approval checkpoints</li>
-        </ul>
-      </BentoCard>
-      <BentoCard title="Representative Client Outcome" eyebrow="Regulated sector">
-        <p class="mt-3 text-sm text-zinc-700 dark:text-zinc-300">
-          “TechSoft helped us stabilize operations and modernize safely. We reduced downtime and improved response confidence across teams.”
-        </p>
-        <p class="mt-3 text-xs text-zinc-500 dark:text-zinc-400">Director of Infrastructure, Regional Public Organization</p>
-      </BentoCard>
-      <BentoCard title="Reference Organization Types" eyebrow="Delivery footprint">
-        <div class="mt-3 flex flex-wrap gap-2">
-          <span class="rounded-full border border-zinc-300/70 px-3 py-1 text-xs dark:border-white/10">Public Sector</span>
-          <span class="rounded-full border border-zinc-300/70 px-3 py-1 text-xs dark:border-white/10">Healthcare</span>
-          <span class="rounded-full border border-zinc-300/70 px-3 py-1 text-xs dark:border-white/10">Enterprise IT</span>
+  <div class="homepage">
+    <section class="home-hero" aria-labelledby="hero-title">
+      <img class="hero-mark" src="/branding/hero-mark.png" width="1024" height="1024" alt="" aria-hidden="true" fetchpriority="high" />
+      <div class="site-width hero-content">
+        <p class="eyebrow hero-eyebrow"><span aria-hidden="true"></span> Independent AI Research &amp; Engineering</p>
+        <h1 id="hero-title">TechSoft<br /><span>Systems.</span></h1>
+        <p class="hero-signature">From infrastructure to intelligence.</p>
+        <p class="hero-description">Building, testing, and understanding AI systems.<br class="desktop-break" /> From the GPU stack to the agents that run on it.</p>
+        <div class="home-actions">
+          <a class="home-button primary" href="#research">Explore the research <ArrowDown size={18} aria-hidden="true" /></a>
+          <a class="home-button secondary" href="/open-source">Open source <ArrowUpRight size={18} aria-hidden="true" /></a>
         </div>
-      </BentoCard>
-    </div>
-  </section>
+        <div class="hero-footnote"><span>Tucson, Arizona</span><span>Independent by design.</span></div>
+      </div>
+    </section>
 
-  <section class="mt-16" id="training">
-    <SectionHeader
-      title="Training"
-      subtitle="AI adoption fails when teams are undertrained. We deliver practical, role-specific programs that balance speed, safety, and operational control."
-    />
+    <section class="research-band" id="research" aria-labelledby="research-title">
+      <div class="site-width">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Inside the lab</p>
+            <h2 id="research-title">Real systems.<br />Questions worth testing.</h2>
+          </div>
+          <div class="section-intro">
+            <p>Independent applied research in inference, agent behavior, and evidence. Built hands-on, with the methods and limitations kept in view.</p>
+            <a class="text-link" href="/resume-research">All research <ArrowUpRight size={17} aria-hidden="true" /></a>
+          </div>
+        </div>
+        <div class="research-grid">
+          {research.map(item => (
+            <article class={`research-item tone-${item.tone}`}>
+              <div class="research-item-top"><item.Icon size={28} strokeWidth={1.5} aria-hidden="true" /><span>{item.number}</span></div>
+              <div class="research-terms" aria-hidden="true">{item.terms.map(term => <span>{term}</span>)}</div>
+              <p class="eyebrow">{item.label}</p>
+              <h3>{item.title}</h3>
+              <p class="research-description">{item.description}</p>
+              <a class="text-link" href={item.href}>{item.link}<ArrowUpRight size={17} aria-hidden="true" /></a>
+            </article>
+          ))}
+        </div>
+        <a class="memory-link" href="/resume-research#memory"><Layers3 size={20} aria-hidden="true" /><span>Also in the lab: <strong>memory provenance and human-reviewed proposals.</strong></span><ArrowRight size={18} aria-hidden="true" /></a>
+      </div>
+    </section>
 
-    <div class="mt-6 grid gap-4 md:grid-cols-3">
-      <BentoCard eyebrow="For IT & infrastructure teams" title="AI Workloads Bootcamp" description="GPUs, containerized serving, RAG pipelines, security boundaries, observability, and cost/performance tuning." />
-      <BentoCard eyebrow="For employees & power users" title="AI Literacy for the Real World" description="Prompting, validation, data handling, and practical workflows with policy-safe guardrails." />
-      <BentoCard eyebrow="For leaders & rollout teams" title="AI Adoption Playbook" description="Use-case triage, risk tiers, governance controls, and scaling without shadow AI." />
-    </div>
+    <section class="essay-band" aria-labelledby="essay-title">
+      <div class="site-width essay-layout">
+        <a class="essay-art" href="/defiantly_not_regex/" aria-label="Read Defiantly Not Regex">
+          <img src="/defiantly_not_regex/defiantly_not_regex_b64_ocrsafe_3000.png" width="3000" height="3000" loading="lazy" alt="Defiantly Not Regex. Parse carefully. Humans are not strings." />
+          <span>Defiantly Not Regex <ArrowUpRight size={18} aria-hidden="true" /></span>
+        </a>
+        <div class="essay-copy">
+          <p class="eyebrow">An idea from the lab</p>
+          <h2 id="essay-title">Meaning is not<br />the same as structure.</h2>
+          <p>A visual thesis born from working with models and harnesses. What happens when valid syntax is mistaken for understanding, and what should an intent layer actually do?</p>
+          <div class="essay-links">
+            <a class="text-link" href="/defiantly_not_regex/">Explore the thesis <ArrowUpRight size={17} aria-hidden="true" /></a>
+            <a class="quiet-link" href="/defiantly_not_regex/pages/whitepaper.html">Read the whitepaper</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="mt-8 grid gap-4 md:grid-cols-2">
-      <BentoCard eyebrow="Formats" title="Choose what fits your team">
-        <ul class="mt-4 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
-          <li>2-4 hour workshop</li>
-          <li>1-2 day hands-on bootcamp</li>
-          <li>4-6 week cohort</li>
-          <li>Custom regulated-environment program</li>
-        </ul>
-      </BentoCard>
-      <BentoCard eyebrow="Outcomes" title="Measurable progress, not slides">
-        <ul class="mt-4 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
-          <li>Lab exercises and architecture diagrams</li>
-          <li>Internal policy cheat-sheet</li>
-          <li>Approved workflows playbook</li>
-          <li>Adoption and risk metrics template</li>
-        </ul>
-      </BentoCard>
-    </div>
+    <section class="practice-band" aria-labelledby="practice-title">
+      <div class="site-width practice-layout">
+        <div>
+          <p class="eyebrow">Research meets practice</p>
+          <h2 id="practice-title">Built on an infrastructure foundation.</h2>
+          <p class="practice-lead">TechSoft Systems is led by Johnathan W. Carroll. More than 25 years across enterprise IT, government, ISP operations, and entrepreneurship inform the questions explored in the lab.</p>
+          <a class="text-link" href="/resume">Experience &amp; background <ArrowUpRight size={17} aria-hidden="true" /></a>
+        </div>
+        <div class="practice-list">
+          <a href="/services"><Network size={24} aria-hidden="true" /><div><h3>Infrastructure &amp; private AI</h3><p>Architecture, resilient platforms, and AI workloads.</p></div><ArrowUpRight size={20} aria-hidden="true" /></a>
+          <a href="/services"><ShieldCheck size={24} aria-hidden="true" /><div><h3>Security &amp; reliability</h3><p>Governance, operational visibility, and recovery.</p></div><ArrowUpRight size={20} aria-hidden="true" /></a>
+          <a href="/training"><BookOpen size={24} aria-hidden="true" /><div><h3>Training &amp; enablement</h3><p>Practical AI knowledge for teams and leaders.</p></div><ArrowUpRight size={20} aria-hidden="true" /></a>
+          <a href="/open-source"><Code2 size={24} aria-hidden="true" /><div><h3>Open-source work</h3><p>Public projects, integrations, and contributions.</p></div><ArrowUpRight size={20} aria-hidden="true" /></a>
+        </div>
+      </div>
+    </section>
 
-    <div class="mt-6 flex flex-wrap gap-3">
-      <a
-        class="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-zinc-50 transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
-        href="mailto:sales@techsoftsys.com?subject=AI%20Training%20Inquiry"
-      >
-        Request training details
-      </a>
-      <a
-        class="rounded-xl border border-zinc-300/70 bg-white px-4 py-2 text-sm text-zinc-800 transition hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:text-zinc-200 dark:hover:bg-white/10"
-        href="/training"
-      >
-        See full training page
-      </a>
-    </div>
-  </section>
-
-  <section class="mt-16" id="work">
-    <div class="flex items-end justify-between gap-6">
-      <SectionHeader
-        title="Selected work"
-        subtitle="Case studies with architecture decisions, tradeoffs, and measurable outcomes."
-      />
-      <a class="hidden text-sm text-zinc-700 transition hover:text-zinc-900 md:inline dark:text-zinc-300 dark:hover:text-white" href="/work">
-        View all case studies →
-      </a>
-    </div>
-
-    <div class="mt-6 grid gap-4 md:grid-cols-3">
-      {caseStudies.map((study) => (
-        <BentoCard
-          href={`/work/${study.slug}`}
-          eyebrow={study.data.industry}
-          title={study.data.title}
-          description={study.data.description}
-        />
-      ))}
-    </div>
-  </section>
-
-  <section class="mt-16" id="lab">
-    <SectionHeader
-      title="AI Lab"
-      subtitle="How private AI stacks are built and tuned in real environments, without exposing internal sensitive details."
-    />
-    <div class="mt-6 rounded-3xl border border-zinc-300/50 bg-white/80 p-6 dark:border-white/10 dark:bg-white/5">
-      <ul class="grid gap-3 text-sm md:grid-cols-2">
-        <li>How we design private AI stack reference architectures</li>
-        <li>Inference performance tuning and benchmark strategy</li>
-        <li>Safety controls, policy routing, and model governance</li>
-        <li>Observability patterns for GPU workloads</li>
-      </ul>
-      <a href="/ai-lab" class="mt-5 inline-block text-sm font-semibold text-cyan-600 hover:text-cyan-500 dark:text-cyan-400">
-        Explore AI Lab →
-      </a>
-    </div>
-  </section>
-
-  <section class="mt-16" id="oss">
-    <SectionHeader
-      title="Open source"
-      subtitle="Contributions, internal tooling, and demos we can share publicly."
-    />
-    <div class="mt-6 rounded-3xl border border-zinc-300/50 bg-white/80 p-6 dark:border-white/10 dark:bg-white/5">
-      <p class="text-sm text-zinc-700 dark:text-zinc-200">Open-WebUI contributions, internal utility projects, and reproducible demo repos.</p>
-      <a href="/open-source" class="mt-4 inline-block text-sm font-semibold text-cyan-600 hover:text-cyan-500 dark:text-cyan-400">
-        See open-source work →
-      </a>
-    </div>
-  </section>
-
-  <CTA
-    title="Ready to build something resilient?"
-    description="Email is fastest. If you want to scope training, infrastructure, or private AI delivery, start here."
-    primaryHref="mailto:sales@techsoftsys.com?subject=Consultation%20Request"
-    primaryLabel="Email us"
-    secondaryHref="/contact"
-    secondaryLabel="Contact options"
-  />
+    <section class="contact-band" aria-labelledby="contact-title">
+      <div class="site-width contact-layout">
+        <div><p class="eyebrow">Research. Engineering. Real-world questions.</p><h2 id="contact-title">Let's build on what comes next.</h2></div>
+        <a class="home-button primary" href="/contact">Start a conversation <ArrowUpRight size={19} aria-hidden="true" /></a>
+      </div>
+    </section>
+  </div>
 </BaseLayout>

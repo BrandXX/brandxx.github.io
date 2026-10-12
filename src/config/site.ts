@@ -2,7 +2,7 @@ export const SITE = {
   name: 'TechSoft Systems',
   titleTemplate: '%s | TechSoft Systems',
   description:
-    'Private AI platforms, GPU workload engineering, infrastructure reliability, and practical training programs.',
+    'Independent AI research and engineering, grounded in enterprise infrastructure. Explore TechSoft Systems research, open source, and services.',
   url: 'https://techsoftsys.com',
-  ogImage: '/og.png'
+  ogImage: '/branding/og-image.png'
 };

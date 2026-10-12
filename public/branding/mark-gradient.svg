@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="460"
+   height="460"
+   viewBox="0 0 460 460"
+   role="img"
+   aria-label="TechSoft Systems TS symbol"
+   version="1.1"
+   id="svg12"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <title
+     id="title1">TechSoft Systems TS symbol</title>
+  <desc
+     id="desc1">TechSoft Systems visual identity</desc>
+  <defs
+     id="defs12">
+    <linearGradient
+       id="tss-bar1"
+       gradientUnits="userSpaceOnUse"
+       x1="48"
+       y1="180"
+       x2="214"
+       y2="50">
+      <stop
+         offset="0"
+         stop-color="#1379F4"
+         id="stop1" />
+      <stop
+         offset="1"
+         stop-color="#00E5F5"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       id="tss-bar2"
+       gradientUnits="userSpaceOnUse"
+       x1="165"
+       y1="200"
+       x2="300"
+       y2="85">
+      <stop
+         offset="0"
+         stop-color="#078EFF"
+         id="stop3" />
+      <stop
+         offset="1"
+         stop-color="#00ECF2"
+         id="stop4" />
+    </linearGradient>
+    <linearGradient
+       id="tss-stem"
+       gradientUnits="userSpaceOnUse"
+       x1="103"
+       y1="310"
+       x2="142"
+       y2="190">
+      <stop
+         offset="0"
+         stop-color="#FFFFFF"
+         id="stop5" />
+      <stop
+         offset="1"
+         stop-color="#93D9F5"
+         id="stop6" />
+    </linearGradient>
+    <linearGradient
+       id="tss-mid"
+       gradientUnits="userSpaceOnUse"
+       x1="161"
+       y1="207"
+       x2="308"
+       y2="330">
+      <stop
+         offset="0"
+         stop-color="#23D7F8"
+         id="stop7" />
+      <stop
+         offset="0.54"
+         stop-color="#00A8FF"
+         id="stop8" />
+      <stop
+         offset="1"
+         stop-color="#246CF6"
+         id="stop9" />
+    </linearGradient>
+    <linearGradient
+       id="tss-bottom"
+       gradientUnits="userSpaceOnUse"
+       x1="161"
+       y1="386"
+       x2="306"
+       y2="304">
+      <stop
+         offset="0"
+         stop-color="#FFFFFF"
+         id="stop10" />
+      <stop
+         offset="0.55"
+         stop-color="#C1E7FF"
+         id="stop11" />
+      <stop
+         offset="1"
+         stop-color="#2685F6"
+         id="stop12" />
+    </linearGradient>
+  </defs>
+  <g
+     transform="translate(53 0)"
+     id="g12">
+    <polygon
+       id="top-compute-rail"
+       points="48,139 214,53 214,99 48,185"
+       fill="url(#tss-bar1)" />
+    <polygon
+       id="lower-ribbon"
+       points="160,356 305,282 305,329 160,402"
+       fill="url(#tss-bottom)" />
+    <polygon
+       id="t-stem"
+       points="101,208 141,187 141,296 101,318"
+       fill="url(#tss-stem)" />
+    <polygon
+       id="top-execution-rail"
+       points="160,168 305,93 305,139 160,214"
+       fill="url(#tss-bar2)" />
+    <polygon
+       id="forward-ribbon"
+       points="160,210 305,285 305,332 160,256"
+       fill="url(#tss-mid)" />
+  </g>
+</svg>

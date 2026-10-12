@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import '@fontsource-variable/inter';
+import '../styles/brand.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import { SITE } from '../config/site';
@@ -9,13 +11,15 @@ interface Props {
   description?: string;
   ogImage?: string;
   noindex?: boolean;
+  fullWidth?: boolean;
 }
 
 const {
   title = SITE.name,
   description = SITE.description,
   ogImage = SITE.ogImage,
-  noindex = false
+  noindex = false,
+  fullWidth = false
 } = Astro.props;
 
 const resolvedTitle = title.includes('|')
@@ -42,32 +46,29 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:title" content={resolvedTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
-    <meta name="theme-color" content="#09090b" />
+    <meta name="theme-color" content="#061624" />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" href="/branding/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/branding/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/branding/apple-touch-icon.png" />
+    <link rel="manifest" href="/branding/site.webmanifest" />
     <script is:inline>
-      const savedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
-        document.documentElement.classList.remove('dark');
-      } else {
-        document.documentElement.classList.add('dark');
-      }
+      (() => {
+        let savedTheme;
+        try { savedTheme = localStorage.getItem('theme'); } catch { /* System preference works without storage. */ }
+        const dark = savedTheme === 'dark' || (savedTheme !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.classList.toggle('dark', dark);
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#061624' : '#f6faff');
+      })();
     </script>
   </head>
   <body>
-    <div class="pointer-events-none fixed inset-0 opacity-60">
-      <div class="absolute -top-24 left-1/2 h-72 w-[42rem] -translate-x-1/2 rounded-full bg-gradient-to-r from-cyan-500/30 via-fuchsia-500/20 to-indigo-500/30 blur-3xl"></div>
-    </div>
-
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <Navbar currentPath={Astro.url.pathname} />
 
-    <main class="relative mx-auto max-w-6xl px-6 pb-24">
+    <main id="main-content" tabindex="-1" class:list={[!fullWidth && 'site-content relative mx-auto max-w-6xl px-6 pb-20']}>
       <slot />
-      <Footer />
     </main>
+    <Footer />
   </body>
 </html>

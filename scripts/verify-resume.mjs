@@ -325,7 +325,7 @@ try {
       await page.getByRole('button', { name: 'Switch to light theme' }).click();
       checks += 14;
     }
-    await page.goto(base + '/resume');
+    await page.goto(base + '/resume', { waitUntil: 'networkidle' });
     const text = await page.locator('main').innerText();
     for (const expected of ['Aug 2023 - Present', 'Jan 2021 - Aug 2023', 'Jan 2019 - Jan 2021', '$250,000', '25+ years', 'advisory', 'Tier 2/3 Windows']) assert(text.includes(expected), expected);
     for (const excluded of ['Guadalupe', '36 TB', '400 switching', 'known threat group', '10x', 'two network-wide', '114 successful live']) assert(!text.includes(excluded), excluded);
@@ -398,13 +398,13 @@ try {
       assert.equal(await page.locator(`#${id}`).isVisible(), true);
       checks += 2;
     }
-    await page.goto(base + '/resume');
+    await page.goto(base + '/resume', { waitUntil: 'networkidle' });
     const resumeResearchLinks = [...new Set(await page.locator('main a[href*="/resume-research#"]').evaluateAll(links => links.map(link => link.getAttribute('href'))))];
     for (const href of resumeResearchLinks) {
       const id = new URL(href, base).hash.slice(1);
       assert(researchIds.includes(id), `Unknown research anchor on resume: ${id}`);
       assert(!projects.some(project => project.id === id && !selectedProjectIds.includes(id)), `Research-only project linked from general resume: ${id}`);
-      await page.goto(base + '/resume');
+      await page.goto(base + '/resume', { waitUntil: 'networkidle' });
       await page.locator(`main a[href="${href}"]`).first().click();
       await page.waitForURL(url => url.pathname.replace(/\/$/, '') === '/resume-research' && url.hash === `#${id}`);
       assert.equal(await page.locator(`#${id}`).count(), 1);

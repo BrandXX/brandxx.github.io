@@ -1,23 +1,100 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SectionHeader from '../components/SectionHeader.astro';
+import { ArrowUpRight, Cpu, Network, ShieldCheck } from '@lucide/astro';
+import '../styles/about.css';
+
+const focusAreas = [
+  {
+    title: 'Infrastructure & inference', Icon: Cpu, tone: 'cyan',
+    description: 'Custom GPU systems, Linux and CUDA, NVFP4 conversion with NVIDIA Model Optimizer, and vLLM deployment. Workload-specific tuning supported by monitoring, reproducible tests, and recovery procedures.',
+    href: '/resume-research#inference', link: 'Inference engineering',
+  },
+  {
+    title: 'Agents, memory & evidence', Icon: Network, tone: 'blue',
+    description: 'PIPER intent routing, NVIDIA AI-Q research workflows, and human-reviewed memory systems. Investigating how context, evidence, and task boundaries survive the work performed by models and agents.',
+    href: '/resume-research', link: 'Explore the research',
+  },
+  {
+    title: 'Security & responsible adoption', Icon: ShieldCheck, tone: 'green',
+    description: 'AI security testing, workload isolation, data sensitivity, tool-access boundaries, and governed use of external models. Research that informs architecture, policy, and training plans.',
+    href: '/defiantly_not_regex/pages/whitepaper.html', link: 'The systems perspective',
+  },
+];
 ---
 
 <BaseLayout
-  title="About | TechSoft Systems"
-  description="About Jonathan (John) and TechSoft Systems private AI and infrastructure practice."
+  title="About TechSoft Systems | Johnathan W. Carroll"
+  description="Founded in Tucson in 2012 by Johnathan W. Carroll, TechSoft Systems connects hands-on infrastructure experience with independent applied AI research and engineering."
 >
-  <section class="pt-12">
-    <SectionHeader title="About" subtitle="TechSoft Systems is led by Jonathan (John), focused on private AI platforms and resilient infrastructure delivery." />
+  <div class="about-page">
+    <header class="about-heading">
+      <p class="about-kicker">Tucson, Arizona / Independent research &amp; engineering</p>
+      <h1>About TechSoft Systems</h1>
+      <p class="about-lead">An independent technology practice and AI research lab, built on the experience of making real systems work.</p>
+      <p class="about-introduction">Founded in 2012 by Johnathan W. Carroll, TechSoft connects a background in business IT, infrastructure, and recovery with hands-on research into private AI systems.</p>
+    </header>
 
-    <div class="mt-8 rounded-3xl border border-zinc-300/50 bg-white/80 p-8 dark:border-white/10 dark:bg-white/5">
-      <p class="text-zinc-700 dark:text-zinc-300">
-        Jonathan (John) helps organizations build and operate secure infrastructure and private AI systems that hold up under real operational pressure.
-        The work spans architecture design, migration programs, reliability engineering, and team enablement with an emphasis on practical outcomes.
-      </p>
-      <p class="mt-4 text-zinc-700 dark:text-zinc-300">
-        Core focus areas include containerized workloads, GPU-backed inference stacks, observability, and compliance-aware delivery.
-      </p>
-    </div>
-  </section>
+    <section class="about-section about-story" id="story" aria-labelledby="story-title">
+      <div>
+        <p class="about-kicker">The company</p>
+        <h2 id="story-title">From business recovery to applied AI.</h2>
+      </div>
+      <div class="about-copy">
+        <p>TechSoft began as a consulting practice serving small and midsize businesses through systems engineering, network design, and technical support. An early engagement with TBM Equities started with a ransomware recovery: Johnathan restored affected services and returned business operations to service within <strong>24 hours</strong>. That work grew into a multi-year infrastructure and IT leadership relationship.</p>
+        <p>Today, TechSoft primarily serves as Johnathan's <strong>independent applied AI R&amp;D practice</strong>, alongside his full-time Tribal government role. Its dedicated AI lab began in <strong>January 2025</strong> and has grown into an environment for building, testing, and evaluating inference platforms, agent systems, retrieval, and AI security.</p>
+      </div>
+    </section>
+
+    <section class="about-section about-focus" id="focus" aria-labelledby="focus-title">
+      <p class="about-kicker">Inside the lab</p>
+      <h2 id="focus-title">Research grounded in engineering.</h2>
+      <p class="about-section-intro">The focus extends beyond running a model: how it is served, what information it can use, how its output is evaluated, and what happens when something fails.</p>
+      <div class="about-focus-grid">
+        {focusAreas.map(area => (
+          <article class={`about-focus-item about-tone-${area.tone}`}>
+            <area.Icon class="about-focus-icon" size={28} strokeWidth={1.5} aria-hidden="true" />
+            <h3>{area.title}</h3>
+            <p>{area.description}</p>
+            <a class="about-link" href={area.href}>{area.link}<ArrowUpRight size={17} aria-hidden="true" /></a>
+          </article>
+        ))}
+      </div>
+      <p class="about-research-note">This is independent, AI-assisted research and engineering. Lab implementations, evaluated results, and future concepts are distinguished in the accompanying research records; they are not presented as completed commercial AI deployments.</p>
+    </section>
+
+    <section class="about-section about-founder" id="founder" aria-labelledby="founder-title">
+      <div>
+        <p class="about-kicker">Founder, owner &amp; operator</p>
+        <h2 id="founder-title">Johnathan W. Carroll</h2>
+        <p class="about-founder-role">Infrastructure, Security &amp; AI Platform Engineering Leader</p>
+        <a class="about-link" href="/resume">View the full resume<ArrowUpRight size={17} aria-hidden="true" /></a>
+      </div>
+      <div class="about-copy">
+        <p>Johnathan brings <strong>25+ years of experience</strong> across entrepreneurship, SMB and enterprise IT, ISP operations, utilities, and government. His background spans an earlier web-development business, third-party Microsoft support, leadership of a 52-person ISP operations organization, international hospitality network engineering, and physical-security integration at Tucson Electric Power.</p>
+        <p>Alongside TechSoft, he serves as <strong>IT Infrastructure Manager for the Pascua Yaqui Tribe Government</strong>. Across his Tribal tenure, infrastructure modernization and consolidation delivered approximately <strong>$250,000 in annual operating savings</strong> and a <strong>50% reduction in physical footprint</strong>, alongside work in cybersecurity, disaster recovery, and data-center architecture.</p>
+        <p>His independent research informs the Tribe's emerging AI architecture and governance program, where policy review, technical development, and controlled-pilot planning remain in progress.</p>
+      </div>
+    </section>
+
+    <section class="about-section about-principles" id="approach" aria-labelledby="approach-title">
+      <div>
+        <p class="about-kicker">The approach</p>
+        <h2 id="approach-title">Understand intent.<br />Verify evidence.<br />Design for recovery.</h2>
+      </div>
+      <div class="about-copy">
+        <p>The same questions connect infrastructure operations and AI research: What is the system supposed to do? What evidence shows it worked? What can be recovered when it does not?</p>
+        <p>TechSoft's work emphasizes observable systems, reproducible evaluation, preserved state, explicit trust boundaries, and human review. Capabilities matter, but so do their limits and the people who depend on them.</p>
+        <p>That perspective also shaped <em>Defiantly Not Regex</em>, a visual thesis from the lab about intent, imperfect communication, and the difference between matching a pattern and understanding a person.</p>
+        <a class="about-link" href="/defiantly_not_regex/">Explore Defiantly Not Regex<ArrowUpRight size={17} aria-hidden="true" /></a>
+      </div>
+    </section>
+
+    <section class="about-contact" aria-labelledby="about-contact-title">
+      <div>
+        <h2 id="about-contact-title">Start a conversation.</h2>
+        <p>Private AI, resilient infrastructure, or a research question worth exploring.</p>
+      </div>
+      <a class="about-contact-link" href="/contact">Get in touch<ArrowUpRight size={19} aria-hidden="true" /></a>
+    </section>
+  </div>
 </BaseLayout>
