@@ -1,0 +1,24 @@
+---
+import { ArrowRight, Mail } from '@lucide/astro';
+
+interface Props {
+  title: string;
+  description: string;
+  primaryHref: string;
+  primaryLabel: string;
+  secondaryHref: string;
+  secondaryLabel: string;
+}
+
+const { title, description, primaryHref, primaryLabel, secondaryHref, secondaryLabel } = Astro.props;
+---
+
+<section class="practice-callout">
+  <div class="site-width practice-callout-inner">
+    <div><h2>{title}</h2><p>{description}</p></div>
+    <div class="practice-actions">
+      <a class="practice-button practice-primary" href={primaryHref}><Mail size={18} aria-hidden="true" />{primaryLabel}</a>
+      <a class="practice-button" href={secondaryHref}>{secondaryLabel}<ArrowRight size={18} aria-hidden="true" /></a>
+    </div>
+  </div>
+</section>

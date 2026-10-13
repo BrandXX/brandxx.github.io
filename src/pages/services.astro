@@ -1,28 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import BentoCard from '../components/BentoCard.astro';
-import CTA from '../components/CTA.astro';
-import SectionHeader from '../components/SectionHeader.astro';
+import PracticeCard from '../components/PracticeCard.astro';
+import PracticeCTA from '../components/PracticeCTA.astro';
+import { Activity, ArrowRight, Cpu, GraduationCap, Layers, Mail, Server, ShieldCheck } from '@lucide/astro';
+import '../styles/practice.css';
 ---
 
-<BaseLayout title="Services | TechSoft Systems" description="Private AI, infrastructure engineering, reliability, and security services.">
-  <section class="pt-12">
-    <SectionHeader
-      title="Services"
-      subtitle="Services built for private AI, resilient infrastructure, and teams that operate under real pressure."
-    />
+<BaseLayout title="Services | TechSoft Systems" description="Private AI, infrastructure engineering, reliability, and security services." fullWidth>
+  <div class="practice-page">
+    <header class="practice-intro site-width">
+      <h1>Services</h1>
+      <p>Services built for private AI, resilient infrastructure, and teams that operate under real pressure.</p>
+    </header>
 
-    <div class="mt-8 grid gap-4 md:grid-cols-2">
-      <BentoCard title="Private LLM Platform Engineering" description="Design and deploy private AI platforms for on-prem or hybrid environments, including model serving, RAG integration, access control, and operational runbooks." />
-      <BentoCard title="GPU Workload & Inference Tuning" description="Increase throughput and stability with practical tuning across batching, memory profiles, concurrency, and queue behavior." />
-      <BentoCard title="Infrastructure Modernization" description="Upgrade aging environments with virtualization consolidation, storage/network redesign, migration planning, and rollback-safe cutovers." />
-      <BentoCard title="Security, Governance, and Compliance" description="Implement policy-aware controls that support adoption without introducing unmanaged risk." />
-      <BentoCard title="Operations & Reliability Engineering" description="Build predictable operations across monitoring, alert quality, incident flow, backup/DR, and patch lifecycle discipline." />
-      <BentoCard title="Training & Enablement" description="Role-based AI training for IT teams, business users, and leadership with practical deliverables and rollout support." />
+    <div class="site-width practice-grid practice-opening">
+      <PracticeCard title="Private LLM Platform Engineering" description="Design and deploy private AI platforms for on-prem or hybrid environments, including model serving, RAG integration, access control, and operational runbooks."><Layers slot="icon" size={28} strokeWidth={1.5} /></PracticeCard>
+      <PracticeCard title="GPU Workload & Inference Tuning" description="Increase throughput and stability with practical tuning across batching, memory profiles, concurrency, and queue behavior."><Cpu slot="icon" size={28} strokeWidth={1.5} /></PracticeCard>
+      <PracticeCard title="Infrastructure Modernization" description="Upgrade aging environments with virtualization consolidation, storage/network redesign, migration planning, and rollback-safe cutovers."><Server slot="icon" size={28} strokeWidth={1.5} /></PracticeCard>
+      <PracticeCard title="Security, Governance, and Compliance" description="Implement policy-aware controls that support adoption without introducing unmanaged risk."><ShieldCheck slot="icon" size={28} strokeWidth={1.5} /></PracticeCard>
+      <PracticeCard title="Operations & Reliability Engineering" description="Build predictable operations across monitoring, alert quality, incident flow, backup/DR, and patch lifecycle discipline."><Activity slot="icon" size={28} strokeWidth={1.5} /></PracticeCard>
+      <PracticeCard title="Training & Enablement" description="Role-based AI training for IT teams, business users, and leadership with practical deliverables and rollout support."><GraduationCap slot="icon" size={28} strokeWidth={1.5} /></PracticeCard>
     </div>
-  </section>
 
-  <CTA
+  <PracticeCTA
     title="Need a scoped engagement?"
     description="Share your environment, priorities, and timeline. We’ll map a practical implementation plan with milestones and risk controls."
     primaryHref="mailto:sales@techsoftsys.com?subject=Services%20Inquiry"
@@ -31,24 +31,25 @@ import SectionHeader from '../components/SectionHeader.astro';
     secondaryLabel="Contact page"
   />
 
-  <section class="mt-6 rounded-3xl border border-zinc-300/50 bg-white/80 p-6 dark:border-white/10 dark:bg-white/5">
-    <h2 class="text-xl font-semibold tracking-tight">30-minute architecture review</h2>
-    <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">
+  <section class="site-width practice-section practice-review">
+    <h2>30-minute architecture review</h2>
+    <p>
       Book a focused review to identify the highest-impact reliability, AI platform, or migration priorities for your next quarter.
     </p>
-    <div class="mt-4 flex flex-wrap gap-3">
+    <div class="practice-actions">
       <a
         href="mailto:sales@techsoftsys.com?subject=30-Minute%20Architecture%20Review"
-        class="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-zinc-50 transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+        class="practice-button practice-primary"
       >
-        Book architecture review
+        <Mail size={18} aria-hidden="true" />Book architecture review
       </a>
       <a
         href="/work"
-        class="rounded-xl border border-zinc-300/70 bg-white px-4 py-2 text-sm text-zinc-800 transition hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:text-zinc-200 dark:hover:bg-white/10"
+        class="practice-button"
       >
-        See delivery outcomes
+        See delivery outcomes<ArrowRight size={18} aria-hidden="true" />
       </a>
     </div>
   </section>
+  </div>
 </BaseLayout>

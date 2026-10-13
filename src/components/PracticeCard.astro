@@ -1,0 +1,23 @@
+---
+import { ArrowUpRight } from '@lucide/astro';
+
+interface Props {
+  title: string;
+  eyebrow?: string;
+  description?: string;
+  href?: string;
+  heading?: 'h2' | 'h3';
+}
+
+const { title, eyebrow, description, href, heading = 'h2' } = Astro.props;
+const Tag = href ? 'a' : 'article';
+const Heading = heading;
+---
+
+<Tag href={href} class="practice-card">
+  <div class="practice-card-symbol" aria-hidden="true"><slot name="icon" />{href && <ArrowUpRight size={20} />}</div>
+  {eyebrow && <p class="practice-eyebrow">{eyebrow}</p>}
+  <Heading>{title}</Heading>
+  {description && <p class="practice-card-description">{description}</p>}
+  <slot />
+</Tag>

@@ -1,66 +1,75 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import BentoCard from '../components/BentoCard.astro';
-import SectionHeader from '../components/SectionHeader.astro';
+import PracticeCard from '../components/PracticeCard.astro';
+import { ArrowRight, BookOpen, CalendarDays, Code, Compass, Mail, Presentation, ShieldCheck, Users } from '@lucide/astro';
+import '../styles/practice.css';
 ---
 
 <BaseLayout
   title="Training | TechSoft Systems"
   description="Hands-on AI training programs for IT teams, business users, and leaders with measurable outcomes."
+  fullWidth
 >
-  <section class="pt-12">
-    <SectionHeader
-      title="AI Training & Enablement"
-      subtitle="AI training programs built for practical adoption: technical depth for builders, safe workflows for users, and governance clarity for leaders."
-    />
+  <div class="practice-page">
+    <header class="practice-intro site-width">
+      <h1>AI Training & Enablement</h1>
+      <p>AI training programs built for practical adoption: technical depth for builders, safe workflows for users, and governance clarity for leaders.</p>
+    </header>
 
-    <div class="mt-8 grid gap-4 md:grid-cols-3">
-      <BentoCard eyebrow="Audience" title="IT teams">
-        <ul class="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+    <div class="site-width practice-grid practice-grid-three practice-opening">
+      <PracticeCard eyebrow="Audience" title="IT teams">
+        <Code slot="icon" size={28} strokeWidth={1.5} />
+        <ul class="practice-list">
           <li>Private AI architecture patterns for on-prem and hybrid workloads</li>
           <li>Containerized model serving, RAG systems, and performance tuning</li>
           <li>Observability, access controls, retention, and audit readiness</li>
         </ul>
-      </BentoCard>
-      <BentoCard eyebrow="Audience" title="Business users">
-        <ul class="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+      </PracticeCard>
+      <PracticeCard eyebrow="Audience" title="Business users">
+        <Users slot="icon" size={28} strokeWidth={1.5} />
+        <ul class="practice-list">
           <li>Prompting patterns for real business workflows</li>
           <li>Verification methods to reduce hallucination risk</li>
           <li>Sensitive data handling and escalation rules</li>
         </ul>
-      </BentoCard>
-      <BentoCard eyebrow="Audience" title="Leaders">
-        <ul class="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+      </PracticeCard>
+      <PracticeCard eyebrow="Audience" title="Leaders">
+        <Compass slot="icon" size={28} strokeWidth={1.5} />
+        <ul class="practice-list">
           <li>Use-case triage and risk-tier framework</li>
           <li>Governance model and rollout sequencing</li>
           <li>Success metrics for adoption, quality, and risk posture</li>
         </ul>
-      </BentoCard>
+      </PracticeCard>
     </div>
 
-    <section class="mt-12">
-      <SectionHeader title="Formats" subtitle="Select the delivery model that fits your team and compliance posture." />
-      <div class="mt-6 grid gap-4 md:grid-cols-2">
-        <BentoCard title="Workshop (2-4 hours)" description="Focused, role-specific training for executive teams, business users, or IT operators." />
-        <BentoCard title="Bootcamp (1-2 days)" description="Hands-on lab sessions using practical architecture and policy scenarios." />
-        <BentoCard title="Cohort (4-6 weeks)" description="Weekly sessions, office hours, and implementation reviews between modules." />
-        <BentoCard title="Custom regulated program" description="Policy-first enablement for healthcare, government, and compliance-constrained organizations." />
+    <section class="practice-section practice-band">
+      <div class="site-width">
+      <div class="practice-section-heading"><h2>Formats</h2><p>Select the delivery model that fits your team and compliance posture.</p></div>
+      <div class="practice-grid">
+        <PracticeCard heading="h3" title="Workshop (2-4 hours)" description="Focused, role-specific training for executive teams, business users, or IT operators."><Presentation slot="icon" size={28} strokeWidth={1.5} /></PracticeCard>
+        <PracticeCard heading="h3" title="Bootcamp (1-2 days)" description="Hands-on lab sessions using practical architecture and policy scenarios."><BookOpen slot="icon" size={28} strokeWidth={1.5} /></PracticeCard>
+        <PracticeCard heading="h3" title="Cohort (4-6 weeks)" description="Weekly sessions, office hours, and implementation reviews between modules."><CalendarDays slot="icon" size={28} strokeWidth={1.5} /></PracticeCard>
+        <PracticeCard heading="h3" title="Custom regulated program" description="Policy-first enablement for healthcare, government, and compliance-constrained organizations."><ShieldCheck slot="icon" size={28} strokeWidth={1.5} /></PracticeCard>
+      </div>
       </div>
     </section>
 
-    <section class="mt-12">
-      <SectionHeader title="Outcomes" subtitle="Every engagement targets concrete outputs your team can use immediately." />
-      <div class="mt-6 grid gap-4 md:grid-cols-2">
-        <BentoCard title="Deliverables">
-          <ul class="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+    <section class="site-width practice-section">
+      <div class="practice-section-heading"><h2>Outcomes</h2><p>Every engagement targets concrete outputs your team can use immediately.</p></div>
+      <div class="practice-outcomes">
+        <div>
+          <h3>Deliverables</h3>
+          <ul class="practice-list">
             <li>Hands-on lab workbook and architecture diagrams</li>
             <li>Internal AI usage guidelines and policy cheat-sheet</li>
             <li>Approved workflows playbook</li>
             <li>Metrics template for adoption, risk, and productivity tracking</li>
           </ul>
-        </BentoCard>
-        <BentoCard title="Sample 1-day bootcamp agenda">
-          <ol class="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+        </div>
+        <div>
+          <h3>Sample 1-day bootcamp agenda</h3>
+          <ol class="practice-agenda">
             <li>09:00 - 09:45 Private AI architecture foundations</li>
             <li>09:45 - 10:45 Lab: containerized inference pipeline</li>
             <li>11:00 - 12:00 Security boundaries and governance controls</li>
@@ -69,44 +78,43 @@ import SectionHeader from '../components/SectionHeader.astro';
             <li>15:30 - 16:30 Team workflow design and implementation checklist</li>
             <li>16:30 - 17:00 Action plan, ownership mapping, and next steps</li>
           </ol>
-        </BentoCard>
+        </div>
       </div>
-    </section>
-
-    <div class="mt-10 flex flex-wrap gap-3">
+    <div class="practice-actions">
       <a
         href="mailto:sales@techsoftsys.com?subject=AI%20Training%20Inquiry"
-        class="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-zinc-50 transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+        class="practice-button practice-primary"
       >
-        Request training details
+        <Mail size={18} aria-hidden="true" />Request training details
       </a>
       <a
         href="/contact"
-        class="rounded-xl border border-zinc-300/70 bg-white px-4 py-2 text-sm text-zinc-800 transition hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:text-zinc-200 dark:hover:bg-white/10"
+        class="practice-button"
       >
-        Talk through goals
+        Talk through goals<ArrowRight size={18} aria-hidden="true" />
       </a>
     </div>
+    </section>
 
-    <section class="mt-8 rounded-3xl border border-zinc-300/50 bg-white/80 p-6 dark:border-white/10 dark:bg-white/5">
-      <h2 class="text-xl font-semibold tracking-tight">Training fit call</h2>
-      <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">
+    <section class="practice-callout"><div class="site-width practice-review">
+      <h2>Training fit call</h2>
+      <p>
         Schedule a short fit call to align audience, format, and outcomes before selecting a workshop, bootcamp, or cohort plan.
       </p>
-      <div class="mt-4 flex flex-wrap gap-3">
+      <div class="practice-actions">
         <a
           href="mailto:sales@techsoftsys.com?subject=Training%20Fit%20Call%20Request"
-          class="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-zinc-50 transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+          class="practice-button practice-primary"
         >
-          Request training fit call
+          <Mail size={18} aria-hidden="true" />Request training fit call
         </a>
         <a
           href="/services"
-          class="rounded-xl border border-zinc-300/70 bg-white px-4 py-2 text-sm text-zinc-800 transition hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:text-zinc-200 dark:hover:bg-white/10"
+          class="practice-button"
         >
-          Compare service options
+          Compare service options<ArrowRight size={18} aria-hidden="true" />
         </a>
       </div>
-    </section>
-  </section>
+    </div></section>
+  </div>
 </BaseLayout>

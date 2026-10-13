@@ -1,40 +1,43 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import BentoCard from '../../components/BentoCard.astro';
-import CTA from '../../components/CTA.astro';
-import SectionHeader from '../../components/SectionHeader.astro';
+import PracticeCard from '../../components/PracticeCard.astro';
+import PracticeCTA from '../../components/PracticeCTA.astro';
+import { Activity, Cpu, Server } from '@lucide/astro';
+import '../../styles/practice.css';
 import { getCollection } from 'astro:content';
 
 const caseStudies = (await getCollection('case-studies')).sort((a, b) =>
   b.data.date.localeCompare(a.data.date)
 );
+const icons = { 'Private AI': Cpu, 'Government / Regulated': Activity, Infrastructure: Server };
 ---
 
 <BaseLayout
   title="Work | TechSoft Systems"
   description="Case studies covering private AI platforms, reliability engineering, and zero-loss migrations."
+  fullWidth
 >
-  <section class="pt-12">
-    <SectionHeader
-      title="Case studies"
-      subtitle="Architecture decisions, delivery tradeoffs, and measurable outcomes from private AI and infrastructure programs."
-    />
-
-    <div class="mt-8 grid gap-4 md:grid-cols-3">
-      {caseStudies.map((study) => (
-        <BentoCard
+  <div class="practice-page">
+    <header class="practice-intro site-width">
+      <h1>Case studies</h1>
+      <p>Architecture decisions, delivery tradeoffs, and measurable outcomes from private AI and infrastructure programs.</p>
+    </header>
+    <div class="site-width practice-grid practice-grid-three practice-opening">
+      {caseStudies.map((study) => {
+        const Icon = icons[study.data.industry as keyof typeof icons] || Server;
+        return <PracticeCard
           href={`/work/${study.slug}`}
           eyebrow={study.data.industry}
           title={study.data.title}
           description={study.data.description}
         >
-          <p class="mt-4 text-xs text-zinc-600 dark:text-zinc-400">Key metric: {study.data.stat}</p>
-        </BentoCard>
-      ))}
+          <Icon slot="icon" size={28} strokeWidth={1.5} />
+          <p class="practice-metric">Key metric: {study.data.stat}</p>
+        </PracticeCard>;
+      })}
     </div>
-  </section>
 
-  <CTA
+  <PracticeCTA
     title="Request a case-study walkthrough"
     description="If you want the implementation detail behind a specific outcome, request a focused walkthrough of architecture decisions, risk controls, and rollout sequencing."
     primaryHref="mailto:sales@techsoftsys.com?subject=Case%20Study%20Walkthrough%20Request"
@@ -42,4 +45,5 @@ const caseStudies = (await getCollection('case-studies')).sort((a, b) =>
     secondaryHref="/contact"
     secondaryLabel="Talk through your scenario"
   />
+  </div>
 </BaseLayout>

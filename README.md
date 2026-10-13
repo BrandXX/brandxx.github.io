@@ -190,6 +190,36 @@ Tribal role. Current independent R&D and developing governance/pilot work must
 not become claims of completed commercial AI deployments. The site release was
 approved separately; that approval does not authorize changes to private records.
 
+### AI Lab and Practice Pages (October 12, 2026)
+
+The AI Lab concept is adapted in `src/pages/ai-lab.astro` and
+`src/styles/ai-lab.css`, using the existing site shell and theme. Publication was
+approved with a style-only update to Work, its case-study detail pages, Services,
+and Training. These pages use `src/styles/practice.css` and the scoped
+`PracticeCard` / `PracticeCTA` components; other pages' components are unchanged.
+Existing copy, offers, metrics, links, and metadata are preserved. This design
+pass does not validate the legacy case-study claims or change service availability.
+
+The supplied ZIP, all concept files, the previous Astro page, and the previous
+complete static site are retained under Git-ignored `.staging/ai-lab-concept/`.
+Its `latest.json` identifies the archive and original hashes; the pre-graph draft
+and pre-restyling page sources are also archived locally. The release can be
+reverted to the prior `3c37952` site by reverting the release commit and deploying
+through the unchanged Pages workflow. Notebook entries link directly to
+the canonical research sections, not claims of separately published articles.
+Recorded hardware and measurements are historical, not live capacity promises.
+
+Start `npm run preview:full` and open `http://127.0.0.1:4326/ai-lab/`. Run
+`npm run test:lab` for responsive, theme, filter, keyboard, no-JS, research-link,
+and source/archive preservation checks. `npm run test:practice` compares all six
+restyled routes with the archived prior site for exact text, link, and metadata
+parity, and checks themes, links, mobile layouts, and 200% text. These local suites
+require the retained `.staging/ai-lab-concept/latest.json` archive. For a production
+preview use `SITE_BASE_URL=http://127.0.0.1:4328`; add `SITE_MODE=production` for
+`test:lab` and `test:preview`. Production guards run in the normal Pages build
+without private archives and verify indexing/domain/asset preservation on all
+updated routes. No source archives or private career files enter the build.
+
 ### Add or edit case studies
 
 Case studies live in `src/content/case-studies/*.mdx`.

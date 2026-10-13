@@ -1,6 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { ArrowLeft } from '@lucide/astro';
+import '../../styles/practice.css';
 
 export async function getStaticPaths() {
   const studies = await getCollection('case-studies');
@@ -17,22 +19,25 @@ const { Content } = await render(study);
 <BaseLayout
   title={`${study.data.title} | TechSoft Systems`}
   description={study.data.description}
+  fullWidth
 >
-  <article class="pt-12">
-    <p class="text-xs uppercase tracking-wide text-cyan-600 dark:text-cyan-400">{study.data.industry}</p>
-    <h1 class="mt-2 text-4xl font-semibold tracking-tight">{study.data.title}</h1>
-    <p class="mt-4 max-w-3xl text-zinc-700 dark:text-zinc-300">{study.data.description}</p>
+  <article class="practice-page practice-study">
+    <header class="practice-intro site-width">
+    <p class="practice-eyebrow">{study.data.industry}</p>
+    <h1>{study.data.title}</h1>
+    <p>{study.data.description}</p>
 
-    <div class="mt-6 flex flex-wrap gap-2">
+    <div class="practice-tools">
       {study.data.tools.map((tool: string) => (
-        <span class="rounded-full border border-zinc-300/70 bg-white px-3 py-1 text-xs text-zinc-700 dark:border-white/10 dark:bg-white/5 dark:text-zinc-300">{tool}</span>
+        <span>{tool}</span>
       ))}
     </div>
+    </header>
 
-    <div class="prose-tech mt-10 rounded-3xl border border-zinc-300/50 bg-white/80 p-8 dark:border-white/10 dark:bg-white/5">
+    <div class="site-width practice-study-body">
       <Content />
     </div>
 
-    <a href="/work" class="mt-8 inline-block text-sm font-semibold text-cyan-600 hover:text-cyan-500 dark:text-cyan-400">← Back to work</a>
+    <div class="site-width practice-study-end"><a href="/work" class="practice-button"><ArrowLeft size={18} aria-hidden="true" />Back to work</a></div>
   </article>
 </BaseLayout>

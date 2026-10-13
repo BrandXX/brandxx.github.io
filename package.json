@@ -16,6 +16,8 @@
     "astro": "astro",
     "test:resume": "node scripts/verify-resume.mjs",
     "test:site": "node scripts/verify-site.mjs",
+    "test:lab": "node scripts/verify-ai-lab.mjs",
+    "test:practice": "node scripts/verify-practice.mjs",
     "resume:pdf": "node scripts/verify-resume.mjs --pdf",
     "cover-letter:pdf": "node scripts/verify-resume.mjs --cover-pdf"
   },

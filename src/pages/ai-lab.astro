@@ -1,33 +1,165 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import BentoCard from '../components/BentoCard.astro';
-import SectionHeader from '../components/SectionHeader.astro';
+import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Cpu, Database, Layers, Network, ScanSearch, ShieldCheck } from '@lucide/astro';
+import '../styles/ai-lab.css';
+
+const experiments = [
+  { id: 'residency', topic: 'Inference & GPU residency', status: 'Components validated', title: 'Keeping models ready for the next task.', description: 'Retained-weight sleep/wake, model switching, and host-memory contention. Measuring the transition from one model to another, with timing boundaries and failed checks kept in view.', link: 'Explore residency research', date: 'Aug-Sep 2026', Icon: Cpu, tone: 'cyan', featured: true },
+  { id: 'ai-q', topic: 'Agentic research & evidence', status: 'Evaluation ongoing', title: 'Can a research system support its conclusions?', description: 'Self-hosted NVIDIA AI-Q and NeMo workflows. Source tracing, controlled evaluation, citation repair, and replayable evidence across agent handoffs.', link: 'Explore AI-Q research', date: 'Independent research', Icon: ScanSearch, tone: 'blue', featured: true },
+  { id: 'piper', topic: 'Intent & agent systems', status: 'Advisory integration', title: 'PIPER: intent before action.', description: 'A broader intent-layer architecture, explored through early Hermes and Open-WebUI work and a later advisory plugin. Task contracts, memory routing, and handoff boundaries remain distinct from execution authority.', link: 'Explore PIPER', Icon: Network, tone: 'cyan' },
+  { id: 'memory', topic: 'Memory governance', status: 'Proposal-only review', title: 'Who decides what AI remembers?', description: 'Ogden / Memory Workbench: source provenance, immutable proposals, and separate human decisions. Model-generated proposals do not mutate live memory.', link: 'Explore memory research', Icon: ShieldCheck, tone: 'green' },
+  { id: 'embeddings', topic: 'Embedding & retrieval', status: 'Matched comparisons', title: 'Faster vectors. Better answers?', description: 'NVFP4 and BF16 serving, vector integrity, and retrieval evaluation. Separating inference throughput from relevance and the quality of the evidence used to judge it.', link: 'Explore retrieval evaluation', Icon: Database, tone: 'blue' },
+];
+const measurements = [
+  { id: 'residency', value: '61/61', title: 'Sleep/wake cycles accepted', detail: 'A specific September 2026 pinned-vLLM campaign; 122/122 arithmetic and tool checks. Component validation, not full-system qualification.' },
+  { id: 'ai-q', value: '196', title: 'Focused AI-Q tests passed', detail: 'Validation of a citation-accounting repair and regression comparisons. Software checks, not a research-accuracy score.' },
+  { id: 'embeddings', value: '2.0x', title: 'Embedding input throughput', detail: '32 vs. 16 inputs/sec for 8B NVFP4 vs. BF16 in one matched mixed-length, eight-worker soak. Workload-specific, not a general ranking.' },
+  { id: 'storage', value: '55.24', unit: 'GB/s', title: 'Sequential direct reads', detail: 'One four-drive PCIe 5.0 RAID0 array; fio against a prepared 100 GiB file. Not write speed or combined-array throughput; RAID0 has no redundancy.' },
+];
+const layers = [
+  { title: 'Compute & data', detail: 'GPU, CPU, NVMe, networking', Icon: Cpu },
+  { title: 'Inference services', detail: 'CUDA, vLLM, NVFP4', Icon: Layers },
+  { title: 'Agents & orchestration', detail: 'Hermes, NVIDIA AI-Q, PIPER', Icon: Network },
+  { title: 'Retrieval & memory', detail: 'Embeddings, Honcho, Ogden', Icon: Database },
+  { title: 'Evidence & operations', detail: 'Replay, telemetry, recovery', Icon: ShieldCheck },
+];
+const principles = [
+  { title: 'Make the question testable.', detail: 'Define the workload, expected behavior, timing boundaries, and failure conditions before a run.' },
+  { title: 'Keep the evidence attached.', detail: 'Retain configuration, source identity, observed failures, and the artifacts needed to reproduce a result.' },
+  { title: 'Separate validation from correctness.', detail: 'A passing software check does not establish that an AI conclusion is factual.' },
+  { title: 'State the limitations.', detail: 'Keep historical results, bounded experiments, operational deployments, and proposals clearly distinguished.' },
+];
+const categories = [
+  { id: 'all', label: 'All research' }, { id: 'inference', label: 'Inference' },
+  { id: 'agents', label: 'Agents & evidence' }, { id: 'memory', label: 'Memory' }, { id: 'operations', label: 'Operations' },
+];
+const notes = [
+  { id: 'residency', category: 'inference', label: 'Inference', scope: 'Historical tests', title: 'What 61 sleep/wake cycles establish', summary: 'Retained-weight transitions, correctness gates, and the limits of component validation.' },
+  { id: 'ai-q', category: 'agents', label: 'Agents & evidence', scope: 'Research platform', title: 'Tracing missing citations through a research workflow', summary: 'A bounded citation-accounting repair, exact-image replay, and focused regression checks.' },
+  { id: 'memory', category: 'memory', label: 'Memory', scope: 'Review tooling', title: 'A memory workbench that proposes without rewriting', summary: 'Source drift, immutable model output, and 19 proposals kept separate from live memory.' },
+  { id: 'platform', category: 'operations', label: 'Operations', scope: 'Lab operations', title: 'Stateful inference migration with memory preserved', summary: 'Moving from Ollama GGUF to vLLM NVFP4 while retaining 3,045 active memory documents.' },
+  { id: 'embeddings', category: 'inference', label: 'Inference', scope: 'Matched tests', title: 'Embedding speed and retrieval quality are different questions', summary: 'Serving throughput, vector integrity, relevance, and evaluation-label limitations.' },
+  { id: 'piper', category: 'agents', label: 'Agents & evidence', scope: 'Advisory research', title: 'PIPER: from intake tooling to advisory integration', summary: 'Intent contracts, historical regression coverage, failure analysis, and version boundaries.' },
+  { id: 'audio', category: 'operations', label: 'Operations', scope: 'Personal production', title: 'Audio and speech through the actual agent workflow', summary: 'Native Hermes audio tools, Whisper recognition, Qwen3 TTS, and recoverable deployment.' },
+];
 ---
 
-<BaseLayout
-  title="AI Lab | TechSoft Systems"
-  description="How private AI stacks are designed, observed, and tuned for secure high-throughput workloads."
->
-  <section class="pt-12">
-    <SectionHeader
-      title="AI Lab"
-      subtitle="Technical notes on how private AI platforms are designed, tuned, and operated for secure high-throughput delivery."
-    />
-
-    <div class="mt-8 grid gap-4 md:grid-cols-3">
-      <BentoCard title="Private AI stack architecture" description="Reference blueprint from ingress to model serving to policy boundaries for on-prem and hybrid deployments." />
-      <BentoCard title="Observability that operators trust" description="Metrics, logs, traces, and GPU telemetry designed for signal quality and incident response speed." />
-      <BentoCard title="GPU workload tuning" description="Practical benchmark-driven tuning across batching, memory pressure, queue depth, and I/O behavior." />
+<BaseLayout title="AI Lab | TechSoft Systems" description="Inside the TechSoft Systems AI Lab: independent research in GPU inference, agent systems, retrieval, memory, evidence integrity, and operational reliability." fullWidth>
+  <div class="lab-page">
+    <div class="lab-entry">
+      <div class="site-width lab-hero-layout">
+        <section class="lab-hero" aria-labelledby="lab-title">
+          <p class="lab-eyebrow">Independent applied AI research</p>
+          <h1 id="lab-title">TechSoft <span>AI Lab.</span></h1>
+          <p class="lab-statement">The systems behind the intelligence.</p>
+          <p class="lab-intro">Private AI is more than a model on a GPU. This is where I build, test, and study inference, agent behavior, memory, evidence, and the infrastructure that connects them.</p>
+          <div class="lab-actions">
+            <a class="lab-button lab-button-primary" href="#experiments">Explore the experiments <ArrowDown size={18} aria-hidden="true" /></a>
+            <a class="lab-button lab-button-secondary" href="#inside-the-lab">Inside the lab <ArrowRight size={18} aria-hidden="true" /></a>
+          </div>
+          <p class="lab-hero-meta">Johnathan W. Carroll <span aria-hidden="true">/</span> Tucson, Arizona <span aria-hidden="true">/</span> Dedicated lab since January 2025</p>
+        </section>
+        <figure class="lab-system-map" aria-labelledby="lab-map-caption" aria-describedby="lab-map-note">
+          <figcaption id="lab-map-caption"><span>Lab / Systems map</span><span>Conceptual model</span></figcaption>
+          <div class="lab-map-canvas">
+            <div class="lab-map-grid" aria-hidden="true">{Array.from({ length: 19 }, (_, i) => <span class="lab-grid-column" style={{ left: `${(i + 1) * 5}%` }} />)}{Array.from({ length: 15 }, (_, i) => <span class="lab-grid-row" style={{ top: `${(i + 1) * 6.25}%` }} />)}</div>
+            <ol class="lab-map-flow" role="list" aria-label="Conceptual research layers and supporting checks">
+              <li class="lab-map-node lab-node-intake"><span class="lab-node-label">01 / Intake</span><strong>User intent + contracts</strong></li>
+              <li class="lab-map-node lab-node-orchestration"><span class="lab-node-label">02 / Orchestration</span><strong>Research & agent workflows</strong></li>
+              <li class="lab-map-node lab-node-evidence"><span class="lab-node-label">03 / Verification</span><strong>Evidence + memory</strong></li>
+              <li class="lab-map-node lab-node-inference"><span class="lab-node-label">04 / Model plane</span><strong>Inference serving</strong><span class="lab-node-detail">CUDA / NVFP4 / vLLM</span></li>
+              <li class="lab-map-node lab-node-observability"><span class="lab-node-label">Observability</span><strong>Telemetry</strong></li>
+              <li class="lab-map-node lab-node-validation"><span class="lab-node-label">Validation</span><strong>Replay + tests</strong></li>
+            </ol>
+          </div>
+          <p class="lab-map-note" id="lab-map-note">Illustrative relationships, not a deployed system blueprint. Internal architecture stays private.</p>
+        </figure>
+      </div>
     </div>
 
-    <div class="mt-8 rounded-3xl border border-zinc-300/50 bg-white/80 p-6 dark:border-white/10 dark:bg-white/5">
-      <h2 class="text-xl font-semibold">Technical notes</h2>
-      <ul class="mt-4 grid gap-3 text-sm text-zinc-700 md:grid-cols-2 dark:text-zinc-300">
-        <li>No sensitive client internals or private topology disclosures</li>
-        <li>Repeatable implementation patterns tied to measurable outcomes</li>
-        <li>Production-readiness checklists for architecture and rollout reviews</li>
-        <li>Operator-first runbook and alerting design considerations</li>
-      </ul>
-    </div>
-  </section>
+    <section class="lab-platform" aria-label="Recorded lab platform">
+      <dl class="site-width lab-platform-grid">
+        <div><dt>Recorded GPU build</dt><dd>2 x RTX PRO 6000 <span>Blackwell / 96 GB each</span></dd></div>
+        <div><dt>Recorded system memory</dt><dd>512 GB ECC <span>Threadripper PRO platform</span></dd></div>
+        <div><dt>Primary model serving</dt><dd>vLLM <span>CUDA / NVFP4 / open models</span></dd></div>
+        <div><dt>Research scope</dt><dd>Systems to agents <span>Inference, evidence & memory</span></dd></div>
+      </dl>
+      <p class="site-width lab-platform-note">Build history, not live capacity. Ollama supports basic testing and selected embedding workloads.</p>
+    </section>
+
+    <section class="lab-section" id="experiments" aria-labelledby="experiments-title">
+      <div class="site-width">
+        <div class="lab-section-heading">
+          <div><p class="lab-eyebrow">01 / Explore the work</p><h2 id="experiments-title">Selected experiments.</h2><p>Independent, AI-assisted research and engineering: what was built, what was measured, and what remains under investigation.</p></div>
+          <a class="lab-text-link" href="/resume-research/">Full research record <ArrowUpRight size={18} aria-hidden="true" /></a>
+        </div>
+        <div class="lab-experiments">
+          {experiments.map((experiment, index) => (
+            <article class:list={['lab-experiment', 'lab-tone-' + experiment.tone, experiment.featured && 'lab-featured lab-featured-' + (index + 1)]}>
+              <div class="lab-card-top"><experiment.Icon size={28} strokeWidth={1.5} aria-hidden="true" /><span class="lab-status">{experiment.status}</span></div>
+              <p class="lab-topic">{experiment.topic}</p>
+              <h3><a href={'/resume-research/#' + experiment.id}>{experiment.title}</a></h3>
+              <p class="lab-card-description">{experiment.description}</p>
+              <div class="lab-card-bottom"><a class="lab-text-link" href={'/resume-research/#' + experiment.id}>{experiment.link}<ArrowUpRight size={17} aria-hidden="true" /></a>{experiment.date && <span>{experiment.date}</span>}</div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-measurements" aria-labelledby="measurements-title">
+      <div class="site-width">
+        <h2 id="measurements-title" class="lab-eyebrow">Selected historical measurements</h2>
+        <div class="lab-metric-grid">
+          {measurements.map(measurement => (
+            <article class="lab-metric">
+              <p class="lab-metric-value">{measurement.value}{measurement.unit && <span>{measurement.unit}</span>}</p>
+              <h3><a href={'/resume-research/#' + measurement.id}>{measurement.title}<ArrowUpRight size={15} aria-hidden="true" /></a></h3>
+              <p>{measurement.detail}</p>
+            </article>
+          ))}
+        </div>
+        <p class="lab-measurement-note">These records use different workloads, configurations, and timing boundaries. They are not a shared benchmark, live telemetry, commercial deployment claims, or production guarantees. <a href="/resume-research/">Methods and limitations<ArrowRight size={15} aria-hidden="true" /></a></p>
+      </div>
+    </section>
+
+    <section class="lab-section" id="inside-the-lab" aria-labelledby="inside-title">
+      <div class="site-width">
+        <div class="lab-section-heading"><div><p class="lab-eyebrow">02 / Inside the lab</p><h2 id="inside-title">Built to ask harder questions.</h2><p>Experiments span physical compute, model serving, agent decisions, retained memory, and evidence. The engineering and the evaluation belong together.</p></div></div>
+        <div class="lab-method-grid">
+          <div class="lab-engineering"><h3>The engineering layers</h3><ol class="lab-layer-list">{layers.map((layer, index) => <li><layer.Icon size={22} aria-hidden="true" /><div><strong>{layer.title}</strong><span>{layer.detail}</span></div><span class="lab-layer-index" aria-hidden="true">0{index + 1}</span></li>)}</ol></div>
+          <div class="lab-principles"><h3>Research principles</h3><ol>{principles.map((principle, index) => <li><span class="lab-principle-index" aria-hidden="true">0{index + 1}</span><div><h4>{principle.title}</h4><p>{principle.detail}</p></div></li>)}</ol></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-section lab-notebook" id="notebook" aria-labelledby="notebook-title">
+      <div class="site-width">
+        <div class="lab-section-heading"><div><p class="lab-eyebrow">03 / Engineering notebook</p><h2 id="notebook-title">Notes from the workbench.</h2><p>Research briefs from the published record, including experiment scope, observed failures, and remaining questions.</p></div><BookOpen class="lab-notebook-icon" size={32} strokeWidth={1.5} aria-hidden="true" /></div>
+        <div class="lab-filter-row"><div class="lab-filters" role="group" aria-label="Filter research briefs" hidden>{categories.map(category => <button type="button" class="lab-filter" data-lab-filter={category.id} aria-pressed={category.id === 'all' ? 'true' : 'false'} aria-controls="lab-notes">{category.label}</button>)}</div><p class="lab-filter-count" role="status" aria-live="polite" aria-atomic="true">{notes.length} research briefs</p></div>
+        <ul id="lab-notes" class="lab-notes">{notes.map(note => (
+          <li data-lab-category={note.category}><a href={'/resume-research/#' + note.id} class="lab-note"><span class="lab-note-scope">{note.scope}</span><div><h3>{note.title}</h3><p>{note.summary}</p></div><span class="lab-note-category">{note.label}</span><ArrowUpRight size={21} aria-hidden="true" /></a></li>
+        ))}</ul>
+      </div>
+    </section>
+
+    <section class="lab-closing" aria-labelledby="lab-closing-title"><div class="site-width lab-closing-layout"><div><p class="lab-eyebrow">From infrastructure to intelligence</p><h2 id="lab-closing-title">Build it. Test it.<br />Understand its limits.</h2><p>Independent research. Hands-on engineering. Questions worth exploring.</p></div><a class="lab-button lab-button-primary" href="/contact/">Start a conversation <ArrowUpRight size={18} aria-hidden="true" /></a></div></section>
+  </div>
 </BaseLayout>
+
+<script>
+  const filters = document.querySelector<HTMLElement>('.lab-filters');
+  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-lab-filter]'));
+  const notes = Array.from(document.querySelectorAll<HTMLElement>('[data-lab-category]'));
+  const count = document.querySelector<HTMLElement>('.lab-filter-count');
+  if (filters && count && notes.length) {
+    filters.hidden = false;
+    buttons.forEach(button => button.addEventListener('click', () => {
+      const category = button.dataset.labFilter;
+      buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      notes.forEach(note => { note.hidden = category !== 'all' && note.dataset.labCategory !== category; });
+      const visible = notes.filter(note => !note.hidden).length;
+      count.textContent = visible + ' research ' + (visible === 1 ? 'brief' : 'briefs');
+    }));
+  }
+</script>
