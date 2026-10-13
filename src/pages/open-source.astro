@@ -1,38 +1,43 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import BentoCard from '../components/BentoCard.astro';
-import SectionHeader from '../components/SectionHeader.astro';
+import PracticeCard from '../components/PracticeCard.astro';
+import { ArrowUpRight, Code, GitPullRequest, Network } from '@lucide/astro';
+import '../styles/practice.css';
 ---
 
 <BaseLayout
   title="Open Source | TechSoft Systems"
   description="Open-source contributions, internal tooling extracts, and demo projects from TechSoft Systems."
+  fullWidth
 >
-  <section class="pt-12">
-    <SectionHeader
-      title="Open source"
-      subtitle="Public contributions, sanitized internal tooling extracts, and demo projects that can link directly to GitHub."
-    />
+  <div class="practice-page">
+    <header class="practice-intro site-width">
+      <h1>Open source</h1>
+      <p>Public contributions, sanitized internal tooling extracts, and demo projects that can link directly to GitHub.</p>
+    </header>
 
-    <div class="mt-8 grid gap-4 md:grid-cols-3">
-      <BentoCard
+    <div class="site-width practice-grid practice-grid-three practice-opening">
+      <PracticeCard
         title="Open-WebUI Contributions"
         description="Fork and contribution work around Open-WebUI deployment, integration, and secure private AI workflows."
       >
-        <a href="https://github.com/BrandXX/open-webui" target="_blank" rel="noreferrer" class="mt-4 inline-block text-sm font-semibold text-cyan-600 dark:text-cyan-400">github.com/BrandXX/open-webui →</a>
-      </BentoCard>
-      <BentoCard
+        <GitPullRequest slot="icon" size={28} strokeWidth={1.5} />
+        <a href="https://github.com/BrandXX/open-webui" target="_blank" rel="noreferrer" class="practice-repository-link"><span>github.com/BrandXX/open-webui</span><ArrowUpRight size={18} aria-hidden="true" /></a>
+      </PracticeCard>
+      <PracticeCard
         title="MCP Server Platform"
         description="Model Context Protocol server platform for tooling integrations and controlled workflow orchestration."
       >
-        <a href="https://github.com/BrandXX/mcp-server-platform" target="_blank" rel="noreferrer" class="mt-4 inline-block text-sm font-semibold text-cyan-600 dark:text-cyan-400">github.com/BrandXX/mcp-server-platform →</a>
-      </BentoCard>
-      <BentoCard
+        <Network slot="icon" size={28} strokeWidth={1.5} />
+        <a href="https://github.com/BrandXX/mcp-server-platform" target="_blank" rel="noreferrer" class="practice-repository-link"><span>github.com/BrandXX/mcp-server-platform</span><ArrowUpRight size={18} aria-hidden="true" /></a>
+      </PracticeCard>
+      <PracticeCard
         title="Private AI Demo Repositories"
         description="Public demo repositories for private inference pipelines and observability patterns with reproducible setup notes."
       >
-        <span class="mt-4 inline-block text-sm font-semibold text-zinc-600 dark:text-zinc-400">Additional repositories added on a rolling basis</span>
-      </BentoCard>
+        <Code slot="icon" size={28} strokeWidth={1.5} />
+        <p class="practice-project-note">Additional repositories added on a rolling basis</p>
+      </PracticeCard>
     </div>
-  </section>
+  </div>
 </BaseLayout>

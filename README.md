@@ -211,9 +211,11 @@ Recorded hardware and measurements are historical, not live capacity promises.
 
 Start `npm run preview:full` and open `http://127.0.0.1:4326/ai-lab/`. Run
 `npm run test:lab` for responsive, theme, filter, keyboard, no-JS, research-link,
-and source/archive preservation checks. `npm run test:practice` compares all six
+and source/archive preservation checks. `npm run test:practice` compares the
 restyled routes with the archived prior site for exact text, link, and metadata
-parity, and checks themes, links, mobile layouts, and 200% text. These local suites
+parity, and checks themes, links, mobile layouts, and 200% text. Open Source joined
+this style on October 13, 2026, retaining its descriptions, repository URLs, and
+new-tab behavior; the suite now covers seven routes. These local suites
 require the retained `.staging/ai-lab-concept/latest.json` archive. For a production
 preview use `SITE_BASE_URL=http://127.0.0.1:4328`; add `SITE_MODE=production` for
 `test:lab` and `test:preview`. Production guards run in the normal Pages build

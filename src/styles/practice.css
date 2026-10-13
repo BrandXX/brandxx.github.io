@@ -24,6 +24,11 @@
 .practice-card[href]:hover { border-color: var(--practice-tone); }
 .practice-card[href]:hover h2 { color: var(--practice-tone); }
 .practice-card .practice-metric { margin-top: auto; padding-top: 1.5rem; font-size: .8125rem; font-weight: 550; color: var(--practice-tone); }
+.practice-repository-link { display: inline-flex; align-items: flex-start; gap: .5rem; max-width: 100%; min-height: 44px; margin-top: auto; padding-top: 1.5rem; font-size: .8125rem; font-weight: 550; line-height: 1.7; color: var(--practice-tone); }
+.practice-repository-link span { overflow-wrap: anywhere; }
+.practice-repository-link svg { margin-top: .1rem; }
+.practice-repository-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.practice-project-note { margin-top: auto; padding-top: 1.5rem; font-size: .8125rem; color: var(--brand-muted); }
 .practice-section { padding-block: 3.5rem; }
 .practice-band { border-block: 1px solid var(--brand-line); }
 .practice-section-heading { margin-bottom: 2rem; }

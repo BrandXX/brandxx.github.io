@@ -24,7 +24,7 @@ assert.match(await readFile(path.join(output, 'robots.txt'), 'utf8'), /Allow: \/
 assert.match(await readFile(path.join(output, 'sitemap-index.xml'), 'utf8'), /https:\/\/techsoftsys\.com\/sitemap-0.xml/);
 assert.match(await readFile(path.join(output, 'sitemap-0.xml'), 'utf8'), /https:\/\/techsoftsys\.com\/about/);
 
-const siteRoutes = ['', 'about', 'ai-lab', 'services', 'training', 'work', 'work/on-prem-llm-platform', 'work/downtime-reduction-program', 'work/zero-loss-virtualization-migration'];
+const siteRoutes = ['', 'about', 'ai-lab', 'open-source', 'services', 'training', 'work', 'work/on-prem-llm-platform', 'work/downtime-reduction-program', 'work/zero-loss-virtualization-migration'];
 for (const doc of [...siteRoutes.map(route => ({ file: route ? `${route}/index.html` : 'index.html', route: route ? `/${route}/` : '/', kind: 'site' })), ...documents]) {
   const html = await readFile(path.join(output, doc.file), 'utf8');
   const nodes = walk(parse(html));

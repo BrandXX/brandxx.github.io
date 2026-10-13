@@ -7,10 +7,11 @@ import { chromium } from 'playwright';
 const base = process.env.SITE_BASE_URL || 'http://127.0.0.1:4326';
 const screenshots = process.env.PRACTICE_SCREENSHOTS || '/tmp/techsoft-practice-preview';
 const { archive } = JSON.parse(await readFile('.staging/ai-lab-concept/latest.json', 'utf8'));
-const routes = ['/work/', '/services/', '/training/', '/work/on-prem-llm-platform/', '/work/downtime-reduction-program/', '/work/zero-loss-virtualization-migration/'];
+const routes = ['/open-source/', '/work/', '/services/', '/training/', '/work/on-prem-llm-platform/', '/work/downtime-reduction-program/', '/work/zero-loss-virtualization-migration/'];
 const attr = (node, name) => node.attrs?.find(item => item.name === name)?.value;
 const walk = node => [node, ...(node.childNodes || []).flatMap(walk)];
-const normalize = text => text.replace(/\s+/g, ' ').replace(/←\s*/g, '').trim();
+// Decorative arrow glyphs are replaced with aria-hidden Lucide icons.
+const normalize = text => text.replace(/[←→]/g, '').replace(/\s+/g, ' ').trim();
 function content(node) {
   if (['svg', 'script', 'style'].includes(node.tagName)) return '';
   return node.nodeName === '#text' ? node.value : (node.childNodes || []).map(content).join(' ');
@@ -21,6 +22,7 @@ function record(html) {
   return {
     text: normalize(content(main)),
     links: walk(main).filter(node => node.tagName === 'a').map(node => attr(node, 'href')),
+    linkBehavior: walk(main).filter(node => node.tagName === 'a').map(node => ({ target: attr(node, 'target'), rel: attr(node, 'rel') })),
     title: normalize(content(nodes.find(node => node.tagName === 'title'))),
     description: attr(nodes.find(node => node.tagName === 'meta' && attr(node, 'name') === 'description'), 'content'),
   };
@@ -43,6 +45,13 @@ try {
     assert.equal(await page.locator('.site-footer').count(), 1);
     assert.equal(await page.locator('.practice-card .practice-card').count(), 0);
     checks += 6;
+    if (route === '/open-source/') {
+      assert.equal(await page.locator('.practice-card').count(), 3);
+      assert.equal(await page.locator('.practice-repository-link').count(), 2);
+      assert.equal(await page.locator('.desktop-navigation a[href="/open-source"]').getAttribute('aria-current'), 'page');
+      assert.equal(await page.locator('main .rounded-3xl').count(), 0);
+      checks += 4;
+    }
     for (const href of before.links.filter(href => href.startsWith('/'))) {
       assert.equal((await page.request.get(base + href)).status(), 200, 'Broken link: ' + href);
       checks++;
@@ -59,7 +68,7 @@ try {
           await page.evaluate(scale => { document.documentElement.style.fontSize = scale * 100 + '%'; }, scale);
           const geometry = await page.evaluate(() => {
             const visible = el => el.checkVisibility();
-            const elements = [...document.querySelectorAll('.practice-page h1, .practice-page h2, .practice-page h3, .practice-page p, .practice-page li, .practice-page a, .practice-tools span')].filter(visible);
+            const elements = [...document.querySelectorAll('.practice-page h1, .practice-page h2, .practice-page h3, .practice-page p, .practice-page li, .practice-page a, .practice-tools span, .practice-repository-link span')].filter(visible);
             const overlap = selector => [...document.querySelectorAll(selector)].filter(visible).flatMap((a, i, all) => all.slice(i + 1).filter(b => {
               const x = a.getBoundingClientRect(), y = b.getBoundingClientRect();
               return x.left < y.right - 1 && y.left < x.right - 1 && x.top < y.bottom - 1 && y.top < x.bottom - 1;
@@ -68,7 +77,7 @@ try {
               width: innerWidth, scroll: document.documentElement.scrollWidth,
               overflow: elements.filter(el => el.clientWidth && el.scrollWidth > el.clientWidth + 2).map(el => el.textContent),
               outside: elements.filter(el => { const r = el.getBoundingClientRect(); return r.left < -1 || r.right > innerWidth + 1; }).map(el => el.textContent),
-              overlap: [...overlap('.practice-grid > *'), ...overlap('.practice-outcomes > *'), ...overlap('.practice-actions > *')],
+              overlap: [...overlap('.practice-grid > *'), ...overlap('.practice-outcomes > *'), ...overlap('.practice-actions > *'), ...overlap('.practice-repository-link > *')],
             };
           });
           const label = route + '/' + width + '/' + theme + '/' + scale;
