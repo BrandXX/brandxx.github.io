@@ -27,9 +27,10 @@ export const tribalBullets = [
 export const techsoftBullets = [
   'Founded and operate a technology consultancy, now focused primarily on independent applied AI R&D alongside the full-time Tribal role; specialize in small local AI labs and custom GPU/server systems.',
   'Engineered a Threadripper PRO lab around dual RTX PRO 6000 Blackwell GPUs with 192 GB aggregate GPU memory, 512 GB ECC DDR5 memory, and PCIe 5.0 NVMe storage. Dedicated AI research began in January 2025.',
-  'Convert base models to NVFP4 with NVIDIA Model Optimizer, then test, tune, and deploy with vLLM. LLMOps work spans CUDA, FP8 KV caching, speculative decoding, embeddings/reranking, multimodal services, observability, and reproducible container operations. Use Ollama for basic testing and selected project embedding workloads.',
-  'Engineered vLLM/NVFP4 model-residency workflows, recording 0.96-0.97-second source-sleep-to-first-visible-token latency in selected bidirectional lab tests.',
-  'Validated a historical Lightning inference-runtime candidate through 61 successful sleep/wake cycles and 122/122 post-wake arithmetic/tool checks, with approximately 473 ms mean wake time. Results qualify the tested residency components, not the complete agent architecture.',
+  'Convert base models to NVFP4 with NVIDIA Model Optimizer, then test, tune, and deploy with vLLM. LLMOps work spans CUDA, FP8 KV caching, speculative decoding, shared-base LoRA serving and adapter lifecycle validation, embeddings/reranking, multimodal services, observability, and reproducible container operations. Use Ollama for basic testing and selected project embedding workloads.',
+  'Engineered vLLM/NVFP4 residency workflows, recording 0.96-0.97-second source-sleep-to-first-visible-token latency in selected lab tests. A separate historical Lightning runtime candidate passed 61 sleep/wake cycles and 122/122 post-wake arithmetic/tool checks, with approximately 473 ms mean wake time. Results qualify residency components, not the complete agent architecture.',
+  'Diagnosed and corrected an inference proxy connection mismatch; a subsequent approximately 30-minute direct-proxy soak completed 2,648/2,648 requests. Applied controlled comparisons, output validation, and rollback procedures to vLLM deployment changes.',
+  'Evaluated four Qwen/Nemotron NVFP4 embedding checkpoints on a common vLLM runtime, comparing serving performance and retrieval quality across three public datasets; validated 20,480 requests across four 60-second, eight-client tests with zero reported errors.',
 ];
 
 export const tribalPrintBullets = [
@@ -44,8 +45,10 @@ export const tribalPrintBullets = [
 export const techsoftPrintBullets = [
   'Founded a technology consultancy, now primarily independent applied AI R&D alongside the full-time Tribal role; build local AI labs and GPU/server systems.',
   'Engineered a dual RTX PRO 6000 Blackwell platform with 192 GB aggregate GPU memory and 512 GB ECC DDR5; convert and optimize base models to NVFP4 with NVIDIA Model Optimizer for vLLM deployment.',
-  'LLMOps spans CUDA, FP8 KV caching, speculative decoding, embeddings/reranking, observability, and reversible container updates; Ollama remains for basic testing and selected embedding workloads.',
+  'LLMOps spans CUDA, FP8 KV caching, speculative decoding, shared-base LoRA serving and adapter lifecycle validation, embeddings/reranking, observability, and reversible container updates; Ollama remains for basic testing and selected embedding workloads.',
   'Recorded 0.96-0.97-second source-sleep-to-first-visible-token switching in selected lab tests; a separate historical Lightning runtime candidate passed 61 sleep/wake cycles and 122/122 arithmetic/tool checks, with approximately 473 ms mean wake time.',
+  'Diagnosed and corrected an inference proxy connection mismatch; a subsequent approximately 30-minute direct-proxy soak completed 2,648/2,648 requests. Used controlled comparisons, output validation, and rollback to qualify vLLM changes.',
+  'Evaluated four Qwen/Nemotron NVFP4 embedding checkpoints across three public retrieval datasets; 20,480 requests across four 60-second, eight-client tests completed with zero reported errors.',
 ];
 
 export const previousRoles = [

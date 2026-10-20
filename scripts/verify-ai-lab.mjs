@@ -14,18 +14,18 @@ await mkdir(screenshots, { recursive: true });
 assert.equal(sha(await readFile(archive.archive + '/TechSoft-AI-Lab-Concept-v1.zip')), archive.zipSha256);
 assert.equal(sha(await readFile(archive.archive + '/ai-lab-before.astro')), archive.previousPageSha256);
 checks += 2;
-// Research content/PDF updates are authorized; retain the original and protect other documents.
-const researchUpdates = new Set(['src/data/publicResume.ts', 'public/pdfs/README.md', 'public/pdfs/johnathan-carroll-applied-ai-research.pdf']);
+// Approved research and TechSoft resume updates retain originals and protect unrelated content.
+const documentUpdates = new Set(['src/data/publicResume.ts', 'public/pdfs/README.md', 'public/pdfs/johnathan-carroll-applied-ai-research.pdf', 'public/pdfs/johnathan-carroll-resume.pdf']);
 for (const [file, expected] of Object.entries(archive.previousPreviewManifest.protectedSourceHashes)) {
   assert.equal(sha(await readFile(path.join(archive.previousPreviewManifest.archive, 'source', file))), expected, 'Archived source changed: ' + file);
-  if (!researchUpdates.has(file)) assert.equal(sha(await readFile(file)), expected, 'Canonical source changed: ' + file);
+  if (!documentUpdates.has(file)) assert.equal(sha(await readFile(file)), expected, 'Canonical source changed: ' + file);
   checks++;
 }
 const loadData = async file => import('data:text/javascript;base64,' + (await readFile(file)).toString('base64'));
 const previous = await loadData(path.join(archive.previousPreviewManifest.archive, 'source/src/data/publicResume.ts'));
 const current = await loadData('src/data/publicResume.ts');
-for (const key of Object.keys(previous).filter(key => !['projects', 'researchProfile', 'inferenceEngineering'].includes(key))) {
-  assert.deepEqual(current[key], previous[key], 'Non-research data changed: ' + key);
+for (const key of Object.keys(previous).filter(key => !['projects', 'researchProfile', 'inferenceEngineering', 'techsoftBullets', 'techsoftPrintBullets'].includes(key))) {
+  assert.deepEqual(current[key], previous[key], 'Unrelated resume data changed: ' + key);
   checks++;
 }
 assert.equal(sha(await readFile(path.join(archive.archive, 'site-before/ai-lab/index.html'))), archive.previousBuiltPageSha256);

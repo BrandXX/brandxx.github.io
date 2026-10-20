@@ -10,12 +10,15 @@ This directory contains PDF documents for download from the TechSoft Systems web
 
 ## PDF Generation
 
-The resume and cover letter retain their approved October 7, 2026 exports.
+The resume was refreshed October 19, 2026 with scoped inference-reliability and
+embedding-evaluation accomplishments, shared-base LoRA serving, and consolidated
+residency coverage in the TechSoft Systems section. Other experience is unchanged.
+The cover letter retains its approved October 7, 2026 export.
 The applied AI research document was expanded October 19, 2026 with additional
 embedding comparisons, a human-reviewed retrieval protocol, a local voice studio,
 inference release qualification, and shared-base LoRA integration. Completed
 checks, deferred candidates, and outstanding human evaluation remain distinct.
-The general resume and cover letter are unchanged.
+The research PDF is unchanged by the subsequent resume-only refresh.
 
 1. Resume: three pages; cover letter: one page; applied AI research: nine pages.
 2. All three use consistent formatting, selectable text, embedded fonts, and

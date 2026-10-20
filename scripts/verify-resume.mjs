@@ -205,6 +205,10 @@ async function assertResumeExperience(page, compact = false) {
   assert.equal(new Set(headingIds).size, headingIds.length, 'Resume section headings must have unique IDs');
   assert.equal(await page.locator('main [aria-labelledby]').evaluateAll(sections => sections.every(section => section.getAttribute('aria-labelledby').split(/\s+/).every(id => document.getElementById(id)))), true, 'Resume section labels must resolve');
   checks += 3;
+  const techsoft = page.locator('main .experience-entry').filter({ has: page.locator('h3', { hasText: /^TechSoft Systems$/ }) });
+  const expectedBullets = compact ? publicResume.techsoftPrintBullets : publicResume.techsoftBullets;
+  assert.deepEqual(await techsoft.locator('li').allTextContents(), expectedBullets, 'TechSoft accomplishments must match the approved full/print data');
+  checks++;
   if (compact) {
     const frames = page.locator('.print-page');
     assert.equal(await frames.count(), 3, 'Expected three logical resume print pages');
@@ -240,6 +244,14 @@ assert(researchIds.every(id => /^[a-z][a-z0-9-]*$/.test(id)), 'Research IDs must
 assert.equal(projects[0].id, 'residency', 'Residency should be the first research project');
 assertPublicText(publicSource, 'Public resume source');
 assertPublicText(JSON.stringify(publicResume), 'Public resume data');
+for (const key of ['techsoftBullets', 'techsoftPrintBullets']) {
+  const bullets = publicResume[key];
+  assert.equal(bullets.length, 6, `${key}: keep the experience block concise`);
+  assert.equal(bullets.filter(text => text.includes('61 sleep/wake cycles')).length, 1, `${key}: avoid duplicate residency bullets`);
+  const text = bullets.join(' ');
+  for (const phrase of ['shared-base LoRA serving and adapter lifecycle validation', 'approximately 30-minute direct-proxy soak', '2,648/2,648 requests', 'four Qwen/Nemotron NVFP4 embedding checkpoints', '20,480 requests across four 60-second, eight-client tests', 'zero reported errors', '0.96-0.97-second', '122/122', '473 ms']) assertContains(text, phrase, key);
+  checks += 2;
+}
 assertResidencyEvidence([selectedProjects[0].summary, ...selectedProjects[0].details, ...residencyMeasurements.flatMap(measurement => [measurement.title, measurement.result, measurement.method]), selectedProjects[0].boundary].join('\n'), 'Public residency data');
 assertContains(selectedProjects[0].resumeBoundary, 'Historical component validation, not whole-architecture production qualification', 'Residency resume boundary');
 assertContains(selectedProjects[0].resumeBoundary, 'Nano numerical failures and long-duration near-saturation testing remained unresolved', 'Residency resume boundary');
