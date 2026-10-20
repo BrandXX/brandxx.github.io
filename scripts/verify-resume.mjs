@@ -26,9 +26,10 @@ async function loadPrivatePatterns() {
   assert(relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative), 'Private rules must be stored outside the repository');
   const rules = JSON.parse(await readFile(rulesPath, 'utf8'));
   assert(rules && typeof rules === 'object' && !Array.isArray(rules), 'Private rules must be a JSON object');
-  const aliases = rules.aliases ?? [];
+  const aliases = rules.aliases ?? rules.confidential_aliases ?? [];
   const patterns = rules.patterns ?? [];
   assert(Array.isArray(aliases) && Array.isArray(patterns), 'Private aliases and patterns must be arrays');
+  assert(aliases.length || patterns.length, 'Supplied private rules must contain aliases or patterns; refusing a silent no-op');
   return [
     ...aliases.map((alias, index) => {
       assert(typeof alias === 'string' && alias.trim(), `Invalid private alias rule ${index + 1}`);
@@ -144,7 +145,7 @@ function assertResearchExpansion(project, label) {
   const fullText = [project.summary, ...project.details, project.boundary].join(' ');
   const requirements = {
     platform: ['3,045 active memory documents', 'image-only rollback', 'native-extension/ABI', 'managed-browser resolver', 'native image/video', 'September 30', 'October 1', 'LLM/TTS/STT inference was not repeated', 'not a current inventory'],
-    embeddings: ['four 60-second soaks', '20,936 embedding requests', '32.0 versus 16.0 inputs/sec', 'eight-worker', '0.6183', '0.6185', 'does not identify the exact metric', '214 sessions and 1,061 candidates', 'not gold labels', 'not newly rerun benchmarks'],
+    embeddings: ['four 60-second soaks', '20,936 requests', '32.0 versus 16.0 inputs/sec', 'eight-worker', '0.6183', '0.6185', 'unweighted nDCG@10', '214-session, 1,061-candidate', 'bronze labels remain unreviewed', 'not independently rerun', 'October 19', '20,480 requests', '196.1 inputs/sec', 'native vector sizes', 'not equal-sized outputs', '0.6367', '0.6356', 'did not test Qwen BF16 controls'],
     storage: ['53.21 GB/s', '55.24 GB/s', '100 GiB files', 'each array tested independently', '49.56 GiB/s', '51.44 GiB/s', 'zero fio errors', 'not combined throughput or write performance', 'RAID0 provides no redundancy', 'not a new benchmark'],
   };
   assert(requirements[project.id], `${label}: expected an expansion project`);
@@ -159,7 +160,7 @@ function pdfPageCount(pdf, label) {
 }
 
 function assertPdfPages(pages, kind) {
-  const [minimum, maximum] = kind === 'research' ? [4, 8] : kind === 'cover' ? [1, 1] : [2, 4];
+  const [minimum, maximum] = kind === 'research' ? [7, 14] : kind === 'cover' ? [1, 1] : [2, 4];
   assert(pages >= minimum && pages <= maximum, `${kind}: expected ${minimum}-${maximum} PDF pages, got ${pages}`);
   checks++;
 }
@@ -251,6 +252,20 @@ for (const id of ['platform', 'embeddings', 'storage']) {
   assert(!selectedProjects.some(project => project.id === id), `${id} remains research-only on the general resume`);
   checks++;
 }
+const updateRequirements = {
+  'voice-studio': ['26 regression tests and seven controller tests', 'synthetic microphone', 'Candidate voice audition remained pending', 'not independent verification of rights', 'Cold transitions are not subsecond warm wakes'],
+  'retrieval-review': ['human labeling and sealed-test results outstanding', '50 calibration and 250 sealed-test', 'not 300 completed gold labels', 'model identity and rank withheld', 'not a completed human-gold benchmark'],
+  'serving-validation': ['42 requests per arm', '2,648/2,648', 'one HTTP 502 among 928', 'final HTTPS configuration received separate checks', '249,880', '1/6 to 6/6 serial replays of one captured request', 'upstream patch authorship is not claimed', 'CUDA illegal-memory-access fault', 'MTPv2 qualification was deferred'],
+  'adapter-routing': ['publisher rank-256', '160/160', 'eight concurrent workers', '20 switches and 61 Level-1', 'distinct from the earlier sleep-only', 'not personal LoRA training', 'early adapter arithmetic failure'],
+};
+for (const [id, required] of Object.entries(updateRequirements)) {
+  const project = projects.find(project => project.id === id);
+  assert(project, `Missing research update: ${id}`);
+  assert(!selectedProjects.some(project => project.id === id), `${id} remains research-only`);
+  for (const phrase of required) assertContains([project.status, project.summary, ...project.details, project.boundary].join(' '), phrase, id);
+  checks += 2;
+}
+assert(!projects.find(project => project.id === 'embeddings').details.join(' ').includes('does not identify the exact metric'), 'Embedding metric provenance is now resolved');
 
 const base = process.env.RESUME_BASE_URL || 'http://127.0.0.1:4322';
 const screenshots = process.env.RESUME_SCREENSHOTS || '/tmp/resume-preview';

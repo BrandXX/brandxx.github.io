@@ -11,11 +11,13 @@ This directory contains PDF documents for download from the TechSoft Systems web
 ## PDF Generation
 
 The resume and cover letter retain their approved October 7, 2026 exports.
-The applied AI research document was expanded October 10, 2026 with the
-operational personal audio project, embedding evaluation, stateful platform
-reliability, and NVMe storage engineering. The general resume and cover letter are unchanged.
+The applied AI research document was expanded October 19, 2026 with additional
+embedding comparisons, a human-reviewed retrieval protocol, a local voice studio,
+inference release qualification, and shared-base LoRA integration. Completed
+checks, deferred candidates, and outstanding human evaluation remain distinct.
+The general resume and cover letter are unchanged.
 
-1. Resume: three pages; cover letter: one page; applied AI research: seven pages.
+1. Resume: three pages; cover letter: one page; applied AI research: nine pages.
 2. All three use consistent formatting, selectable text, embedded fonts, and
    clickable contact and online-document links. The research PDF includes
    internal section links and outline bookmarks.
